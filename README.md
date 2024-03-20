@@ -1,4 +1,4 @@
-# THÔNG TIN ĐỒ ÁN CƠ SỞ
+# THÔNG TIN ĐỒ ÁN CHUYÊN NGÀNH
 ## THÔNG TIN THÀNH VIÊN
 ** Huỳnh Vĩnh Tiến **
 * Số lượng thành viên: 1

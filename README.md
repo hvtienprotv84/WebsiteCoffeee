@@ -1,6 +1,6 @@
 # THÔNG TIN ĐỒ ÁN CHUYÊN NGÀNH
 ## THÔNG TIN THÀNH VIÊN
-** Huỳnh Vĩnh Tiến **
+* Họ và Tên: Huỳnh Vĩnh Tiến 
 * Số lượng thành viên: 1
 # ===============================
 ## CÔNG NGHỆ SỬ DỤNG CHO ĐỒ ÁN CƠ SỞ

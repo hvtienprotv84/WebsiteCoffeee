@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TYN COFFEE STORE - HỔ TRỢ TƯ VẤN CSKH</title>
+  <link rel="icon" href="https://cdn.icon-icons.com/icons2/806/PNG/512/chat-44_icon-icons.com_65944.png">
+  <link rel="stylesheet" href="/css/style_groupchat.css">
+  <link rel="stylesheet" href="/css/dark-mode.css" id="dark-mode-styles">
+
+</head>
+<body>
+
+<div onclick="window.location.href='/'">
+  <h3 style="top:0;left:0;position:absolute;font-size:20px;border-radius:30px; border: 5px solid red;padding:5px;margin-left:20px;color:red">Trang Chủ</h3>
+</div>
+
+<h1 style="text-align:center;"><strong>Phòng Chat Trực Tuyến Tư Vấn Hỗ Trợ Trực Tuyến 24/7</strong></h1>
+<img style="top:0;left:0;position:absolute;width:800px;height:600px;margin-left:-192px;margin-top:50px;" src="img/final2.gif">
+<img style="top:0;left:0;position:absolute;width:600px;height:500px;margin-left:1030px;margin-top:120px;" src="img/final1.gif">
+<div id="username-page">
+  <div class="username-page-container">
+    <h1 class="title no-dark-mode">Nhập tên của bạn để tham gia vào Phòng Chat</h1>
+    <form id="usernameForm" name="usernameForm">
+      <div class="form-group">
+        <input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control" />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="accent username-submit">Tham Gia Phòng Chat</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="chat-page" class="hidden">
+  <div class="chat-container">
+    <div class="chat-header">
+      <h2>TYN COFFEE STORE - HỔ TRỢ TƯ VẤN CSKH</h2>
+    </div>
+    <div class="connecting">
+      Connecting...
+    </div>
+    <ul id="messageArea">
+
+    </ul>
+    <form id="messageForm" name="messageForm">
+      <div class="form-group">
+        <div class="input-group clearfix">
+          <input type="text" id="message" placeholder="Nhập tin nhắn..." autocomplete="off" class="form-control"/>
+          <button type="submit" class="primary">Gửi</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="dark-mode-toggle">
+  <label class="switch">
+    <input type="checkbox" id="darkModeToggle">
+    <span class="slider round"></span>
+  </label>
+  <span class="dark-mode-label">Dark Mode</span>
+</div>
+
+
+<script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeStyles = document.getElementById('dark-mode-styles');
+
+        darkModeToggle.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode', darkModeToggle.checked);
+        });
+    </script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="/js/main_groupchat.js"></script>
+</body>
+</html>

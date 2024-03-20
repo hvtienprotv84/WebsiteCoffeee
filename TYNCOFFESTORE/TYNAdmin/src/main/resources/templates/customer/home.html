@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: header('Thể Loại')">
+  <title>Admin</title>
+</head>
+
+<body>
+<main class="main" id="top">
+  <div class="container-fluid px-0">
+    <form></form>
+    <!--  Begin Navbar Left  -->
+    <nav th:replace="fragments :: navbar-left">
+    </nav>
+    <!--  End Navbar Left  -->
+
+    <!--  Begin Navbar Top  -->
+    <nav th:replace="fragments :: navbar-top">
+    </nav>
+    <!--  End Navbar Top  -->
+
+    <!--  Begin Content  -->
+    <div class="content">
+      <div class="card shadow-none border border-300 my-5">
+        <div class="card-header p-4 border-bottom border-300 bg-soft">
+          <div class="row g-3 justify-content-between align-items-center">
+            <div class="col-12 col-md">
+              <h3 class="text-900 mb-0">Danh sách khách hàng</h3>
+            </div>
+            <a style="position:absolute;font-size:18px;margin-top:5px;max-width:185px;border: 2px solid green;margin-left:300px;margin-top:18px;color:green;" class="btn btn-phoenix-primary me-1 mb-1" onclick="exportToExcel()">
+              <img style="width:30px; height:30px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Microsoft_Excel_2013-2019_logo.svg/2170px-Microsoft_Excel_2013-2019_logo.svg.png"> Xuất Excel
+            </a>
+            <div class="col col-md-auto">
+              <a class="btn btn-phoenix-success me-1 mb-1" th:href="@{/thongbao_taotaikhoankhachhang_admin}">
+                <span data-feather="plus-square"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <div class="p-4 code-to-copy">
+            <table class="table table-bordered" id="data-table">
+              <thead>
+              <tr>
+                <th scope="col" class="text-center">Họ tên</th>
+                <th scope="col" class="text-center">User Name</th>
+                <th scope="col" class="text-center">Địa chỉ</th>
+                <th scope="col" class="text-center">Ngày sinh</th>
+                <th scope="col" class="text-center">Số điện thoại</th>
+                <th scope="col" class="text-center">Trạng thái kích hoạt</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="align-middle" th:each="item : ${customers}">
+                <th scope="row" class="text-center">[[${item.name}]]</th>
+                <td class="text-center">[[${item.username}]]</td>
+                <td class="text-center">[[${item.address}]]</td>
+                <td class="text-center">[[${item.birthday}]]</td>
+                <td class="text-center">[[${item.phone}]]</td>
+                <td class="text-center">[[${item.status}]]</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- Begin footer -->
+      <footer class="footer" th:replace="fragments :: footer">
+      </footer>
+      <!-- End footer -->
+    </div>
+    <!--  End Content  -->
+
+  </div>
+</main>
+
+<div th:replace="fragments :: modalDialog"></div>
+<div th:replace="fragments :: modalConfirm"></div>
+
+<script th:replace="fragments :: scripts"></script>
+<script>
+  $(document).ready(function() {
+    $(".btn-delete-confirm").on('click', function() {
+      let id = $(this).attr("data-id");
+      let url = "[[@{/categories/delete?id=}]]" + id;
+      showModalConfirm('Cảnh báo', 'Bạn có chắn chắn muốn xóa dữ liệu với id: ' + id, url);
+    })
+  })
+
+  function showModalConfirm(title, message, href) {
+    $("#modalConfirmTitle").empty().append(title);
+    $("#modalConfirmBody").empty().append(message);
+    $("#modalBtnDelete").attr("href", href);
+    $("#modalConfirm").modal('show');
+  }
+</script>
+
+<script>
+  function exportToExcel() {
+  var table = document.getElementById("data-table");
+  var rows = table.rows;
+
+  var data = [];
+
+  data.push(["DANH SÁCH KHÁCH HÀNG"]);
+  // Thêm tiêu đề cột vào mảng data
+  data.push(["Họ tên", "User Name", "Địa chỉ", "Ngày sinh","Số điện thoại", "Trạng thái kích hoạt"]);
+
+  // Lặp qua từng hàng trong bảng
+  for (var i = 1; i < rows.length; i++) {
+    var rowData = [];
+    var cells = rows[i].cells;
+
+    // Lấy dữ liệu từ các ô và thêm vào rowData
+    for (var j = 0; j < cells.length; j++) {
+      rowData.push(cells[j].innerText);
+    }
+
+    // Thêm rowData vào mảng data
+    data.push(rowData);
+  }
+
+  var worksheet = XLSX.utils.aoa_to_sheet(data);
+  var workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+
+  // Chuẩn bị dữ liệu để tải xuống
+  var wbout = XLSX.write(workbook, { bookType: "xlsx", type: "binary" });
+  function s2ab(s) {
+    var buf = new ArrayBuffer(s.length);
+    var view = new Uint8Array(buf);
+    for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xff;
+    return buf;
+  }
+
+  // Tạo đường dẫn tải xuống
+  var blob = new Blob([s2ab(wbout)], { type: "application/octet-stream" });
+  var url = URL.createObjectURL(blob);
+
+  // Tạo đối tượng mô phỏng việc nhấp vào liên kết tải xuống
+  var link = document.createElement("a");
+  link.href = url;
+  link.download = "DanhSachKhachHang_Admin.xlsx";
+  link.click();
+
+  // Giải phóng tài nguyên
+  setTimeout(function () {
+    URL.revokeObjectURL(url);
+  }, 0);
+}
+</script>
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: head">
+  <title>TYN Coffe Store</title>
+</head>
+
+<body>
+
+<!-- Start Header Area -->
+<header th:replace="fragments :: header" class="header_area sticky-header">
+</header>
+<!-- End Header Area -->
+
+<!-- Start Banner Area -->
+<section th:replace="fragments :: banner('TYN Store Xin Chào!')" class="banner-area organic-breadcrumb">
+</section>
+<!-- End Banner Area -->
+
+<!--================Cart Area =================-->
+<form th:action="@{/carts/update}" method="post">
+  <section class="cart_area">
+    <div class="container">
+      <div class="cart_inner">
+        <div class="table-responsive">
+          <table class="table" id="data-table">
+            <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Ngày Đặt</th>
+              <th scope="col">Tổng Tiền</th>
+              <th scope="col">Trạng thái</th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item : ${orders}">
+              <td>
+                <div class="media">
+                    <span th:text="${item.id}"></span>
+                </div>
+              </td>
+              <td>
+                <span th:text="${item.orderDate}"></span>
+              </td>
+              <td>
+                <h5 th:text="${item.total + 'đ'}"></h5>
+              </td>
+              <td>
+                <span th:text="${item.status}"></span>
+              </td>
+              <td>
+                <a th:href="@{'/user/order-details?id=' + ${item.id}}" class="btn btn-primary btn-sm text-white"><i class="fa fa-eye"></i></a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+<!--================End Cart Area =================-->
+
+<!-- start footer Area -->
+<footer th:fragment="footer" class="footer-area section_gap">
+  <div class="container">
+    <div class="row">
+      <div style="margin-left:50px;" class="col-lg-3  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Thông Tin Liên Hệ</h6>
+          <address style="color:white;font-size:16px;">
+            SĐT: 093 110 3224<br>
+            Email: tyncoffeestore@gmail.com<br>
+            Chi Nhánh Đại Diện: 249A Hoàng Văn Thụ, Phường 01, Quận Tân Bình, TP.Hồ Chí Minh
+          </address>
+        </div>
+      </div>
+      <div style="margin-left:50px;" class="col-lg-4  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Về Chúng Tôi</h6>
+          <a th:href="login" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Đăng Nhập</h1>
+          </a>
+          <a th:href="register" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Đăng Ký</h1>
+          </a>
+          <a th:href="info" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Giới Thiệu</h1>
+          </a>
+          <a th:href="shop" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Sản Phẩm</h1>
+          </a>
+          <a th:href="recruit" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Tuyển Dụng</h1>
+          </a>
+          <a th:href="carts" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Giỏ Hàng</h1>
+          </a>
+          <a th:href="timkiemsanpham" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Tìm Kiếm</h1>
+          </a>
+          <a th:href="menu-sanpham" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Menu</h1>
+          </a>
+          <a th:href="huongdanthanhtoan" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Hướng Dẫn Thanh Toán</h1>
+          </a>
+        </div>
+      </div>
+
+
+
+      <div style="top:0;left:0; position:relative;margin-top:-309px;;margin-left:620px;" class="col-lg-4  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Tìm Hiểu Thêm</h6>
+          <a th:href="contact" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Gửi Email Phản Hồi</h1>
+          </a>
+          <a th:href="contact2" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Đăng Ký Nhận Thông Báo</h1>
+          </a>
+          <a th:href="ListTinTucCoffee" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Tin Tức</h1>
+          </a>
+          <a th:href="ListThongTinUuDaiCoffee" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Thông Tin Ưu Đãi</h1>
+          </a>
+          <a th:href="ListCachPhaCoffee" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Cách Pha COFFEE</h1>
+          </a>
+          <a th:href="CamHungKhoiNghiep_TYNCOFFEE" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Câu Chuyện Khởi Nghiệp</h1>
+          </a>
+          <a th:href="voucher_gift" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Mở Voucher May Mắn</h1>
+          </a>
+          <a th:href="diachichinhanhggmap" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Địa Điểm</h1>
+          </a>
+          <a th:href="huongdanthanhtoan" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Thông Tin Giao Hàng</h1>
+          </a>
+        </div>
+      </div>
+
+
+
+
+      <div style="position: absolute;margin-left:850px;" class="col-lg-3  col-md-6 col-sm-6">
+        <div class="single-footer-widget mail-chimp">
+          <h6 class="mb-20">Đối tác</h6>
+          <ul class="instafeed d-flex flex-wrap">
+            <li><a href="https://classiccoffee.com.vn/"><img src="/img/elements/classiccoffe_doitac.jpg"/></a></li>
+            <li><a href="https://thecoffeehouse.com/"><img src="/img/elements/coffehouse_doitac.png" alt="@{/}"></a></li>
+            <li><a href="https://trungnguyenlegend.com/"><img src="/img/elements/trungnguyen_doitac.jpg" alt="@{/}"></a></li>
+            <li><a href="https://congcaphe.com/"><img src="/img/elements/congcafe_doitac.jpg" alt="@{/}"></a></li>
+            <li><a href="https://phuclong.com.vn/"><img src="/img/elements/phuclong_doitac.jpg" alt="@{/}"></a></li>
+            <li><a href="https://www.highlandscoffee.com.vn/"><img src="/img/elements/highland_doitac.jpg" alt="@{/}"></a></li>
+            <li><a href="https://www.nescafe.com/vn/"><img style="background-color:#ffffff" src="/img/elements/nescafe_doitac.png" alt="@{/}"></a></li>
+            <li><a href="https://www.vinacafe.com.vn/"><img style="background-color:#ffffff" src="/img/elements/vinacafe_doitac.png" alt="@{/}"></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+      <p class="footer-text m-0">
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Đồ Án Chuyên Ngành: Bản Quyền Thuộc Về Huỳnh Vĩnh Tiến 2011061897 20DTHB2
+      </p>
+    </div>
+  </div>
+</footer>
+<!-- End footer Area -->
+
+<div th:replace="fragments :: scripts">
+
+</div>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<button style="top:0;left:0;position:absolute;background-color:#ff000000;font-weight:bold;color:#a30000;border: 3px solid #a30000;margin-top:310px;margin-left:620px;font-size:18px;"
+        class="btn btn-primary" onclick="captureAndSave()"><img style="width:25px;height:25px;" src="https://icones.pro/wp-content/uploads/2021/06/icone-d-image-rouge.png"> Xuất Ảnh Hóa Đơn</button>
+
+<script>
+    function captureAndSave() {
+      // Lấy phần tử bao
+      var wrapperElement = document.getElementById('data-table');
+
+      // Chụp ảnh của phần tử bao
+      html2canvas(wrapperElement).then(function(canvas) {
+        // Chuyển đổi ảnh từ Canvas thành blob
+        canvas.toBlob(function(blob) {
+          // Sử dụng FileSaver.js để tạo và tải xuống ảnh
+          saveAs(blob, 'img_hoadon.png');
+        });
+      });
+    }
+  </script>
+
+
+</body>
+
+</html>

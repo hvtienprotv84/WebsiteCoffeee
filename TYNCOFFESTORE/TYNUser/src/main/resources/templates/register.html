@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<head th:replace="fragments :: head">
+  <title>TYN Coffe Store</title>
+</head>
+
+<body>
+
+<!-- Start Header Area -->
+<header th:replace="fragments :: header" class="header_area sticky-header">
+</header>
+<!-- End Header Area -->
+
+<!-- Start Banner Area -->
+<section th:replace="fragments :: banner('TYN Store Xin Chào!')" class="banner-area organic-breadcrumb">
+</section>
+<!-- End Banner Area -->
+<img style="top:0;left:0;position:absolute;margin-top:400px;margin-left:150px;" src="img/dangky_gif.gif">
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="login_box_img">
+          <!--<img class="img-fluid" src="img/xinchao_login.jpg" alt="">-->
+          <div class="hover">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="login_form_inner">
+          <h3>Đăng Ký</h3>
+          <form class="row login_form" th:action="@{/register}" method="post" id="contactForm">
+            <h6 th:if="${message != null}" style="margin: auto" class="text-center text-danger my-4">[[${message}]]</h6>
+
+            <div class="col-md-12 form-group">
+              <input type="email" class="form-control" required minlength="8" id="username" name="username" placeholder="Tên đăng nhập" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Tên đăng nhập'">
+            </div>
+
+             <!--
+            <div class="col-md-12 form-group">
+            <input type="email" class="form-control" id="username" name="username" placeholder="Tên Đăng Nhập" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Tên đăng nhập'" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}" title="Vui lòng nhập địa chỉ email hợp lệ" required>
+            </div>
+            -->
+
+            <div class="col-md-12 form-group">
+              <input type="password" class="form-control" onchange="checkPasswordMatch(document.getElementById('re-password'))" required minlength="8" id="password" name="password" placeholder="Mật khẩu" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mật khẩu'">
+            </div>
+            <div class="col-md-12 form-group">
+              <input type="password" class="form-control" onchange="checkPasswordMatch(this)" id="re-password" name="re-password" placeholder="Nhập lại mật khẩu" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập lại mật khẩu'">
+            </div>
+            <div class="col-md-12 form-group">
+              <input type="text" class="form-control"  id="name" name="name" placeholder="Họ và tên" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Họ và tên'">
+            </div>
+            <div class="col-md-12 form-group">
+              <input type="phone" class="form-control" id="phone" name="phone" placeholder="Số điện thoại" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Số điện thoại'" pattern="[0-9]{10}" title="Vui lòng nhập số điện thoại gồm 10 chữ số" required>
+            </div>
+            <div class="col-md-12 form-group">
+              <input type="text" class="form-control"  id="address" name="address" placeholder="Địa chỉ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Địa chỉ'" required pattern="[a-zA-Z0-9\s]+" minlength="10" title="Vui lòng nhập địa chỉ độ dài từ 10 chữ số trở lên">
+            </div>
+            <div class="col-md-12 form-group">
+              <input type="text" class="form-control" id="birthday" name="birthday" placeholder="Ngày/Tháng/Năm Sinh (vd: 01/01/2000)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ngày/ Tháng/ Năm Sinh (vd: 01/01/2000)'" pattern="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}" title="Vui lòng nhập tháng và năm sinh trong định dạng dd/mm/yyyy" required>
+            </div>
+            <div>
+              <input type="reset" value="Reset" class="nut-reset">
+            </div>
+            <div style="margin-top:10px;" class="col-md-12 form-group">
+              <button type="submit" value="submit" class="primary-btn">Đăng Ký</button>
+              <a th:href="@{/login}">Đăng Nhập</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--================End Login Box Area =================-->
+
+<style>
+  .nut-reset {
+    border-radius: 10px;
+    background-color:#ff8c00;
+    margin-left:320px;
+
+  }
+</style>
+
+<!-- start footer Area -->
+<footer th:fragment="footer" class="footer-area section_gap">
+  <div class="container">
+    <div class="row">
+      <div style="margin-left:50px;" class="col-lg-3  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Thông Tin Liên Hệ</h6>
+          <address style="color:white;font-size:16px;">
+            SĐT: 093 110 3224<br>
+            Email: tyncoffeestore@gmail.com<br>
+            Chi Nhánh Đại Diện: 249A Hoàng Văn Thụ, Phường 01, Quận Tân Bình, TP.Hồ Chí Minh
+          </address>
+        </div>
+      </div>
+      <div style="margin-left:50px;" class="col-lg-4  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Về Chúng Tôi</h6>
+          <a th:href="login" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Đăng Nhập</h1>
+          </a>
+          <a th:href="register" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Đăng Ký</h1>
+          </a>
+          <a th:href="info" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Giới Thiệu</h1>
+          </a>
+          <a th:href="shop" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Sản Phẩm</h1>
+          </a>
+          <a th:href="recruit" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Tuyển Dụng</h1>
+          </a>
+          <a th:href="carts" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Giỏ Hàng</h1>
+          </a>
+          <a th:href="timkiemsanpham" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Tìm Kiếm</h1>
+          </a>
+          <a th:href="menu-sanpham" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Menu</h1>
+          </a>
+          <a th:href="huongdanthanhtoan" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Hướng Dẫn Thanh Toán</h1>
+          </a>
+        </div>
+      </div>
+
+
+
+      <div style="top:0;left:0; position:relative;margin-top:-309px;;margin-left:620px;" class="col-lg-4  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Tìm Hiểu Thêm</h6>
+          <a th:href="contact" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Gửi Email Phản Hồi</h1>
+          </a>
+          <a th:href="contact2" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Đăng Ký Nhận Thông Báo</h1>
+          </a>
+          <a th:href="ListTinTucCoffee" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Tin Tức</h1>
+          </a>
+          <a th:href="ListThongTinUuDaiCoffee" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Thông Tin Ưu Đãi</h1>
+          </a>
+          <a th:href="ListCachPhaCoffee" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Cách Pha COFFEE</h1>
+          </a>
+          <a th:href="CamHungKhoiNghiep_TYNCOFFEE" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Câu Chuyện Khởi Nghiệp</h1>
+          </a>
+          <a th:href="voucher_gift" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Mở Voucher May Mắn</h1>
+          </a>
+          <a th:href="diachichinhanhggmap" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Địa Điểm</h1>
+          </a>
+          <a th:href="huongdanthanhtoan" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Thông Tin Giao Hàng</h1>
+          </a>
+        </div>
+      </div>
+
+
+
+
+      <div style="position: absolute;margin-left:850px;" class="col-lg-3  col-md-6 col-sm-6">
+        <div class="single-footer-widget mail-chimp">
+          <h6 class="mb-20">Đối tác</h6>
+          <ul class="instafeed d-flex flex-wrap">
+            <li><a href="https://classiccoffee.com.vn/"><img src="/img/elements/classiccoffe_doitac.jpg"/></a></li>
+            <li><a href="https://thecoffeehouse.com/"><img src="/img/elements/coffehouse_doitac.png" alt="@{/}"></a></li>
+            <li><a href="https://trungnguyenlegend.com/"><img src="/img/elements/trungnguyen_doitac.jpg" alt="@{/}"></a></li>
+            <li><a href="https://congcaphe.com/"><img src="/img/elements/congcafe_doitac.jpg" alt="@{/}"></a></li>
+            <li><a href="https://phuclong.com.vn/"><img src="/img/elements/phuclong_doitac.jpg" alt="@{/}"></a></li>
+            <li><a href="https://www.highlandscoffee.com.vn/"><img src="/img/elements/highland_doitac.jpg" alt="@{/}"></a></li>
+            <li><a href="https://www.nescafe.com/vn/"><img style="background-color:#ffffff" src="/img/elements/nescafe_doitac.png" alt="@{/}"></a></li>
+            <li><a href="https://www.vinacafe.com.vn/"><img style="background-color:#ffffff" src="/img/elements/vinacafe_doitac.png" alt="@{/}"></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+      <h1 style="color:white;font-size:35px;text-align:center;padding-bottom:5px;margin-top:10px;"><strong>THEO DÕI CHÚNG TÔI QUA CÁC NỀN TẢNG</strong></h1>
+
+      <img style="top:0;left:0;position:absolute;width:70px;height:60px;margin-top:1740px;margin-left:500px;" src="img/icon_fb.png">
+      <img style="top:0;left:0;position:absolute;width:70px;height:60px;margin-top:1740px;margin-left:590px;" src="img/icon_ig.png">
+      <img style="top:0;left:0;position:absolute;width:90px;height:60px;margin-top:1740px;margin-left:680px;" src="img/icon_youtube.png">
+      <img style="top:0;left:0;position:absolute;width:70px;height:60px;margin-top:1740px;margin-left:780px;" src="img/icon_tiktok.png">
+      <img style="top:0;left:0;position:absolute;width:70px;height:60px;margin-top:1740px;margin-left:870px;" src="img/icon_twitter.png">
+      <img style="top:0;left:0;position:absolute;width:70px;height:60px;margin-top:1740px;margin-left:960px;" src="img/icon_zalo2.png">
+      <img style="top:0;left:0;position:absolute;width:50px;height:60px;margin-top:1740px;margin-left:1050px;" src="img/locationgg.png">
+
+      <p class="footer-text m-0">
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Đồ Án Chuyên Ngành: Bản Quyền Thuộc Về Huỳnh Vĩnh Tiến 2011061897 20DTHB2
+      </p>
+    </div>
+  </div>
+</footer>
+<!-- End footer Area -->
+
+<div th:fragment="scripts">
+  <script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+          crossorigin="anonymous"></script>
+  <script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+  <script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+  <script th:src="@{/js/jquery.nice-select.min.js}"></script>
+  <script th:src="@{/js/jquery.sticky.js}"></script>
+  <script th:src="@{/js/nouislider.min.js}"></script>
+  <script th:src="@{/js/countdown.js}"></script>
+  <script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+  <script th:src="@{/js/owl.carousel.min.js}"></script>
+  <!--gmaps Js-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+  <script th:src="@{/js/gmaps.min.js}"></script>
+  <script th:src="@{/js/main.js}"></script>
+</div>
+
+<script>
+  function checkPasswordMatch(rePassword) {
+    if(rePassword.value !== $("#password").val()) {
+      rePassword.setCustomValidity("Mật khẩu không trùng khớp");
+      rePassword.reportValidity();
+    } else {
+      rePassword.setCustomValidity("");
+    }
+  }
+</script>
+
+</body>
+
+</html>

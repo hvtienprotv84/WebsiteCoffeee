@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: header('Hóa đơn')">
+  <title>Admin</title>
+</head>
+
+<body>
+<main class="main" id="top">
+  <div class="container-fluid px-0">
+    <form></form>
+    <!--  Begin Navbar Left  -->
+    <nav th:replace="fragments :: navbar-left">
+    </nav>
+    <!--  End Navbar Left  -->
+
+    <!--  Begin Navbar Top  -->
+    <nav th:replace="fragments :: navbar-top">
+    </nav>
+    <!--  End Navbar Top  -->
+
+    <!--  Begin Content  -->
+    <div class="content">
+      <div class="card shadow-none border border-300 my-5">
+        <div class="card-header p-4 border-bottom border-300 bg-soft">
+          <div class="row g-3 justify-content-between align-items-center">
+            <div class="col-12 col-md">
+              <h3 class="text-900 mb-0">Hóa Đơn</h3>
+            </div>
+            <a style="position:absolute;font-size:18px;margin-top:5px;max-width:185px;border: 2px solid green;margin-left:160px;margin-top:18px;" class="btn btn-phoenix-primary me-1 mb-1" onclick="exportToExcel()">
+              <img style="width:30px; height:30px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Microsoft_Excel_2013-2019_logo.svg/2170px-Microsoft_Excel_2013-2019_logo.svg.png"> Xuất Excel
+            </a>
+            <div class="col col-md-auto">
+              <a class="btn btn-phoenix-warning me-1 mb-1" th:href="@{/orders}">
+                <span data-feather="arrow-left"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <div class="p-4 code-to-copy">
+            <table class="table table-bordered" id="data-table">
+              <thead>
+              <tr>
+                <th scope="col" class="text-center">ID</th>
+                <th scope="col" class="text-center">Ngày Đặt</th>
+                <th scope="col" class="text-center">Họ Tên</th>
+                <th scope="col" class="text-center">Số Điện Thoại</th>
+                <th scope="col" class="text-center">Địa Chỉ</th>
+                <th scope="col">Tổng Tiền</th>
+                <th scope="col">Trạng Thái</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="align-middle">
+                <th scope="row" class="text-center" th:text="${order.id}"></th>
+                <td class="text-center" th:text="${order.orderDate}"></td>
+                <td class="text-center" th:text="${order.recipientName}"></td>
+                <td class="text-center" th:text="${order.recipientPhone}"></td>
+                <td class="text-center" th:text="${order.recipientAddress}"></td>
+                <td th:text="${order.total + 'đ'}"></td>
+                <td th:text="${order.status}"></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="p-4 code-to-copy">
+            <h4 class="text-center my-3">Chi Tiết Hóa Đơn</h4>
+            <table class="table table-bordered" id="data-table2">
+              <thead>
+              <tr>
+                <th scope="col" class="text-center">Sản phẩm</th>
+                <th scope="col" class="text-center">Tên</th>
+                <th scope="col" class="text-center">Giá</th>
+                <th scope="col" class="text-center">Số Lượng</th>
+                <th scope="col" class="text-center">Tổng Giá</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="align-middle" th:each="item : ${order.orderDetails}">
+                <td class="text-center">
+                  <img th:src="@{${item.product.imagePathDisplay}}" style="width: 100px"/>
+                </td>
+                <td class="text-center" th:text="${item.product.name}"></td>
+                <td class="text-center" th:text="${item.getFormatPrices(item.prices) + 'đ'}"></td>
+                <td class="text-center" th:text="${item.quantity}"></td>
+                <td class="text-center" th:text="${item.getFormatPrices(item.quantity * item.prices) + 'đ'}"></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="p-4 code-to-copy text-end">
+            <a th:if="${order.status.equals('Chờ xử lý')}" class="btn btn-phoenix-primary me-1 mb-1" th:href="@{'/orders/update?status=Đang giao hàng&id=' + ${order.id}}">Giao hàng</a>
+            <a th:if="${order.status.equals('Đang giao hàng')}" class="btn btn-phoenix-success me-1 mb-1" th:href="@{'/orders/update?status=Giao hàng thành công&id=' + ${order.id}}">Giao hàng thành công</a>
+            <a th:if="${order.status.equals('Chờ xử lý') || order.status.equals('Đang giao hàng')}" class="btn btn-phoenix-danger me-1 mb-1" th:href="@{'/orders/update?status=Hủy&id=' + ${order.id}}">Hủy</a>
+          </div>
+
+        </div>
+      </div>
+      <!-- Begin footer -->
+      <footer class="footer" th:replace="fragments :: footer">
+      </footer>
+      <!-- End footer -->
+    </div>
+    <!--  End Content  -->
+
+  </div>
+</main>
+
+<div th:replace="fragments :: modalDialog"></div>
+<div th:replace="fragments :: modalConfirm"></div>
+
+<script th:replace="fragments :: scripts"></script>
+
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+<script>
+  function exportToExcel() {
+    var table1 = document.getElementById("data-table");
+    var table2 = document.getElementById("data-table2");
+
+    var data = [];
+
+    data.push(["HÓA ĐƠN"]);
+    // Xuất thông tin từ bảng data-table
+    data.push(["ID", "Ngày Đặt", "Họ Tên", "Số Điện Thoại", "Địa Chỉ", "Tổng Tiền", "Trạng Thái"]);
+    var row1 = table1.rows[1];
+    var rowData1 = [];
+    for (var i = 0; i < row1.cells.length; i++) {
+      rowData1.push(row1.cells[i].innerText);
+    }
+    data.push(rowData1);
+
+    data.push([""]);
+    data.push(["CHI TIẾT HÓA ĐƠN"]);
+    // Xuất thông tin từ bảng data-table2
+    data.push(["Sản phẩm", "Tên", "Giá", "Số Lượng", "Tổng Giá"]);
+    var rows2 = table2.rows;
+    for (var i = 1; i < rows2.length; i++) {
+      var rowData2 = [];
+      var cells = rows2[i].cells;
+      for (var j = 0; j < cells.length; j++) {
+        if (j === 0) {
+          var imgElement = cells[j].querySelector("img");
+          rowData2.push({
+            v: imgElement.src,
+            t: "s",
+            s: {
+              fill: { patternType: "none" },
+              border: { style: "thin", color: { rgb: "00000000" } },
+            },
+          });
+        } else {
+          var cellText = cells[j].innerText;
+          if (j === 1 || j === 2 || j === 3 || j === 4) {
+            // Thêm ký hiệu xuống dòng vào các ô "Sản phẩm", "Tên", "Giá", "Số Lượng"
+            cellText = cellText.replace(/\n/g, "\n");
+          }
+          rowData2.push(cellText);
+        }
+      }
+      data.push(rowData2);
+    }
+
+    var worksheet = XLSX.utils.aoa_to_sheet(data);
+    var workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+
+    var wbout = XLSX.write(workbook, { bookType: "xlsx", type: "binary" });
+    function s2ab(s) {
+      var buf = new ArrayBuffer(s.length);
+      var view = new Uint8Array(buf);
+      for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xff;
+      return buf;
+    }
+
+    var blob = new Blob([s2ab(wbout)], { type: "application/octet-stream" });
+    var url = URL.createObjectURL(blob);
+
+    var link = document.createElement("a");
+    link.href = url;
+    link.download = "HoaDon_ChiTietHoaDon_Admin.xlsx";
+    link.click();
+
+    setTimeout(function () {
+      URL.revokeObjectURL(url);
+    }, 0);
+  }
+</script>
+
+</body>
+
+</html>

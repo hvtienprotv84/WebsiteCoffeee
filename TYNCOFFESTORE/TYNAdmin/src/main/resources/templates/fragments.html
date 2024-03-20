@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="header(title)">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>[[${title}]] - TYN COFFE STORE</title>
+    <link rel="apple-touch-icon" sizes="180x180" th:href="@{/assets/img/icon.jpg}">
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/assets/img/icon.jpg}">
+    <!--icon tab-->
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/assets/img/icon.jpg}">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/assets/img/icon.jpg}">
+    <link rel="manifest" th:href="@{/assets/img/favicons/manifest.json}">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
+    <link th:href="@{/assets/css/phoenix.min.css}" rel="stylesheet" id="style-default">
+    <link th:href="@{/assets/css/user.min.css}" rel="stylesheet" id="user-style-default">
+    <link th:href="@{/assets/css/styles.css}" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        body {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+<!--  Begin Navbar Left  -->
+<nav class="navbar navbar-dark navbar-vertical navbar-vibrant navbar-expand-lg" th:fragment="navbar-left">
+    <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+        <div class="navbar-vertical-content scrollbar">
+            <ul class="navbar-nav flex-column" id="navbarVerticalNav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <span data-feather="cast">
+                                </span>
+                            </span>
+                            <span class="nav-link-text">Trang Chủ</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <p class="navbar-vertical-label">Quản Lý</p>
+                    <a class="nav-link active" th:href="@{/accounts}" role="button" data-bs-toggle="" aria-expanded="false">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <span data-feather="user"></span>
+                            </span>
+                            <span class="nav-link-text">Quản trị viên</span>
+                        </div>
+                    </a>
+                    <a class="nav-link" th:href="@{/categories}" role="button" aria-expanded="false" aria-controls="errors">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <span data-feather="layers"></span>
+                            </span>
+                            <span class="nav-link-text">Thể Loại</span>
+                        </div>
+                    </a>
+                    <a class="nav-link" th:href="@{/products}" role="button" aria-expanded="false" aria-controls="authentication">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <span data-feather="box"></span>
+                            </span>
+                            <span class="nav-link-text">Sản Phẩm</span>
+                        </div>
+                    </a>
+                    <a class="nav-link" th:href="@{/orders}" role="button" aria-expanded="false" aria-controls="authentication">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <span data-feather="clipboard"></span>
+                            </span>
+                            <span class="nav-link-text">Hóa Đơn</span>
+                        </div>
+                    </a>
+                    <a class="nav-link" th:href="@{/customers}" role="button" aria-expanded="false" aria-controls="authentication">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <span data-feather="smile"></span>
+                            </span>
+                            <span class="nav-link-text">Khách hàng</span>
+                        </div>
+                    </a>
+                    <a class="nav-link" th:href="@{/contact_email_admin}" role="button" aria-expanded="false" aria-controls="authentication">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <span data-feather="mail"></span>
+                            </span>
+                            <span class="nav-link-text">Email</span>
+                        </div>
+                    </a>
+                    <a class="nav-link" th:href="@{/chuyendoi_mahoa_secretkey_admin}" role="button" aria-expanded="false" aria-controls="authentication">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <span data-feather="repeat"></span>
+                            </span>
+                            <span class="nav-link-text">Secret Key</span>
+                        </div>
+                    </a>
+                    <a class="nav-link" th:href="@{/secretkey}" role="button" aria-expanded="false" aria-controls="authentication">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <span data-feather="list"></span>
+                            </span>
+                            <span class="nav-link-text">List SecretKey</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="navbar-vertical-footer">
+            <a class="btn btn-link border-0 fw-semi-bold d-flex ps-0" target="_blank" href="http://localhost:8083">
+            <span class="navbar-vertical-footer-icon" data-feather="log-out">
+            </span>
+                <span>Về trang người dùng</span>
+            </a>
+        </div>
+
+    </div>
+</nav>
+<!--  End Navbar Left  -->
+
+<!--  Begin Navbar Top  -->
+<nav  class="navbar navbar-light navbar-top navbar-expand" th:fragment="navbar-top">
+    <div class="navbar-logo">
+        <button class="btn navbar-toggler navbar-toggler-humburger-icon" type="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation">
+            <span class="navbar-toggle-icon"><span class="toggle-line"></span>
+            </span>
+        </button>
+        <a class="navbar-brand me-1 me-sm-3" th:href="@{/}">
+        <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center">
+                <img style="width:200px; height:80px; margin-top:10px;" th:src="@{/assets/img/background_email_admin.png}" alt="phoenix">
+            </div>
+        </div>
+    </a>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav navbar-nav-icons ms-auto flex-row">
+            <li class="nav-item dropdown"><a class="nav-link lh-1 px-0 ms-5" id="navbarDropdownUser" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="avatar avatar-l">
+                    <img class="rounded-circle" th:src="@{${#authentication.principal.admin.imagePathDisplay}}" alt="">
+                </div>
+            </a>
+                <div class="dropdown-menu dropdown-menu-end py-0 dropdown-profile shadow border border-300" aria-labelledby="navbarDropdownUser">
+                    <div class="card bg-white position-relative border-0">
+                        <div class="card-body p-0 overflow-auto scrollbar">
+                            <div class="text-center pt-4 pb-3">
+                                <div class="avatar avatar-xl">
+                                    <img class="rounded-circle" th:src="@{${#authentication.principal.admin.imagePathDisplay}}" alt="">
+                                </div>
+                                <h6 class="mt-2" th:text="${#authentication.principal.admin.lastName + ' ' + #authentication.principal.admin.firstName}">
+                                </h6>
+                            </div>
+                            <ul class="nav d-flex flex-column mb-2 pb-1">
+                                <li class="nav-item"><a class="nav-link px-3" href=""><span class="me-2 text-900" data-feather="user"></span>Thông tin tài khoản</a></li>
+                            </ul>
+                        </div>
+                        <div class="card-footer p-0">
+                            <hr>
+                            <form th:action="@{/logout}" method="post">
+                                <div class="px-3"><button type="submit" class="btn btn-phoenix-secondary d-flex flex-center w-100" ><span class="me-2" data-feather="log-out"></span>Đăng xuất</button></div>
+                            </form>
+                            <div class="my-2 text-center fw-bold fs--2 text-600"><a class="text-600 me-1" href="">Privacy policy</a>&bull;<a class="text-600 mx-1" href="">Terms</a>&bull;<a class="text-600 ms-1" href="">Cookies</a></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--  End Navbar Top  -->
+
+<!-- Begin Footer -->
+<footer class="footer" th:fragment="footer">
+    <div class="row g-0 justify-content-between align-items-center h-100 mb-3">
+        <div class="col-12 col-sm-auto text-center">
+            <p class="mb-0 text-900">Bản Quyền Thuộc Về Huỳnh Vĩnh Tiến <span class="d-none d-sm-inline-block"> | </span><br class="d-sm-none"> 2023 &copy;</p>
+        </div>
+        <div class="col-12 col-sm-auto text-center">
+            <p class="mb-0 text-600">GVHD: ThS. Trịnh Đồng Thạch Trúc</p>
+        </div>
+    </div>
+</footer>
+<!-- End Footer -->
+
+<!-- Begin Modal -->
+<div th:fragment="modalDialog" class="modal fade text-center" id="modalDialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modalTitle">Warning</h4>
+                <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="modalBody">Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đã hiểu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="modalConfirm" class="modal fade text-center" id="modalConfirm">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modalConfirmTitle">Warning</h4>
+                <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="modalConfirmBody">Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <a id="modalBtnDelete" class="btn btn-danger">Xóa</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+
+<!-- Begin Scripts -->
+<div th:fragment="scripts">
+    <script th:src="@{/assets/js/phoenix.js}"></script>
+    <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+</div>
+<!-- End Scripts -->
+
+</body>
+</html>

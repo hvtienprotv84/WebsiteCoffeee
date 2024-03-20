@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" th:href="@{/css/ghichu_style.css}">
+<link rel="stylesheet" th:href="@{/css/button_ontop.css}">
+<link rel="stylesheet" th:href="@{/css/dropdown_button_bentrai.css}">
+<link rel="stylesheet" th:href="@{/css/popup_thongbao_2luachon_email.css}">
+<link rel="stylesheet" th:href="@{/css/maytinhpopup.css}">
+<link rel="stylesheet" th:href="@{/css/chatbot_popup.css}">
+
+<head th:replace="fragments :: head">
+  <title>TRUNG THU ĐOÀN VIÊN - THỨC VỊ TÌNH THÂN</title>
+</head>
+<body>
+<!-- Start Header Area -->
+<header th:replace="fragments :: header" class="header_area sticky-header">
+</header>
+<!-- End Header Area -->
+
+<!-- Start Banner Area -->
+<section th:replace="fragments :: banner('TYN Store Xin Chào!')" class="banner-area organic-breadcrumb">
+</section>
+<!-- End Banner Area -->
+<div id="phuluc" style="top:0;left:0;position:fixed;margin-top:300px;margin-left:5px;">
+  <h1 style="border-radius:10px;border: 3px solid red;padding: 5px;padding-bottom: 80px;font-size:30px;padding-right: 150px;">Phụ Lục</h1>
+  <ul style="margin-top:-90px;margin-left:10px;font-size:20px;">
+    <li><a href="#mo-bai">1. Thanh Toán Trực Tiếp</a></li>
+    <li><a href="#than-bai">2. Thanh Toán Online VNPAY</a></li>
+    <li><a href="#ket-bai">3. Cuối Trang</a></li>
+  </ul>
+</div>
+<script>
+    window.addEventListener('scroll', function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var phuluc = document.getElementById('phuluc');
+
+      if (scrollTop >= 10500) {
+        phuluc.style.top = '10500px';
+      } else {
+        phuluc.style.top = '0';
+      }
+    });
+  </script>
+<!-- start features Area -->
+<style>
+        bodddy {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .modau_huongdanthanhtoan {
+            max-width: 900px;
+            text-align: justify;
+        }
+        .modau_huongdanthanhtoan h1{
+            text-align:center;
+            color:black;
+            font-size: 30px;
+            font-weight:bold;
+        }
+        .noidunghuongdanthanhtoan{
+            text-align:center;
+            color:black;
+            font-size: 30px;
+            font-weight:bold;
+        }
+
+
+</style>
+
+<style>
+  button2 {
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #007bff;
+  cursor: pointer;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+button2:hover {
+  background-color: #0056b3;
+}
+
+button2:focus {
+  outline: none;
+}
+
+h1, p {
+  margin-top: 20px;
+}
+.hinhanhlaco{
+  width:30px;
+  height:20px;
+  margin-top:-4px;
+}
+</style>
+<div class="listdanhmuctintuc" style="background-color:#f5f5f5;padding:5px;">
+  <nav style="margin-left:100px;">
+    <a id="mo-bai" href="/">Trang Chủ</a> >
+    <a href="/huongdanthanhtoan">Hướng Dẫn Thanh Toán</a>
+  </nav>
+</div>
+
+<div class="button_ngonngu" style="top:0;left:0;position:absolute;margin-top:274px;margin-left:800px;">
+<button2 id="vietnameseButton"><img class="hinhanhlaco" src="https://o.rada.vn/data/image/2021/08/24/la-co-15.svg"> Tiếng Việt</button2>
+<button2 id="englishButton"><img class="hinhanhlaco" src="https://o.rada.vn/data/image/2021/08/24/la-co-37.svg"> Tiếng Anh</button2>
+<button2 id="germanButton"><img class="hinhanhlaco" src="https://o.rada.vn/data/image/2021/08/24/la-co-337.svg">Tiếng Đức</button2>
+<button2 id="koreaButton"><img class="hinhanhlaco" src="https://o.rada.vn/data/image/2021/08/24/la-co-95.svg"> Tiếng Hàn</button2>
+  <button2 id="japanButton"><img class="hinhanhlaco" src="https://o.rada.vn/data/image/2021/08/24/la-co-281.svg"> Tiếng Nhật</button2>
+</div>
+
+<bodddy>
+  <div class="modau_huongdanthanhtoan">
+    </br>
+
+    <h1 data-lang="vi"
+        data-lang-en="PAYMENT GUIDE"
+        data-lang-vi="HƯỚNG DẪN THANH TOÁN"
+        data-lang-de="ZAHLUNGSANLEITUNG"
+        data-lang-kr="결제 가이드"
+        data-lang-jp="お支払いガイド">
+      HƯỚNG DẪN THANH TOÁN
+    </h1>
+
+    <div class="noidunghuongdanthanhtoan" style="margin-top:20px">
+    <p style="text-align:left;"
+       data-lang="vi"
+       data-lang-en="1.Direct Payment - (SHIP COD) - Payment Upon Delivery"
+       data-lang-vi="1.Thanh Toán Trực Tiếp - (SHIP COD) - Thanh Toán Khi Nhận Hàng"
+       data-lang-de="1.Direkte Zahlung – (SHIP COD) – Zahlung bei Lieferung"
+       data-lang-kr="1. 직접 결제 - (SHIP COD) - 배송시 결제"
+       data-lang-jp="1.直接支払い - (船代金引換) - 配達時のお支払い">
+      1.Thanh Toán Trực Tiếp - (SHIP COD) - Thanh Toán Khi Nhận Hàng
+    </p>
+
+    <p style="text-align:left;font-size:25px;"
+       data-lang="vi"
+       data-lang-en="Step 1:"
+       data-lang-vi="Bước 1:"
+       data-lang-de="Schritt 1:"
+       data-lang-kr="1 단계:"
+       data-lang-jp="ステップ1：">
+      Bước 1:
+    </p>
+
+    <p style="text-align:left;font-size:20px;"
+       data-lang="vi"
+       data-lang-en="+ Red: is the Coffee Category Category to help Customers find their favorite products"
+       data-lang-vi="+ Màu Đỏ: là Danh Mục Thể Loại Cà Phê để giúp Khách Hàng tìm được sản phẩm yêu thích"
+       data-lang-de="+ Rot: ist die Kategorie „Kaffee“, die Kunden dabei hilft, ihre Lieblingsprodukte zu finden"
+       data-lang-kr="+ 빨간색: 고객이 좋아하는 제품을 찾을 수 있도록 돕는 커피 카테고리 카테고리입니다."
+       data-lang-jp="+ 赤: 顧客がお気に入りの製品を見つけるのに役立つコーヒー カテゴリです。">
+      + Màu Đỏ: là Danh Mục Thể Loại Cà Phê để giúp Khách Hàng tìm được sản phẩm yêu thích
+    </p>
+
+    <p style="text-align:left;font-size:20px;"
+       data-lang="vi"
+       data-lang-en="+ Yellow: is Buy, Customers Click to Buy, the product will be added to the cart"
+       data-lang-vi="+ Màu Vàng: là Mua Hàng, Khách Hàng Nhấp để Mua Hàng thì sản phẩm sẽ được thêm vào giỏ hàng"
+       data-lang-de="+ Gelb: ist Kaufen, Kunden klicken zum Kaufen, das Produkt wird dem Warenkorb hinzugefügt"
+       data-lang-kr="+ 노란색: 구매입니다. 고객이 구매를 클릭하면 제품이 장바구니에 추가됩니다."
+       data-lang-jp="+ 黄色: 購入です。顧客がクリックして購入すると、製品がカートに追加されます。">
+      + Màu Vàng: là Mua Hàng, Khách Hàng Nhấp để Mua Hàng thì sản phẩm sẽ được thêm vào giỏ hàng
+    </p>
+
+    <p style="text-align:left;font-size:20px;"
+       data-lang="vi"
+       data-lang-en="+ Blue: is Product Details, helping Customers have more information about the product"
+       data-lang-vi="+ Màu Xanh: là Chi Tiết Sản Phẩm, giúp Khách Hàng có thêm thông tin về sản phẩm"
+       data-lang-de="+ Blau: Produktdetails, die Kunden helfen, mehr Informationen über das Produkt zu erhalten"
+       data-lang-kr="+ 파란색: 제품 세부정보로, 고객이 제품에 대한 자세한 정보를 알 수 있도록 도와줍니다."
+       data-lang-jp="+ 青: 製品の詳細です。顧客が製品についてさらに詳しい情報を得るのに役立ちます。">
+      + Màu Xanh: là Chi Tiết Sản Phẩm, giúp Khách Hàng có thêm thông tin về sản phẩm
+    </p>
+
+    <img style="width:900px;height:400px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc1_dachinhsua.png">
+
+    <p style="text-align:left;font-size:25px;"
+       data-lang="vi"
+       data-lang-en="Step 2:"
+       data-lang-vi="Bước 2:"
+       data-lang-de="Schritt 2:"
+       data-lang-kr="2 단계:"
+       data-lang-jp="ステップ2：">
+      Bước 2:
+    </p>
+
+    <p style="text-align:left;font-size:20px;"
+       data-lang="vi"
+       data-lang-en="+ Orange: the Shopping Cart is attached at the Top of the 'Fragment' Page to help Customers easily find it"
+       data-lang-vi="+ Màu Cam: là Giỏ Hàng được gắn ở Đầu Trang 'Fragment' giúp Khách Hàng dễ dàng tìm thấy"
+       data-lang-de="+ Orange: Der Warenkorb ist oben auf der „Fragment“-Seite angehängt, damit Kunden ihn leichter finden können"
+       data-lang-kr="+ 주황색 : 고객이 쉽게 찾을 수 있도록 'Fragment' 페이지 상단에 장바구니가 부착되어 있습니다."
+       data-lang-jp="+ オレンジ: 顧客が簡単に見つけられるように、ショッピング カートは「フラグメント」ページの上部に取り付けられています。">
+      + Màu Cam: là Giỏ Hàng được gắn ở Đầu Trang 'Fragment' giúp Khách Hàng dễ dàng tìm thấy
+    </p>
+
+    <img style="width:900px;height:80px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc2_dachinhsua.png">
+
+    <p style="font-size:25px;"
+       data-lang="vi"
+       data-lang-en="OR"
+       data-lang-vi="HOẶC"
+       data-lang-de="ODER"
+       data-lang-kr="또는"
+       data-lang-jp="または">
+      HOẶC
+    </p>
+
+    <p style="text-align:left;font-size:20px;"
+       data-lang="vi"
+       data-lang-en="+ Navy Blue: the Shopping Cart is attached at the bottom of the 'Footer' page to help customers easily find it"
+       data-lang-vi="+ Màu Xanh Nước Biển: là Giỏ Hàng được gắn ở Cuối Trang 'Footer' giúp Khách Hàng dễ tìm thấy"
+       data-lang-de="+ Marineblau: Der Warenkorb ist unten auf der „Fußzeile“-Seite angehängt, damit Kunden ihn leichter finden können"
+       data-lang-kr="+ 네이비블루 : 고객이 쉽게 찾을 수 있도록 '바닥글' 페이지 하단에 장바구니가 부착되어 있습니다."
+       data-lang-jp="+ ネイビー ブルー: ショッピング カートは「フッター」ページの下部に表示され、顧客が簡単に見つけられるようにします。">
+      + Màu Xanh Nước Biển: là Giỏ Hàng được gắn ở Cuối Trang 'Footer' giúp Khách Hàng dễ tìm thấy
+    </p>
+
+    <img style="width:900px;height:350px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/hoacbuoc2_dachinhsua.png">
+
+    <p style="text-align:left;font-size:25px;"
+       data-lang="vi"
+       data-lang-en="Step 3:"
+       data-lang-vi="Bước 3:"
+       data-lang-de="Schritt 3:"
+       data-lang-kr="3단계:"
+       data-lang-jp="ステップ 3:">
+      Bước 3:
+    </p>
+
+    <p style="text-align:left;font-size:25px;"
+       data-lang="vi"
+       data-lang-en="This is What a Customer's 'Shopping Cart' Looks Like"
+       data-lang-vi="Đây là Giao Diện Của 'Giỏ Hàng' của Khách Hàng"
+       data-lang-de="So sieht der „Warenkorb“ eines Kunden aus"
+       data-lang-kr="고객의 '장바구니' 모습은 다음과 같습니다."
+       data-lang-jp="顧客の「ショッピング カート」は次のようになります">
+      Đây là Giao Diện Của 'Giỏ Hàng' của Khách Hàng
+    </p>
+
+    <p style="text-align:left;font-size:25px;"
+       data-lang="vi"
+       data-lang-en="+ Pink: is the next step of 'Proceed to Payment'"
+       data-lang-vi="+ Màu Hồng: là Bước tiếp theo của 'Tiến Hành Thanh Toán'"
+       data-lang-de="+ Pink: ist der nächste Schritt von „Weiter zur Zahlung“"
+       data-lang-kr="+ 핑크색 : '결제 진행' 다음 단계입니다."
+       data-lang-jp="+ ピンク: 「支払いに進む」の次のステップです">
+      + Màu Hồng: là Bước tiếp theo của 'Tiến Hành Thanh Toán'
+    </p>
+
+    <img style="width:900px;height:350px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc3_dachinhsua.png">
+
+    <p style="text-align:left;font-size:25px;"
+       data-lang="vi"
+       data-lang-en="Step 4:"
+       data-lang-vi="Bước 4:"
+       data-lang-de="Schritt 4:"
+       data-lang-kr="4단계:"
+       data-lang-jp="ステップ 4:">
+      Bước 4:
+    </p>
+
+    <p style="text-align:left;font-size:25px;"
+       data-lang="vi"
+       data-lang-en="Customers enter full information such as: Full Name, Phone Number, Address"
+       data-lang-vi="Khách Hàng nhập đầy đủ thông tin như: Họ Tên, Số Điện Thoại, Địa Chỉ"
+       data-lang-de="Kunden geben vollständige Informationen ein, z. B. vollständigen Namen, Telefonnummer und Adresse"
+       data-lang-kr="고객은 이름, 전화번호, 주소와 같은 전체 정보를 입력합니다."
+       data-lang-jp="顧客はフルネーム、電話番号、住所などの完全な情報を入力します。">
+      Khách Hàng nhập đầy đủ thông tin như: Họ Tên, Số Điện Thoại, Địa Chỉ
+    </p>
+
+    <p style="text-align:left;font-size:25px;"
+       data-lang="vi"
+       data-lang-en="+ Brown: When the Customer has entered all information and 'Proceed to Payment'"
+       data-lang-vi="+ Màu Nâu: Khi Khách Hàng đã nhập đầy đủ thông tin và 'Tiến Hành Thanh Toán'"
+       data-lang-de="+ Braun: Wenn der Kunde alle Informationen eingegeben hat und „Mit der Zahlung fortfahren“"
+       data-lang-kr="+ 갈색 : 고객이 모든 정보를 입력하고 '결제 진행' 상태인 경우"
+       data-lang-jp="+ ブラウン: 顧客がすべての情報を入力し、「支払いに進む」とき">
+      + Màu Nâu: Khi Khách Hàng đã nhập đầy đủ thông tin và 'Tiến Hành Thanh Toán'
+    </p>
+
+    <p style="text-align:left;font-size:25px;"
+       data-lang="vi"
+       data-lang-en="Note: + Purple: Customers do not need to care about 'Order Number' <br> if Customers use the service 'Cash on Delivery'"
+       data-lang-vi="Lưu Ý: + Màu Tím: Khách Hàng không cần quan tâm đến 'Mã Số Đơn Hàng' <br> nếu Khách Hàng sử dụng dịch vụ 'Thanh Toán Khi Nhận Hàng'"
+       data-lang-de="Hinweis: + Lila: Kunden müssen sich nicht um die „Bestellnummer“ kümmern <br>, wenn Kunden den Service „Nachnahme“ nutzen."
+       data-lang-kr="참고: + 보라색: 고객이 '대금 상환' 서비스를 이용하는 경우 <br> '주문 번호'에 신경 쓸 필요가 없습니다."
+       data-lang-jp="注: + 紫: お客様は「注文番号」を気にする必要はありません。<br> お客様が「代金引換」サービスをご利用の場合">
+      Lưu Ý: + Màu Tím: Khách Hàng không cần quan tâm đến 'Mã Số Đơn Hàng' <br> nếu Khách Hàng sử dụng dịch vụ 'Thanh Toán Khi Nhận Hàng'
+    </p>
+
+    <p style="text-align:left;font-size:25px;"
+       data-lang="vi"
+       data-lang-en="+ Because 'Order Code' is only for Customers using 'VNPAY' payment"
+       data-lang-vi="+ Vì 'Mã Số Đơn Hàng' chỉ dành cho Khách Hàng sử dụng thanh toán 'VNPAY'"
+       data-lang-de="+ Weil „Bestellcode“ nur für Kunden gilt, die die Zahlung „VNPAY“ nutzen"
+       data-lang-kr="+ '주문 코드'는 'VNPAY' 결제 고객에게만 해당되므로"
+       data-lang-jp="+ 「注文コード」は「VNPAY」支払いを使用する顧客専用であるため">
+      + Vì 'Mã Số Đơn Hàng' chỉ dành cho Khách Hàng sử dụng thanh toán 'VNPAY'
+    </p>
+
+    <img style="width:900px;height:350px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc42_dachinhsua.png">
+
+    <p style="text-align:left;font-size:25px;"
+       data-lang="vi"
+       data-lang-en="Step 5:"
+       data-lang-vi="Bước 5:"
+       data-lang-de="Schritt 5:"
+       data-lang-kr="5단계:"
+       data-lang-jp="ステップ5:">
+      Bước 5:
+    </p>
+
+    <p style="text-align:left;font-size:25px;"
+       data-lang="vi"
+       data-lang-en="If you are redirected to the interface like 'Step 5', your order has been placed successfully!"
+       data-lang-vi="Nếu Quý Khách được chuyển đến giao diện như 'Bước 5' thì đơn hàng của Khách Hàng đã đặt hàng thành công!"
+       data-lang-de="Wenn Sie wie bei „Schritt 5“ zur Benutzeroberfläche weitergeleitet werden, wurde Ihre Bestellung erfolgreich aufgegeben!"
+       data-lang-kr="'5단계'와 같은 인터페이스로 리디렉션되면 주문이 성공적으로 이루어진 것입니다!"
+       data-lang-jp="「ステップ 5」のようなインターフェースにリダイレクトされたら、注文は正常に完了しています。">
+      Nếu Quý Khách được chuyển đến giao diện như 'Bước 5' thì đơn hàng của Khách Hàng đã đặt hàng thành công!
+    </p>
+
+      <img  id="than-bai"  style="width:900px;height:350px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc5.PNG">
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Thank You Customers For Using 'Cash On Delivery' Service"
+         data-lang-vi="Xin Cám Ơn Khách Hàng Đã Sử Dụng Dịch Vụ 'Thanh Toán Khi Nhận Hàng'"
+         data-lang-de="Vielen Dank an Ihre Kunden, dass Sie den Service „Nachnahme“ nutzen"
+         data-lang-kr="'대금 상환' 서비스를 이용해 주신 고객 여러분께 감사드립니다."
+         data-lang-jp="「代金引換」サービスをご利用のお客様へ 誠にありがとうございます">
+        Xin Cám Ơn Khách Hàng Đã Sử Dụng Dịch Vụ 'Thanh Toán Khi Nhận Hàng'
+      </p>
+
+      <p style="text-align:left;margin-top:50px;"
+         data-lang="vi"
+         data-lang-en="2.Online Payment - ONLINE - VNPAY"
+         data-lang-vi="2.Thanh Toán Trực Tuyến - ONLINE - VNPAY"
+         data-lang-de="2.Online-Zahlung – ONLINE – VNPAY"
+         data-lang-kr="2.온라인 결제 - 온라인 - VNPAY"
+         data-lang-jp="2.オンライン支払い - 直接 - VNPAY">
+        2.Thanh Toán Trực Tuyến - ONLINE - VNPAY
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Step 1:"
+         data-lang-vi="Bước 1:"
+         data-lang-de="Schritt 1:"
+         data-lang-kr="1 단계:"
+         data-lang-jp="ステップ1：">
+        Bước 1:
+      </p>
+
+      <p style="text-align:left;font-size:20px;"
+         data-lang="vi"
+         data-lang-en="+ Red: is the Coffee Category Category to help Customers find their favorite products"
+         data-lang-vi="+ Màu Đỏ: là Danh Mục Thể Loại Cà Phê để giúp Khách Hàng tìm được sản phẩm yêu thích"
+         data-lang-de="+ Rot: ist die Kategorie „Kaffee“, die Kunden dabei hilft, ihre Lieblingsprodukte zu finden"
+         data-lang-kr="+ 빨간색: 고객이 좋아하는 제품을 찾을 수 있도록 돕는 커피 카테고리 카테고리입니다."
+         data-lang-jp="+ 赤: 顧客がお気に入りの製品を見つけるのに役立つコーヒー カテゴリです。">
+        + Màu Đỏ: là Danh Mục Thể Loại Cà Phê để giúp Khách Hàng tìm được sản phẩm yêu thích
+      </p>
+
+      <p style="text-align:left;font-size:20px;"
+         data-lang="vi"
+         data-lang-en="+ Yellow: is Buy, Customers Click to Buy, the product will be added to the cart"
+         data-lang-vi="+ Màu Vàng: là Mua Hàng, Khách Hàng Nhấp để Mua Hàng thì sản phẩm sẽ được thêm vào giỏ hàng"
+         data-lang-de="+ Gelb: ist Kaufen, Kunden klicken zum Kaufen, das Produkt wird dem Warenkorb hinzugefügt"
+         data-lang-kr="+ 노란색: 구매입니다. 고객이 구매를 클릭하면 제품이 장바구니에 추가됩니다."
+         data-lang-jp="+ 黄色: 購入です。顧客がクリックして購入すると、製品がカートに追加されます。">
+        + Màu Vàng: là Mua Hàng, Khách Hàng Nhấp để Mua Hàng thì sản phẩm sẽ được thêm vào giỏ hàng
+      </p>
+
+      <p style="text-align:left;font-size:20px;"
+         data-lang="vi"
+         data-lang-en="+ Blue: is Product Details, helping Customers have more information about the product"
+         data-lang-vi="+ Màu Xanh: là Chi Tiết Sản Phẩm, giúp Khách Hàng có thêm thông tin về sản phẩm"
+         data-lang-de="+ Blau: Produktdetails, die Kunden helfen, mehr Informationen über das Produkt zu erhalten"
+         data-lang-kr="+ 파란색: 제품 세부정보로, 고객이 제품에 대한 자세한 정보를 알 수 있도록 도와줍니다."
+         data-lang-jp="+ 青: 製品の詳細です。顧客が製品についてさらに詳しい情報を得るのに役立ちます。">
+        + Màu Xanh: là Chi Tiết Sản Phẩm, giúp Khách Hàng có thêm thông tin về sản phẩm
+      </p>
+
+      <img style="width:900px;height:400px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc1_dachinhsua.png">
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Step 2:"
+         data-lang-vi="Bước 2:"
+         data-lang-de="Schritt 2:"
+         data-lang-kr="2 단계:"
+         data-lang-jp="ステップ2：">
+        Bước 2:
+      </p>
+
+      <p style="text-align:left;font-size:20px;"
+         data-lang="vi"
+         data-lang-en="+ Orange: the Shopping Cart is attached at the Top of the 'Fragment' Page to help Customers easily find it"
+         data-lang-vi="+ Màu Cam: là Giỏ Hàng được gắn ở Đầu Trang 'Fragment' giúp Khách Hàng dễ dàng tìm thấy"
+         data-lang-de="+ Orange: Der Warenkorb ist oben auf der „Fragment“-Seite angehängt, damit Kunden ihn leichter finden können"
+         data-lang-kr="+ 주황색 : 고객이 쉽게 찾을 수 있도록 'Fragment' 페이지 상단에 장바구니가 부착되어 있습니다."
+         data-lang-jp="+ オレンジ: 顧客が簡単に見つけられるように、ショッピング カートは「フラグメント」ページの上部に取り付けられています。">
+        + Màu Cam: là Giỏ Hàng được gắn ở Đầu Trang 'Fragment' giúp Khách Hàng dễ dàng tìm thấy
+      </p>
+
+      <img style="width:900px;height:80px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc2_dachinhsua.png">
+
+      <p style="font-size:25px;"
+         data-lang="vi"
+         data-lang-en="OR"
+         data-lang-vi="HOẶC"
+         data-lang-de="ODER"
+         data-lang-kr="또는"
+         data-lang-jp="または">
+        HOẶC
+      </p>
+
+      <p style="text-align:left;font-size:20px;"
+         data-lang="vi"
+         data-lang-en="+ Navy Blue: the Shopping Cart is attached at the bottom of the 'Footer' page to help customers easily find it"
+         data-lang-vi="+ Màu Xanh Nước Biển: là Giỏ Hàng được gắn ở Cuối Trang 'Footer' giúp Khách Hàng dễ tìm thấy"
+         data-lang-de="+ Marineblau: Der Warenkorb ist unten auf der „Fußzeile“-Seite angehängt, damit Kunden ihn leichter finden können"
+         data-lang-kr="+ 네이비블루 : 고객이 쉽게 찾을 수 있도록 '바닥글' 페이지 하단에 장바구니가 부착되어 있습니다."
+         data-lang-jp="+ ネイビー ブルー: ショッピング カートは「フッター」ページの下部に表示され、顧客が簡単に見つけられるようにします。">
+        + Màu Xanh Nước Biển: là Giỏ Hàng được gắn ở Cuối Trang 'Footer' giúp Khách Hàng dễ tìm thấy
+      </p>
+
+      <img style="width:900px;height:350px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/hoacbuoc2_dachinhsua.png">
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Step 3:"
+         data-lang-vi="Bước 3:"
+         data-lang-de="Schritt 3:"
+         data-lang-kr="3단계:"
+         data-lang-jp="ステップ 3:">
+        Bước 3:
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="This is What a Customer's 'Shopping Cart' Looks Like"
+         data-lang-vi="Đây là Giao Diện Của 'Giỏ Hàng' của Khách Hàng"
+         data-lang-de="So sieht der „Warenkorb“ eines Kunden aus"
+         data-lang-kr="고객의 '장바구니' 모습은 다음과 같습니다."
+         data-lang-jp="顧客の「ショッピング カート」は次のようになります">
+        Đây là Giao Diện Của 'Giỏ Hàng' của Khách Hàng
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="+ Pink: is the next step of 'Proceed to Payment'"
+         data-lang-vi="+ Màu Hồng: là Bước tiếp theo của 'Tiến Hành Thanh Toán'"
+         data-lang-de="+ Pink: ist der nächste Schritt von „Weiter zur Zahlung“"
+         data-lang-kr="+ 핑크색 : '결제 진행' 다음 단계입니다."
+         data-lang-jp="+ ピンク: 「支払いに進む」の次のステップです">
+        + Màu Hồng: là Bước tiếp theo của 'Tiến Hành Thanh Toán'
+      </p>
+
+      <img style="width:900px;height:350px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc3_dachinhsua.png">
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Step 4:"
+         data-lang-vi="Bước 4:"
+         data-lang-de="Schritt 4:"
+         data-lang-kr="4단계:"
+         data-lang-jp="ステップ 4:">
+        Bước 4:
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Customers enter full information such as: Full Name, Phone Number, Address"
+         data-lang-vi="Khách Hàng nhập đầy đủ thông tin như: Họ Tên, Số Điện Thoại, Địa Chỉ"
+         data-lang-de="Kunden geben vollständige Informationen ein, z. B. vollständigen Namen, Telefonnummer und Adresse"
+         data-lang-kr="고객은 이름, 전화번호, 주소와 같은 전체 정보를 입력합니다."
+         data-lang-jp="顧客はフルネーム、電話番号、住所などの完全な情報を入力します。">
+        Khách Hàng nhập đầy đủ thông tin như: Họ Tên, Số Điện Thoại, Địa Chỉ
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Note: For Customers using the service 'Online Payment - VNPAY', please remember and save 'Order Number'"
+         data-lang-vi="Lưu Ý: Đối với Khách Hàng sử dụng dịch vụ 'Thanh Toán Online - VNPAY' thì hãy ghi nhớ và lưu lại 'Mã Số Đơn Hàng'"
+         data-lang-de="Hinweis: Für Kunden, die den Dienst „Online-Zahlung – VNPAY“ nutzen, merken und speichern Sie bitte die „Bestellnummer“."
+         data-lang-kr="참고: '온라인 결제 - VNPAY' 서비스를 이용하는 고객의 경우 '주문 번호'를 기억하고 저장해 두시기 바랍니다."
+         data-lang-jp="注: 「オンライン支払い - VNPAY」サービスをご利用のお客様は、「注文番号」を覚えて保存してください。">
+        Lưu Ý: Đối với Khách Hàng sử dụng dịch vụ 'Thanh Toán Online - VNPAY' thì hãy ghi nhớ và lưu lại 'Mã Số Đơn Hàng'
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="+ Orange: is the 'Order Number' of the Customer's invoice"
+         data-lang-vi="+ Màu Cam: là 'Mã Số Đơn Hàng' của hóa đơn của Khách Hàng"
+         data-lang-de="+ Orange: ist die „Bestellnummer“ der Rechnung des Kunden"
+         data-lang-kr="+ 주황색: 고객 송장의 '주문 번호'입니다."
+         data-lang-jp="+ オレンジ: 顧客の請求書の「注文番号」です。">
+        + Màu Cam: là 'Mã Số Đơn Hàng' của hóa đơn của Khách Hàng
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="+ Brown: Customer enters address and 'Order Number'"
+         data-lang-vi="+ Màu Nâu: là Khách Hàng nhập địa chỉ và 'Mã Số Đơn Hàng'"
+         data-lang-de="+ Braun: Kunde gibt Adresse und „Bestellnummer“ ein"
+         data-lang-kr="+ 갈색: 고객이 주소와 '주문번호'를 입력합니다."
+         data-lang-jp="+ 茶色: 顧客が住所と「注文番号」を入力します。">
+        + Màu Nâu: là Khách Hàng nhập địa chỉ và 'Mã Số Đơn Hàng'
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Note: Customers can sign 'Order Number' at the address as shown in the illustration: <br> - 53 <br> - [ 53 ]"
+         data-lang-vi="Lưu Ý: Khách Hàng có thể ký hiệu 'Mã Số Đơn Hàng' ở địa chỉ như ảnh minh họa: <br> - 53 <br> - [ 53 ]"
+         data-lang-de="Hinweis: Kunden können die „Bestellnummer“ an der in der Abbildung gezeigten Adresse unterschreiben: <br> - 53 <br> - [ 53 ]"
+         data-lang-kr="참고: 고객은 그림에 표시된 주소에서 '주문 번호'에 서명할 수 있습니다. <br> - 53 <br> - [ 53 ]"
+         data-lang-jp="注: お客様は、図に示すアドレスで「注文番号」に署名できます: <br> - 53 <br> - [ 53 ]">
+        Lưu Ý: Khách Hàng có thể ký hiệu 'Mã Số Đơn Hàng' ở địa chỉ như ảnh minh họa: <br> - 53 <br> - [ 53 ]
+      </p>
+
+      <img style="width:900px;height:350px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc45_dachinhsua.png">
+
+      <p style="font-size:25px;"
+         data-lang="vi"
+         data-lang-en="OR"
+         data-lang-vi="HOẶC"
+         data-lang-de="ODER"
+         data-lang-kr="또는"
+         data-lang-jp="または">
+        HOẶC
+      </p>
+
+      <img style="width:900px;height:350px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc46_dachinhsua.png">
+
+      <p style="font-size:25px;"
+         data-lang="vi"
+         data-lang-en="OR"
+         data-lang-vi="HOẶC"
+         data-lang-de="ODER"
+         data-lang-kr="또는"
+         data-lang-jp="または">
+        HOẶC
+      </p>
+
+      <p style="font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Customers can also view 'Order Number' on the Website URL"
+         data-lang-vi="Khách Hàng cũng có thể xem 'Mã Số Đơn Hàng' trên Đường Dẫn URL của Website"
+         data-lang-de="Kunden können die „Bestellnummer“ auch auf der Website-URL sehen"
+         data-lang-kr="고객은 웹사이트 URL에서도 '주문 번호'를 볼 수 있습니다."
+         data-lang-jp="お客様はウェブサイトの URL で「注文番号」を確認することもできます。">
+        Khách Hàng cũng có thể xem 'Mã Số Đơn Hàng' trên Đường Dẫn URL của Website
+      </p>
+
+      <img style="width:900px;height:50px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc44_dachinhsua.png">
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Step 5:"
+         data-lang-vi="Bước 5:"
+         data-lang-de="Schritt 5:"
+         data-lang-kr="5단계:"
+         data-lang-jp="ステップ5:">
+        Bước 5:
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="+ Blue: is the 'Online Payment - VNPAY' method"
+         data-lang-vi="+ Màu Xanh Nước Biển: là phương thức 'Thanh Toán Online - VNPAY'"
+         data-lang-de="+ Blau: ist die Methode „Online-Zahlung – VNPAY“."
+         data-lang-kr="+ 파란색: '온라인 결제 - VNPAY' 방식입니다."
+         data-lang-jp="+ 青: 「オンライン支払い - VNPAY」方法です">
+        + Màu Xanh Nước Biển: là phương thức 'Thanh Toán Online - VNPAY'
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="If you are redirected to the interface like 'Step 5', your order has been recorded <br> and you continue to click 'Pay Online - VNPAY'"
+         data-lang-vi="Nếu Quý Khách được chuyển đến giao diện như 'Bước 5' thì đơn hàng của Khách Hàng đã được ghi nhận <br> và Khách Hàng tiếp tục nhấp vào 'Thanh Toán Online - VNPAY'"
+         data-lang-de="Wenn Sie wie bei „Schritt 5“ zur Benutzeroberfläche weitergeleitet werden, wurde Ihre Bestellung erfasst <br> und Sie klicken weiterhin auf „Online bezahlen – VNPAY“."
+         data-lang-kr="'5단계'와 같은 인터페이스로 리디렉션되면 주문이 기록되었으며 <br> 계속해서 '온라인 결제 - VNPAY'를 클릭하세요."
+         data-lang-jp="「ステップ 5」のようなインターフェースにリダイレクトされた場合、注文は記録されており、<br> 引き続き「オンラインで支払う - VNPAY」をクリックします。">
+        Nếu Quý Khách được chuyển đến giao diện như 'Bước 5' thì đơn hàng của Khách Hàng đã được ghi nhận <br> và Khách Hàng tiếp tục nhấp vào 'Thanh Toán Online - VNPAY'
+      </p>
+
+      <img style="width:900px;height:350px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc5_dachinhsua.png">
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Step 6:"
+         data-lang-vi="Bước 6:"
+         data-lang-de="Schritt 6:"
+         data-lang-kr="6단계:"
+         data-lang-jp="ステップ6:">
+        Bước 6:
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="After clicking 'Pay Online', you will go to the interface like 'Step 6'"
+         data-lang-vi="Sau khi nhấp vào 'Thanh Toán Online' sẽ chuyển đến giao diện như 'Bước 6'"
+         data-lang-de="Nachdem Sie auf „Online bezahlen“ geklickt haben, gelangen Sie zur Benutzeroberfläche wie in „Schritt 6“."
+         data-lang-kr="'온라인 결제'를 클릭하면 '6단계'와 같은 인터페이스로 이동합니다."
+         data-lang-jp="「オンラインで支払う」をクリックすると、「ステップ6」のようなインターフェースに進みます。">
+        Sau khi nhấp vào 'Thanh Toán Online' sẽ chuyển đến giao diện như 'Bước 6'
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="+ Green: Customer Enters Order Price"
+         data-lang-vi="+ Màu Xanh Lá: Khách Hàng Nhập Giá Của Đơn Hàng"
+         data-lang-de="+ Grün: Kunde gibt Bestellpreis ein"
+         data-lang-kr="+ 녹색: 고객이 주문 가격을 입력합니다."
+         data-lang-jp="+ 緑: 顧客が注文価格を入力">
+        + Màu Xanh Lá: Khách Hàng Nhập Giá Của Đơn Hàng
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="+ Orange: Customer Enters 'Order Number'"
+         data-lang-vi="+ Màu Cam: Khách Hàng Nhập 'Mã Số Đơn Hàng'"
+         data-lang-de="+ Orange: Kunde gibt „Bestellnummer“ ein"
+         data-lang-kr="+ 주황색: 고객이 '주문 번호'를 입력합니다."
+         data-lang-jp="+ オレンジ: 顧客が「注文番号」を入力">
+        + Màu Cam: Khách Hàng Nhập 'Mã Số Đơn Hàng'
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="and continue clicking 'Checkout'"
+         data-lang-vi="và tiếp tục nhấp vào 'Thanh Toán'"
+         data-lang-de="und klicken Sie weiter auf „Zur Kasse“"
+         data-lang-kr="계속해서 '결제'를 클릭하세요."
+         data-lang-jp="「チェックアウト」をクリックし続けます">
+        và tiếp tục nhấp vào 'Thanh Toán'
+      </p>
+
+      <img style="width:600px;height:500px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc47_dachinhsua.png">
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Step 7:"
+         data-lang-vi="Bước 7:"
+         data-lang-de="Schritt 7:"
+         data-lang-kr="7단계:"
+         data-lang-jp="ステップ 7:">
+        Bước 7:
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Customers choose 'Payment Method' of 'VNPAY'"
+         data-lang-vi="Khách Hàng chọn 'Phương Thức Thanh Toán' của 'VNPAY'"
+         data-lang-de="Kunden wählen als Zahlungsmethode „VNPAY“."
+         data-lang-kr="고객은 'VNPAY' 중 '결제 수단'을 선택합니다."
+         data-lang-jp="顧客は「VNPAY」の「支払い方法」を選択します">
+        Khách Hàng chọn 'Phương Thức Thanh Toán' của 'VNPAY'
+      </p>
+
+      <img style="width:900px;height:700px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc48.png">
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Step 8:"
+         data-lang-vi="Bước 8:"
+         data-lang-de="Schritt 8:"
+         data-lang-kr="8단계:"
+         data-lang-jp="ステップ8:">
+        Bước 8:
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="TYN COFFEE STORE takes an example: Payment by Bank Account"
+         data-lang-vi="TYN COFFEE STORE lấy ví dụ: Thanh Toán bằng Tài Khoản Ngân Hàng"
+         data-lang-de="TYN COFFEE STORE nimmt ein Beispiel: Zahlung per Bankkonto"
+         data-lang-kr="TYN COFFEE STORE의 예: 은행 계좌 결제"
+         data-lang-jp="TYN COFFEE STORE の例: 銀行口座による支払い">
+        TYN COFFEE STORE lấy ví dụ: Thanh Toán bằng Tài Khoản Ngân Hàng
+      </p>
+
+      <img style="width:900px;height:600px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc49.png">
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Customer enters Customer information and clicks 'Continue'"
+         data-lang-vi="Khách Hàng nhập thông tin của Khách Hàng và nhấp 'Tiếp Tục'"
+         data-lang-de="Der Kunde gibt Kundeninformationen ein und klickt auf „Weiter“."
+         data-lang-kr="고객이 고객 정보를 입력하고 '계속'을 클릭합니다."
+         data-lang-jp="顧客は顧客情報を入力し、「続行」をクリックします">
+        Khách Hàng nhập thông tin của Khách Hàng và nhấp 'Tiếp Tục'
+      </p>
+
+      <img style="width:900px;height:600px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc499.png">
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Step 9:"
+         data-lang-vi="Bước 9:"
+         data-lang-de="Schritt 9:"
+         data-lang-kr="9단계:"
+         data-lang-jp="ステップ9:">
+        Bước 9:
+      </p>
+
+      <p style="text-align:left;font-size:25px;"
+         data-lang="vi"
+         data-lang-en="Displaying the message 'Payment Successful' means that the Customer's online payment order with 'VNPAY' has been successful!"
+         data-lang-vi="Hiển thị thông báo 'Thanh Toán Thành Công' như vậy là đơn hàng thanh toán online bằng 'VNPAY' của Khách Hàng đã thành công!"
+         data-lang-de="Die Anzeige der Meldung „Zahlung erfolgreich“ bedeutet, dass der Online-Zahlungsauftrag des Kunden mit „VNPAY“ erfolgreich war!"
+         data-lang-kr="'결제 성공' 메시지가 표시되면 고객의 'VNPAY' 온라인 결제 주문이 성공했다는 의미입니다!"
+         data-lang-jp="「支払いが成功しました」というメッセージが表示された場合は、顧客の「VNPAY」によるオンライン支払い注文が成功したことを意味します。">
+        Hiển thị thông báo 'Thanh Toán Thành Công' như vậy là đơn hàng thanh toán online bằng 'VNPAY' của Khách Hàng đã thành công!
+      </p>
+
+      <img style="width:900px;height:600px;border: 3px solid red; border-radius: 10px;" src="img/huongdanthanhtoan/buoc49999.png">
+
+      <p style="text-align:center;font-size:40px;color:#ff8c00;"
+         data-lang="vi"
+         data-lang-en="TYN COFFEE STORE"
+         data-lang-vi="TYN COFFEE STORE"
+         data-lang-de="TYN COFFEE STORE"
+         data-lang-kr="TYN COFFEE STORE"
+         data-lang-jp="TYN COFFEE STORE">
+        TYN COFFEE STORE
+      </p>
+
+      <p style="text-align:center;font-size:30px;"
+         data-lang="vi"
+         data-lang-en="THANK CUSTOMERS FOR TRUSTING AND SUPPORTING THE PRODUCT"
+         data-lang-vi="XIN CÁM ƠN KHÁCH HÀNG ĐÃ TIN DÙNG VÀ ỦNG HỘ SẢN PHẨM"
+         data-lang-de="VIELEN DANK AN DIE KUNDEN FÜR DAS VERTRAUEN UND DIE UNTERSTÜTZUNG DES PRODUKTS"
+         data-lang-kr="제품을 믿고 지원해주신 고객님께 감사드립니다"
+         data-lang-jp="製品を信頼しサポートしてくださったお客様に感謝します">
+        XIN CÁM ƠN KHÁCH HÀNG ĐÃ TIN DÙNG VÀ ỦNG HỘ SẢN PHẨM
+      </p>
+
+      <img style="width:350px;height:350px;" src="img/camon_huongdanthanhtoan.gif">
+      <img id="ket-bai" style="width:350px;height:350px;" src="img/camon_huongdanthanhtoan2.gif">
+    </div>
+  </div>
+</bodddy>
+
+<script>
+  var currentLanguage = "vi";
+
+  var vietnameseButton = document.getElementById("vietnameseButton");
+  vietnameseButton.addEventListener("click", function () {
+    changeLanguage("vi");
+  });
+
+  var englishButton = document.getElementById("englishButton");
+  englishButton.addEventListener("click", function () {
+    changeLanguage("en");
+  });
+
+  var germanButton = document.getElementById("germanButton");
+  germanButton.addEventListener("click", function () {
+    changeLanguage("de");
+  });
+
+  var koreaButton = document.getElementById("koreaButton");
+  koreaButton.addEventListener("click", function () {
+    changeLanguage("kr");
+  });
+
+  var japanButton = document.getElementById("japanButton");
+  japanButton.addEventListener("click", function () {
+    changeLanguage("jp");
+  });
+
+  function changeLanguage(language) {
+    var elements = document.querySelectorAll("[data-lang]");
+
+    elements.forEach(function (element) {
+      if (language === "vi") {
+        element.innerHTML = element.getAttribute("data-lang-vi");
+      } else if (language === "en") {
+        element.innerHTML = element.getAttribute("data-lang-en");
+      } else if (language === "de") {
+        element.innerHTML = element.getAttribute("data-lang-de");
+      } else if (language === "kr") {
+        element.innerHTML = element.getAttribute("data-lang-kr");
+      } else if (language === "jp") {
+        element.innerHTML = element.getAttribute("data-lang-jp");
+      }
+    });
+
+    currentLanguage = language;
+  }
+</script>
+<!-- end features Area -->
+
+<!--ĐOẠN CODE TẠO MENU BUTTON GIÚP LÀM GỌN 4 BUTTON TRONG 1 MENU-->
+<div style="top: 0;left: 0;position: fixed;margin-left:20px;margin-top:620px" class="dropdown2">
+  <button class="dropbtn">
+    <img style="width:60px;height:60px;border-radius:50px" src="https://w7.pngwing.com/pngs/68/239/png-transparent-number-computer-icons-plus-miscellaneous-game-plus.png">
+  </button>
+  <div style="margin-top:-370px;margin-left:-10px;border-radius:50px;" class="dropdown-content2">
+    <a href="/diachichinhanhggmap"><img style="width:50px;height:50px;border-radius:50px" src="/img/diachi_menu.gif"title="Địa Chỉ Cửa Hàng"></a>
+    <a href="tel:0939 266 625"><img style="width:50px;height:50px;border-radius:5px" src="/img/phone_menu.png" title="SĐT: 093 110 3224"></a>
+    <a href="https://zalo.me/0931103224"><img style="width:50px;height:50px;border-radius:50px" src="/img/logo_zalo.png"title="https://zalo.me/0931103224"></a>
+    <a id="popup-button" onclick="showPopup()">
+      <img style="width:50px;height:50px;border-radius:5px" src="/img/email_menu3.gif"title="Gửi Email">
+    </a>
+  </div>
+</div>
+<!--ĐOẠN CODE TẠO MENU BUTTON GIÚP LÀM GỌN 4 BUTTON TRONG 1 MENU-->
+
+<!--ĐOẠN CODE TẠO THÔNG BÁO ĐỂ CHỌN 2 LỰA CHỌN GỬI EMAIL - TÍCH HỢP CÙNG MENU ĐỂ HIỂN THỊ THÔNG BÁO-->
+
+<div id="popup-overlay">
+  <div id="popup-content">
+    <span id="close-button" onclick="hidePopup()">&#10006;</span>
+    <h3 style="color:#3bfff4"><strong><span style="font-size:28px;color:#ffbb00">TYN COFFEE STORE </span>- XIN CHÀO QUÝ KHÁCH</strong></h3>
+    <div class="button-container">
+      <a href="/contact">
+        <button style="width:300px;height:80px;border-radius:50px;border: 5px solid blue;" onclick="hidePopup()"><strong style="font-size:18px">Gửi Email Góp Ý Hoặc Ứng Tuyển</strong></button>
+      </a>
+      <a href="/contact2">
+        <button style="width:260px;height:80px;border-radius:50px;border: 5px solid #ffbb00;" onclick="hidePopup()"><strong style="font-size:18px">Đăng Ký Nhận Thông Báo</strong></button>
+      </a>
+    </div>
+    <img style="width:250px;height:200px" src="/img/hello.gif">
+  </div>
+</div>
+
+<!--ĐOẠN CODE TẠO THÔNG BÁO ĐỂ CHỌN 2 LỰA CHỌN GỬI EMAIL - TÍCH HỢP CÙNG MENU ĐỂ HIỂN THỊ THÔNG BÁO-->
+
+<!-- ĐOẠN CODE NÀY DÀNH CHO MỞ MÁY TÍNH ĐỂ TÍNH TIỀN COFFEE -->
+
+<button style="top: 0;left: 0;position: fixed;width:50px; height:65px;border-radius:5px;margin-left:1445px;margin-top:420px" id="open_calculator">
+  <img style="width:60px; height:60px;margin-left:-12.5px" src="/hinhanhtintuc/maytinh.png">
+</button>
+
+<div style="margin-left:580px" id="calculator_popup" class="calculator_popup">
+  <div class="calculator_content">
+    <div class="calculator_header">
+      <h3>Máy Tính - TYNCOFFEE</h3>
+      <button id="close_calculator">&times;</button>
+    </div>
+    <div class="calculator-body">
+      <input type="text" id="calc_display" readonly>
+      <div class="calculator_buttons">
+        <button class="calc_button" onclick="appendToDisplay('7')">7</button>
+        <button class="calc_button" onclick="appendToDisplay('8')">8</button>
+        <button class="calc_button" onclick="appendToDisplay('9')">9</button>
+        <button class="calc_button operator" onclick="appendToDisplay('+')">+</button>
+        <button class="calc_button" onclick="appendToDisplay('4')">4</button>
+        <button class="calc_button" onclick="appendToDisplay('5')">5</button>
+        <button class="calc_button" onclick="appendToDisplay('6')">6</button>
+        <button class="calc_button operator" onclick="appendToDisplay('-')">-</button>
+        <button class="calc_button" onclick="appendToDisplay('1')">1</button>
+        <button class="calc_button" onclick="appendToDisplay('2')">2</button>
+        <button class="calc_button" onclick="appendToDisplay('3')">3</button>
+        <button class="calc_button operator" onclick="appendToDisplay('*')">*</button>
+        <button class="calc_button" onclick="appendToDisplay('0')">0</button>
+        <button class="calc_button" onclick="appendToDisplay('.')">.</button>
+        <button class="calc_button operator" onclick="calculate()">=</button>
+        <button class="calc_button operator" onclick="appendToDisplay('/')">/</button>
+        <button class="calc_button clear" onclick="clearDisplay()">C</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ĐOẠN CODE NÀY DÀNH CHO MỞ MÁY TÍNH ĐỂ TÍNH TIỀN COFFEE -->
+
+<!--ĐOẠN CODE NÀY TẠO CHATBOT-->
+
+<button style="top: 0;left: 0;position: fixed;border-radius: 50px;margin-left:1430px;margin-top:520px" id="openButton">
+  <img style="width:60px;height:65px;" src="https://cdn-icons-png.flaticon.com/512/8943/8943377.png" alt="Mở Chatbot">
+</button>
+<div id="chatbotPopup" class="chatbot-popup">
+  <div class="chatbot-container">
+    <div class="chatbot-header">
+      <span class="chatbot-title">Chatbot Hổ Trợ - TYN COFFEE</span>
+      <button id="closeButton">&times;</button>
+    </div>
+    <div id="chatLog" class="chatbot-log"></div>
+    <div style="margin-top:-5px" class="user-input-container">
+      <div id="chatLog" class="chat-log"></div>
+      <input type="text" id="userInput" placeholder="Nhập tin nhắn của bạn...">
+      <button id="sendButton">Gửi</button>
+    </div>
+  </div>
+</div>
+<!--ĐOẠN CODE NÀY TẠO CHATBOT-->
+
+<!--ĐOẠN CODE NÀY TẠO NÚT ON TOP ĐỂ ĐƯA LÊN ĐẦU TRANG-->
+<div>
+  <div onclick="topFunction()" id="myBtn">
+    <img style="top: 0;left: 0;position: fixed;width:60px;height:60px;margin-left:1440px;margin-top:620px" src="/img/ontopbutton.png" alt="@{/}">
+  </div>
+</div>
+<!--ĐOẠN CODE NÀY TẠO NÚT ON TOP ĐỂ ĐƯA LÊN ĐẦU TRANG-->
+
+
+
+
+<!-- start footer Area -->
+<footer th:fragment="footer" class="footer-area section_gap">
+  <div class="container">
+    <div class="row">
+      <div style="margin-left:50px;" class="col-lg-3  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Thông Tin Liên Hệ</h6>
+          <address style="color:white;font-size:16px;">
+            SĐT: 093 110 3224<br>
+            Email: tyncoffeestore@gmail.com<br>
+            Chi Nhánh Đại Diện: 249A Hoàng Văn Thụ, Phường 01, Quận Tân Bình, TP.Hồ Chí Minh
+          </address>
+        </div>
+      </div>
+      <div style="margin-left:50px;" class="col-lg-4  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Về Chúng Tôi</h6>
+          <a th:href="login" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Đăng Nhập</h1>
+          </a>
+          <a th:href="register" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Đăng Ký</h1>
+          </a>
+          <a th:href="info" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Giới Thiệu</h1>
+          </a>
+          <a th:href="shop" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Sản Phẩm</h1>
+          </a>
+          <a th:href="recruit" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Tuyển Dụng</h1>
+          </a>
+          <a th:href="carts" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Giỏ Hàng</h1>
+          </a>
+          <a th:href="timkiemsanpham" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Tìm Kiếm</h1>
+          </a>
+          <a th:href="menu-sanpham" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Menu</h1>
+          </a>
+          <a th:href="huongdanthanhtoan" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Hướng Dẫn Thanh Toán</h1>
+          </a>
+        </div>
+      </div>
+
+
+
+      <div style="top:0;left:0; position:relative;margin-top:-390px;;margin-left:620px;" class="col-lg-4  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Tìm Hiểu Thêm</h6>
+          <a th:href="contact" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Gửi Email Phản Hồi</h1>
+          </a>
+          <a th:href="contact2" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Đăng Ký Nhận Thông Báo</h1>
+          </a>
+          <a th:href="ListTinTucCoffee" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Tin Tức</h1>
+          </a>
+          <a th:href="ListThongTinUuDaiCoffee" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Thông Tin Ưu Đãi</h1>
+          </a>
+          <a th:href="ListCachPhaCoffee" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Cách Pha COFFEE</h1>
+          </a>
+          <a th:href="CamHungKhoiNghiep_TYNCOFFEE" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Câu Chuyện Khởi Nghiệp</h1>
+          </a>
+          <a th:href="voucher_gift" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Mở Voucher May Mắn</h1>
+          </a>
+          <a th:href="diachichinhanhggmap" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Địa Điểm</h1>
+          </a>
+          <a th:href="huongdanthanhtoan" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Thông Tin Giao Hàng</h1>
+          </a>
+        </div>
+      </div>
+
+
+
+
+      <div style="position: absolute;margin-left:850px;" class="col-lg-3  col-md-6 col-sm-6">
+        <div class="single-footer-widget mail-chimp">
+          <h6 class="mb-20">Đối tác</h6>
+          <ul class="instafeed d-flex flex-wrap">
+            <li><a href="https://classiccoffee.com.vn/"><img src="/img/elements/classiccoffe_doitac.jpg"/></a></li>
+            <li><a href="https://thecoffeehouse.com/"><img src="/img/elements/coffehouse_doitac.png" alt="@{/}"></a></li>
+            <li><a href="https://trungnguyenlegend.com/"><img src="/img/elements/trungnguyen_doitac.jpg" alt="@{/}"></a></li>
+            <li><a href="https://congcaphe.com/"><img src="/img/elements/congcafe_doitac.jpg" alt="@{/}"></a></li>
+            <li><a href="https://phuclong.com.vn/"><img src="/img/elements/phuclong_doitac.jpg" alt="@{/}"></a></li>
+            <li><a href="https://www.highlandscoffee.com.vn/"><img src="/img/elements/highland_doitac.jpg" alt="@{/}"></a></li>
+            <li><a href="https://www.nescafe.com/vn/"><img style="background-color:#ffffff" src="/img/elements/nescafe_doitac.png" alt="@{/}"></a></li>
+            <li><a href="https://www.vinacafe.com.vn/"><img style="background-color:#ffffff" src="/img/elements/vinacafe_doitac.png" alt="@{/}"></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+      <h1 style="color:white;font-size:35px;text-align:center;padding-bottom:5px;margin-top:10px;"><strong>THEO DÕI CHÚNG TÔI QUA CÁC NỀN TẢNG</strong></h1>
+
+      <img style="top:0;left:0;position:absolute;width:70px;height:60px;margin-top:11560px;margin-left:500px;" src="img/icon_fb.png">
+      <img style="top:0;left:0;position:absolute;width:70px;height:60px;margin-top:11560px;margin-left:590px;" src="img/icon_ig.png">
+      <img style="top:0;left:0;position:absolute;width:90px;height:60px;margin-top:11560px;margin-left:680px;" src="img/icon_youtube.png">
+      <img style="top:0;left:0;position:absolute;width:70px;height:60px;margin-top:11560px;margin-left:780px;" src="img/icon_tiktok.png">
+      <img style="top:0;left:0;position:absolute;width:70px;height:60px;margin-top:11560px;margin-left:870px;" src="img/icon_twitter.png">
+      <img style="top:0;left:0;position:absolute;width:70px;height:60px;margin-top:11560px;margin-left:960px;" src="img/icon_zalo2.png">
+      <img style="top:0;left:0;position:absolute;width:50px;height:60px;margin-top:11560px;margin-left:1050px;" src="img/locationgg.png">
+
+      <p class="footer-text m-0">
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Đồ Án Chuyên Ngành: Bản Quyền Thuộc Về Huỳnh Vĩnh Tiến 2011061897 20DTHB2
+      </p>
+    </div>
+  </div>
+</footer>
+<!-- End footer Area -->
+
+<div th:fragment="scripts">
+  <script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+          crossorigin="anonymous"></script>
+  <script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+  <script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+  <script th:src="@{/js/jquery.nice-select.min.js}"></script>
+  <script th:src="@{/js/jquery.sticky.js}"></script>
+  <script th:src="@{/js/nouislider.min.js}"></script>
+  <script th:src="@{/js/countdown.js}"></script>
+  <script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+  <script th:src="@{/js/owl.carousel.min.js}"></script>
+  <!--gmaps Js-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+  <script th:src="@{/js/gmaps.min.js}"></script>
+  <script th:src="@{/js/main.js}"></script>
+  <script th:src="@{/js/ghichu_script.js}"></script>
+  <script th:src="@{/js/button_ontop.js}"></script>
+  <script th:src="@{/js/popup_thongbao_2luachon_email.js}"></script>
+  <script th:src="@{/js/maytinhpopup.js}"></script>
+  <script th:src="@{/js/chatbot_popup.js}"></script>
+
+</div>
+
+</body>
+
+</html>

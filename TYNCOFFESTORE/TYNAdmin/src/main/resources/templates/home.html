@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: header('Admin')">
+  <title>Admin</title>
+</head>
+
+<body>
+<main class="main" id="top">
+  <div class="container-fluid px-0">
+
+    <!--  Begin Navbar Left  -->
+    <nav th:replace="fragments :: navbar-left">
+    </nav>
+    <!--  End Navbar Left  -->
+
+    <!--  Begin Navbar Top  -->
+    <nav th:replace="fragments :: navbar-top">
+    </nav>
+    <!--  End Navbar Top  -->
+
+    <!--  Begin Content  -->
+    <div class="content">
+      <div class="d-flex flex-center content-min-h">
+        <div class="text-center py-9"><img style="width:800px; height:300px;margin-top:-100px;" class="img-fluid mb-7" th:src="@{/assets/img/background_email_admin.png}" alt="">
+          <h1 class="text-800 fw-normal mb-5"><strong>Chào Mừng Bạn Đến Với Trang Quản Trị Của TYN COFFEE STORE.</strong></h1><a class="btn btn-lg btn-primary" th:href="@{/accounts}">Bắt đầu</a>
+        </div>
+      </div>
+      <!-- Begin footer -->
+      <footer class="footer" th:replace="fragments :: footer">
+      </footer>
+      <!-- End footer -->
+    </div>
+    <!--  End Content  -->
+
+  </div>
+</main>
+<script th:src="@{/assets/js/phoenix.js}"></script>
+</body>
+
+</html>

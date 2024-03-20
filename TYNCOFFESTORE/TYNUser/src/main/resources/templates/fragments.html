@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<head th:fragment="head">
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Favicon-->
+  <link rel="shortcut icon" th:href="@{/img/icon.jpg}">
+  <!-- Author Meta -->
+  <meta name="author" content="CodePixar">
+  <!-- Meta Description -->
+  <meta name="description" content="@{/}">
+  <!-- Meta Keyword -->
+  <meta name="keywords" content="@{/}">
+  <!-- meta character set -->
+  <meta charset="UTF-8">
+  <!-- Site Title -->
+  <title>TYN Coffe Store</title>
+  <!--
+      CSS
+      ============================================= -->
+  <link rel="stylesheet" th:href="@{/css/linearicons.css}">
+  <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+  <link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+  <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+  <link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+  <link rel="stylesheet" th:href="@{/css/nice-select.css}">
+  <link rel="stylesheet" th:href="@{/css/nouislider.min.css}">
+  <link rel="stylesheet" th:href="@{/css/ion.rangeSlider.css}" />
+  <link rel="stylesheet" th:href="@{/css/ion.rangeSlider.skinFlat.css}" />
+  <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+  <link rel="stylesheet" th:href="@{/css/main.css}">
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+  <link rel="stylesheet" th:href="@{/css/slideshow.css}">
+  <link rel="stylesheet" th:href="@{/css/ghichu_style.css}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+</head>
+<body>
+
+<!-- Start Header Area -->
+<header th:fragment="header" class="header_area sticky-header">
+  <div class="main_menu">
+    <nav class="navbar navbar-expand-lg navbar-light main_box">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <a class="navbar-brand logo_h" th:href="@{/}"><img style="width:200px; height:80px; margin-left:-30px;" th:src="@{/img/background_email.png}" alt="@{/}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+          <ul class="nav navbar-nav menu_nav ml-auto">
+            <li class="nav-item active"><a class="nav-link" th:href="@{/}">Trang Chủ</a></li>
+            <li class="nav-item active"><a class="nav-link" th:href="@{/info}">Giới thiệu</a></li>
+            <li class="nav-item active"><a class="nav-link" th:href="@{/menu-sanpham}">Menu</a></li>
+            <li class="nav-item active"><a class="nav-link" th:href="@{/shop}">Sản phẩm</a></li>
+            <li class="nav-item active"><a class="nav-link" th:href="@{/recruit}">Tuyển Dụng</a></li>
+
+            <!--<li class="nav-item active"><a class="nav-link" th:href="@{/shop?id=1}">Gửi Email</a></li>-->
+            <!--<li class="nav-item active"><a class="nav-link" th:href="@{/details?id=2}">Gửi Email</a></li>-->
+
+            <!-- ĐOẠN CODE NÀY DÀNH CHO MENU DROPDOWN GỒM CÁC DANH MỤC: TIN TỨC, ÂM NHẠC, VIDEO, GAME, CHAT -->
+
+            <li style="color:#3636c4;margin-top:9px;margin-right:40px;" class="dropdown">
+              <span style="font-size: 16px;color:red"><strong>Thêm</strong></span>
+              <div class="dropdown-content">
+                <a th:href="@{/ListTinTucCoffee}">Tin Tức
+                </a>
+                <a th:href="@{/ListThongTinUuDaiCoffee}">Thông Tin Ưu Đãi
+                </a>
+                <a th:href="@{/ListCachPhaCoffee}">Cách Pha Coffee
+                </a>
+                <a th:href="@{/CamHungKhoiNghiep_TYNCOFFEE}">Chuyện Khởi Nghiệp
+                </a>
+                <a th:href="@{/index_groupchat}">Phòng Chat Tư Vấn
+                </a>
+                <a th:href="@{/huongdanthanhtoan}">Hướng Dẫn Thanh Toán
+                </a>
+              </div>
+            </li>
+
+
+            <style>
+        /* CSS cho menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            border-radius:10px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            margin-left:-65px;
+            border: 4px solid red;
+            border-radius:30px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* CSS cho các mục trong menu */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 20px;
+            <!-- padding chuyển chữ TIN TỨC . ví dụ: 12px là chiều cao và 50px là chiều rộng thì chữ sẽ bị đẩy về sau -->
+            text-decoration: none;
+            display: block;
+            font-weight:bold;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ffbb00;
+            border-radius:20px;
+        }
+    </style>
+            <!-- ĐOẠN CODE NÀY DÀNH CHO MENU DROPDOWN GỒM CÁC DANH MỤC: TIN TỨC, ÂM NHẠC, VIDEO, GAME, CHAT -->
+
+
+
+            <li sec:authorize="!isAuthenticated()" class="nav-item active"><a class="nav-link" th:href="@{/login}" > <i class="fa-solid fa-user"></i> Đăng Nhập</a></li>
+
+            <li sec:authorize="isAuthenticated()" class="nav-item active"><a  class="nav-link" th:href="@{/user}"><span sec:authentication="principal.username"></span></a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item"><a th:href="@{/carts}" class="cart"><span class="ti-bag"></span></a></li>
+            <li class="nav-item">
+              <a th:href="@{/timkiemsanpham}" class="/search"><span class="lnr lnr-magnifier" id="search"></span></a>
+            </li>
+          </ul>
+
+          <ul>
+            <li>
+              <p style="" onclick="togglePopup()">
+                <img style="width:45px;height:45px;margin-left:30px;margin-top:15px;" src="https://play-lh.googleusercontent.com/RRQcnzvZTQuXyDmhTEonTAePeI_NpWU3uJQSkzFumg7UBVhNd7-6kCFYqvaFGI34iw">
+              </p>
+              <div id="popupghichu" class="popupghichu">
+                <div class="popup-contentghichu">
+                  <span class="close" onclick="togglePopup()">&times;</span>
+                  <h3><strong>Ghi Chú - TYN COFFEE</strong></h3>
+                  <form>
+                    <textarea id="noteInput" placeholder="Nhập ghi chú của bạn"></textarea>
+                    <button type="button" onclick="saveNote()">Lưu</button>
+                  </form>
+                  <h4 style="margin-top:10px;">Danh sách ghi chú đã lưu:</h4>
+                  <ul id="noteList"></ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </div>
+
+</header>
+<!-- End Header Area -->
+
+<!-- Start Banner Area -->
+<section th:fragment="banner(title)" class="banner-area organic-breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+
+    </div>
+  </div>
+</section>
+<!-- End Banner Area -->
+
+<!-- start footer Area -->
+<footer th:fragment="footer" class="footer-area section_gap">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Thông Tin Liên Hệ</h6>
+          <p>
+            Số điện thoại: 0931103224
+            Email: tyncoffestore@gmail.com
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-4  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Nhận thông báo mới</h6>
+          <p>Cập nhật tin tức mới nhất</p>
+          <div class="@{/}" id="mc_embed_signup">
+
+            <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                  method="get" class="form-inline">
+
+              <div class="d-flex flex-row">
+
+                <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
+                       required="" type="email">
+
+
+                <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                <div style="position: absolute; left: -5000px;">
+                  <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="@{/}" type="text">
+                </div>
+
+                <!-- <div class="col-lg-4 col-md-4">
+                            <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
+                        </div>  -->
+              </div>
+              <div class="info"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3  col-md-6 col-sm-6">
+        <div class="single-footer-widget mail-chimp">
+          <h6 class="mb-20">Đối tác</h6>
+          <ul class="instafeed d-flex flex-wrap">
+            <li><img src="/img/elements/classiccoffe_doitac.jpg"/></li>
+            <li><img src="/img/elements/coffehouse_doitac.png" alt="@{/}"></li>
+            <li><img src="/img/elements/trungnguyen_doitac.jpg" alt="@{/}"></li>
+            <li><img src="/img/elements/congcafe_doitac.jpg" alt="@{/}"></li>
+            <li><img src="/img/elements/phuclong_doitac.jpg" alt="@{/}"></li>
+            <li><img src="/img/elements/highland_doitac.jpg" alt="@{/}"></li>
+            <li><img src="/img/elements/nescafe_doitac.png" alt="@{/}"></li>
+            <li><img src="/img/elements/vinacafe_doitac.png" alt="@{/}"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Theo dõi chúng tôi</h6>
+          <p>Các trang mạng xã hội</p>
+          <div class="footer-social d-flex align-items-center">
+            <a th:href="@{/}"><i class="fa-brands fa-facebook-square"></i></a>
+            <a th:href="@{/}"><i class="fa-brands fa-instagram"></i></a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+      <p class="footer-text m-0">
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Đồ Án Chuyên Ngành: Bản Quyền Thuộc Về Huỳnh Vĩnh Tiến 2011061897 20DTHB2
+      </p>
+    </div>
+  </div>
+</footer>
+<!-- End footer Area -->
+
+<div th:fragment="scripts">
+  <script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+          crossorigin="anonymous"></script>
+  <script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+  <script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+  <script th:src="@{/js/jquery.nice-select.min.js}"></script>
+  <script th:src="@{/js/jquery.sticky.js}"></script>
+  <script th:src="@{/js/nouislider.min.js}"></script>
+  <script th:src="@{/js/countdown.js}"></script>
+  <script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+  <script th:src="@{/js/owl.carousel.min.js}"></script>
+  <!--gmaps Js-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+  <script th:src="@{/js/gmaps.min.js}"></script>
+  <script th:src="@{/js/main.js}"></script>
+  <script th:src="@{/js/ghichu_script.js}"></script>
+</div>
+
+</body>
+
+</html>

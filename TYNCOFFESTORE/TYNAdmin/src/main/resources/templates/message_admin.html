@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head th:replace="fragments :: header('Admin')">
+  <title>Admin</title>
+</head>
+
+<body>
+<main class="main" id="top">
+  <div class="container-fluid px-0">
+
+    <!--  Begin Navbar Left  -->
+    <nav th:replace="fragments :: navbar-left">
+    </nav>
+    <!--  End Navbar Left  -->
+
+    <!--  Begin Navbar Top  -->
+    <nav th:replace="fragments :: navbar-top">
+    </nav>
+    <!--  End Navbar Top  -->
+
+    <!--  Begin Content  -->
+
+    <!--  End Content  -->
+  </div>
+
+  <div>
+    <h1 style="font-size:30px;text-align:center;font-weight: bold; color:#ff0000;margin-top:80px;margin-left: 200px;"><strong>ADMIN ĐÃ GỬI EMAIL THÀNH CÔNG !!!</strong></h1>
+  </div>
+
+
+
+</main>
+<script th:src="@{/assets/js/phoenix.js}"></script>
+</body>
+
+</html>

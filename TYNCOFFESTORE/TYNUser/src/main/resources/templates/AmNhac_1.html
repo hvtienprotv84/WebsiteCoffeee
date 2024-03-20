@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+
+
+<!--ĐOẠN CODE NAY ĐỂ QUAY TRỞ VỀ TRANG TRƯỚC ĐỂ TIẾP TỤC CHỌN GAME KHÁC VÀ CHƠI-->
+
+<style>
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            background-color: #fd7e14;
+            border-radius: 4px;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+<a th:href="@{/ListAmNhac}" class="back-button" onclick="goBack()">Trờ Về Danh Sách Trò Chơi</a>
+
+<script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+<!--ĐOẠN CODE NAY ĐỂ QUAY TRỞ VỀ TRANG TRƯỚC ĐỂ TIẾP TỤC CHỌN GAME KHÁC VÀ CHƠI-->
+
+<!--ĐOẠN CODE NÀY DÙNG ĐỂ TẢI NHẠC MP3 VỀ MÁY TÍNH-->
+<div>
+  <div style="margin-top:-150px">
+  <img style="width:150px;height:150px;margin-top:180px;margin-left:10px;border-radius: 50%;animation: rotate 30s linear infinite;" src="hinhanhnhacmp3/holo.jpg">
+  <p style="font-size:40px;margin-left:180px;margin-top:-120px"><strong >Holo</strong></p>
+  <p style="font-size:20px;margin-left:180px;margin-top:-10px">Lee Hi</p>
+  <a href="nhacmp3/holo.mp3" download class="download-link">
+    <img style="width:50px;height:50px;margin-left:300px;margin-top:-500px" src="hinhanhnhacmp3/icon_download_mp3_2.png">
+  </a>
+  </div>
+
+  <div style="margin-top:-150px">
+    <img style="width:150px;height:150px;margin-top:180px;margin-left:10px;border-radius: 50%;animation: rotate 30s linear infinite;" src="hinhanhnhacmp3/home.jpg">
+    <p style="font-size:40px;margin-left:180px;margin-top:-120px"><strong >Home</strong></p>
+    <p style="font-size:20px;margin-left:180px;margin-top:-10px">Blake Shelton</p>
+    <a href="nhacmp3/holo.mp3" download class="download-link">
+      <img style="width:50px;height:50px;margin-left:340px;margin-top:-500px" src="hinhanhnhacmp3/icon_download_mp3_2.png">
+    </a>
+  </div>
+
+  <div style="margin-top:-150px">
+    <img style="width:150px;height:150px;margin-top:180px;margin-left:10px;border-radius: 50%;animation: rotate 30s linear infinite;" src="hinhanhnhacmp3/spark.jpg">
+    <p style="font-size:40px;margin-left:180px;margin-top:-120px"><strong >Spark</strong></p>
+    <p style="font-size:20px;margin-left:180px;margin-top:-10px">Thirteen Senses</p>
+    <a href="nhacmp3/holo.mp3" download class="download-link">
+      <img style="width:50px;height:50px;margin-left:350px;margin-top:-500px" src="hinhanhnhacmp3/icon_download_mp3_2.png">
+    </a>
+  </div>
+
+  <div style="margin-top:-150px">
+    <img style="width:150px;height:150px;margin-top:180px;margin-left:10px;border-radius: 50%;animation: rotate 30s linear infinite;" src="hinhanhnhacmp3/lemon_tree.jpg">
+    <p style="font-size:40px;margin-left:180px;margin-top:-120px"><strong >Lemon Tree</strong></p>
+    <p style="font-size:20px;margin-left:180px;margin-top:-10px">DJ Desa</p>
+    <a href="nhacmp3/holo.mp3" download class="download-link">
+      <img style="width:50px;height:50px;margin-left:350px;margin-top:-500px" src="hinhanhnhacmp3/icon_download_mp3_2.png">
+    </a>
+  </div>
+
+  <div style="margin-top:-150px">
+    <img style="width:150px;height:150px;margin-top:180px;margin-left:10px;border-radius: 50%;animation: rotate 30s linear infinite;" src="hinhanhnhacmp3/maroon5_sugar.jpg">
+    <p style="font-size:40px;margin-left:180px;margin-top:-120px"><strong >Sugar</strong></p>
+    <p style="font-size:20px;margin-left:180px;margin-top:-10px">Maroon 5</p>
+    <a href="nhacmp3/holo.mp3" download class="download-link">
+      <img style="width:50px;height:50px;margin-left:350px;margin-top:-500px" src="hinhanhnhacmp3/icon_download_mp3_2.png">
+    </a>
+  </div>
+
+  <div style="margin-top:-150px">
+    <img style="width:150px;height:150px;margin-top:180px;margin-left:10px;border-radius: 50%;animation: rotate 30s linear infinite;" src="hinhanhnhacmp3/westlife.jpg">
+    <p style="font-size:40px;margin-left:180px;margin-top:-120px"><strong >My Love</strong></p>
+    <p style="font-size:20px;margin-left:180px;margin-top:-10px">Westlife</p>
+    <a href="nhacmp3/holo.mp3" download class="download-link">
+      <img style="width:50px;height:50px;margin-left:350px;margin-top:-500px" src="hinhanhnhacmp3/icon_download_mp3_2.png">
+    </a>
+  </div>
+
+  <!--LIST TẢI NHẠC VỀ BÊN PHẢI-->
+  <div style="margin-top:-870px;margin-left:-100px">
+  <img style="width:150px;height:150px;margin-left:1150px;margin-top:-1500px;border-radius: 50%;animation: rotate 30s linear infinite;" src="hinhanhnhacmp3/westlife.jpg">
+    <p style="font-size:40px;margin-left:1330px;margin-top:-120px"><strong >Sugar</strong></p>
+    <p style="font-size:20px;margin-left:1335px;margin-top:-10px">Maroon 5</p>
+    <a href="nhacmp3/holo.mp3" download class="download-link">
+      <img style="width:50px;height:50px;margin-left:1480px;margin-top:-500px" src="hinhanhnhacmp3/icon_download_mp3_2.png">
+    </a>
+  </div>
+
+  <div>
+    <img style="width:150px;height:150px;margin-left:1050px;margin-top:30px;border-radius: 50%;animation: rotate 30s linear infinite;" src="hinhanhnhacmp3/westlife.jpg">
+    <p style="font-size:40px;margin-left:1230px;margin-top:-120px"><strong >Sugar</strong></p>
+    <p style="font-size:20px;margin-left:1230px;margin-top:-10px">Maroon 5</p>
+    <a href="nhacmp3/holo.mp3" download class="download-link">
+      <img style="width:50px;height:50px;margin-left:1380px;margin-top:-500px" src="hinhanhnhacmp3/icon_download_mp3_2.png">
+    </a>
+  </div>
+
+  <div>
+    <img style="width:150px;height:150px;margin-left:1050px;margin-top:30px;border-radius: 50%;animation: rotate 30s linear infinite;" src="hinhanhnhacmp3/westlife.jpg">
+    <p style="font-size:40px;margin-left:1230px;margin-top:-120px"><strong >Sugar</strong></p>
+    <p style="font-size:20px;margin-left:1230px;margin-top:-10px">Maroon 5</p>
+    <a href="nhacmp3/holo.mp3" download class="download-link">
+      <img style="width:50px;height:50px;margin-left:1380px;margin-top:-500px" src="hinhanhnhacmp3/icon_download_mp3_2.png">
+    </a>
+  </div>
+
+  <div>
+    <img style="width:150px;height:150px;margin-left:1050px;margin-top:30px;border-radius: 50%;animation: rotate 30s linear infinite;" src="hinhanhnhacmp3/westlife.jpg">
+    <p style="font-size:40px;margin-left:1230px;margin-top:-120px"><strong >Sugar</strong></p>
+    <p style="font-size:20px;margin-left:1230px;margin-top:-10px">Maroon 5</p>
+    <a href="nhacmp3/holo.mp3" download class="download-link">
+      <img style="width:50px;height:50px;margin-left:1380px;margin-top:-500px" src="hinhanhnhacmp3/icon_download_mp3_2.png">
+    </a>
+  </div>
+
+  <div>
+    <img style="width:150px;height:150px;margin-left:1050px;margin-top:30px;border-radius: 50%;animation: rotate 30s linear infinite;" src="hinhanhnhacmp3/westlife.jpg">
+    <p style="font-size:40px;margin-left:1230px;margin-top:-120px"><strong >Sugar</strong></p>
+    <p style="font-size:20px;margin-left:1230px;margin-top:-10px">Maroon 5</p>
+    <a href="nhacmp3/holo.mp3" download class="download-link">
+      <img style="width:50px;height:50px;margin-left:1380px;margin-top:-500px" src="hinhanhnhacmp3/icon_download_mp3_2.png">
+    </a>
+  </div>
+
+  <div>
+    <img style="width:150px;height:150px;margin-left:1050px;margin-top:30px;border-radius: 50%;animation: rotate 30s linear infinite;" src="hinhanhnhacmp3/westlife.jpg">
+    <p style="font-size:40px;margin-left:1230px;margin-top:-120px"><strong >Sugar</strong></p>
+    <p style="font-size:20px;margin-left:1230px;margin-top:-10px">Maroon 5</p>
+    <a href="nhacmp3/holo.mp3" download class="download-link">
+      <img style="width:50px;height:50px;margin-left:1380px;margin-top:-500px" src="hinhanhnhacmp3/icon_download_mp3_2.png">
+    </a>
+  </div>
+
+  <div>
+    <img style="width:150px;height:150px;margin-left:1050px;margin-top:30px;border-radius: 50%;animation: rotate 30s linear infinite;" src="hinhanhnhacmp3/westlife.jpg">
+    <p style="font-size:40px;margin-left:1230px;margin-top:-120px"><strong >Sugar</strong></p>
+    <p style="font-size:20px;margin-left:1230px;margin-top:-10px">Maroon 5</p>
+    <a href="nhacmp3/holo.mp3" download class="download-link">
+      <img style="width:50px;height:50px;margin-left:1380px;margin-top:-500px" src="hinhanhnhacmp3/icon_download_mp3_2.png">
+    </a>
+  </div>
+
+
+
+
+
+
+  <!--ĐOẠN <STYLE> NÀY DÙNG ĐỂ XOAY HÌNH BÀI HÁT ÂM NHẠC-->
+  <style>
+    @keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+  </style>
+  <!--ĐOẠN <STYLE> NÀY DÙNG ĐỂ XOAY HÌNH BÀI HÁT ÂM NHẠC-->
+</div>
+<!--ĐOẠN CODE NÀY DÙNG ĐỂ TẢI NHẠC MP3 VỀ MÁY TÍNH-->
+
+<body>
+
+
+
+
+
+<style>
+  :root {
+    --primary-color: #ec1f55;
+    --text-color: #333;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+body {
+  background-color: #f5f5f5; /*mã màu background trắng*/
+
+  //background-image: url("hinhanhtintuc/background_music_usuk_2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.player {
+    position: relative;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.player .icon-pause {
+    display: none;
+}
+
+.player.playing .icon-pause {
+    display: inline-block;
+}
+
+.player.playing .icon-play {
+    display: none;
+}
+
+.dashboard {
+    padding: 16px 16px 14px;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 480px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+header h4 {
+    color: var(--primary-color);
+    font-size: 12px;
+}
+
+header h2 {
+    color: var(--text-color);
+    font-size: 20px;
+}
+
+/* CD */
+.cd {
+    display: flex;
+    margin: auto;
+    width: 200px;
+}
+
+.cd-thumb {
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 50%;
+    background-color: #333;
+    background-size: cover;
+    margin: auto;
+}
+
+/* CONTROL */
+.control {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 18px 0 8px 0;
+}
+
+.control .btn {
+    color: #666;
+    padding: 18px;
+    font-size: 18px;
+}
+
+.control .btn.active {
+    color: var(--primary-color);
+}
+
+.control .btn-toggle-play {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+}
+
+.progress {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 6px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+}
+
+.progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 6px;
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* PLAYLIST */
+.playlist {
+    margin-top: -650px;
+    //margin-top: 300px;
+    padding: 12px;
+}
+
+.song {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    background-color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.song.active {
+    background-color: var(--primary-color);
+}
+
+.song:active {
+    opacity: 0.8;
+}
+
+.song.active .option,
+.song.active .author,
+.song.active .title {
+    color: #fff;
+}
+
+.song .thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-size: cover;
+    margin: 0 8px;
+}
+
+.song .body {
+    flex: 1;
+    padding: 0 16px;
+}
+
+.song .title {
+    font-size: 18px;
+    color: var(--text-color);
+}
+
+.song .author {
+    font-size: 12px;
+    color: #999;
+}
+
+.song .option {
+    padding: 16px 8px;
+    color: #999;
+    font-size: 18px;
+}
+
+</style>
+
+
+
+
+<div class="player">
+  <!-- Dashboard -->
+  <div class="dashboard">
+    <!-- Header -->
+    <header>
+      <h4>Now playing:</h4>
+      <h2>String 57th & 9th</h2>
+    </header>
+
+    <!-- CD -->
+    <div class="cd">
+      <div class="cd-thumb"
+           style="background-image: url('https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg')">
+      </div>
+    </div>
+
+    <!-- Control -->
+    <div class="control">
+      <div class="btn btn-repeat">
+        <i class="fas fa-redo"></i>
+      </div>
+      <div class="btn btn-prev">
+        <i class="fas fa-step-backward"></i>
+      </div>
+      <div class="btn btn-toggle-play">
+        <i class="fas fa-pause icon-pause"></i>
+        <i class="fas fa-play icon-play"></i>
+      </div>
+      <div class="btn btn-next">
+        <i class="fas fa-step-forward"></i>
+      </div>
+      <div class="btn btn-random">
+        <i class="fas fa-random"></i>
+      </div>
+    </div>
+
+    <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100">
+
+    <audio id="audio" src=""></audio>
+  </div>
+
+  <!-- Playlist -->
+  <div class="playlist"></div>
+</div>
+
+
+
+
+
+<script>
+        /**
+        * 1. Render songs
+        * 2. Scroll top
+        * 3. Play / pause / seek
+        * 4. CD rotate
+        * 5. Next / prev
+        * 6. Random
+        * 7. Next / Repeat when ended
+        * 8. Active song
+        * 9. Scroll active song into view
+        * 10. Play song when click
+        */
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+
+        const PLAYER_STORAGE_KEY = 'TB_PLAYER';
+
+        const player = $('.player');
+        const cd = $('.cd');
+        const heading = $('header h2');
+        const cdThumb = $('.cd-thumb');
+        const audio = $('#audio');
+        const playBtn = $('.btn-toggle-play');
+        const progress = $('#progress');
+        const nextBtn = $('.btn-next');
+        const prevBtn = $('.btn-prev');
+        const randomBtn = $('.btn-random');
+        const repeatBtn = $('.btn-repeat');
+        const playlist = $('.playlist');
+
+        const app = {
+            currentIndex: 0,
+            isPlaying: false,
+            isRandom: false,
+            isRepeat: false,
+            config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
+            songs: [
+                {
+                    name: 'Holo',
+                    singer: 'Lee Hi',
+                    path: './nhacmp3/holo.mp3',
+                    image: './hinhanhnhacmp3/holo.jpg'
+                },
+                {
+                    name: 'Home',
+                    singer: 'Blake Shelton',
+                    path: './nhacmp3/home.mp3',
+                    image: './hinhanhnhacmp3/home.jpg'
+                },
+                {
+                    name: 'Spark',
+                    singer: 'Thirteen Senses',
+                    path: './nhacmp3/spark.mp3',
+                    image: './hinhanhnhacmp3/spark.jpg'
+                },
+                {
+                    name: 'Lemon Tree',
+                    singer: 'DJ Desa',
+                    path: './nhacmp3/LemonTreeRemix-DJDesa-6818981.mp3',
+                    image: './hinhanhnhacmp3/lemon_tree.jpg'
+                },
+                {
+                    name: 'Sugar',
+                    singer: 'Maroon 5',
+                    path: './nhacmp3/Sugar - Maroon 5.mp3',
+                    image: './hinhanhnhacmp3/maroon5_sugar.jpg'
+                },
+                {
+                    name: 'My Love',
+                    singer: 'Westlife',
+                    path: './nhacmp3/My Love - Westlife.mp3',
+                    image: './hinhanhnhacmp3/westlife.jpg'
+
+                },
+                {
+                    name: 'Summer',
+                    singer: 'Westlife',
+                    path: './nhacmp3/summer.mp3',
+                    image: './hinhanhnhacmp3/westlife.jpg'
+
+                },
+                {
+                    name: 'Summer',
+                    singer: 'Westlife',
+                    path: './nhacmp3/summer.mp3',
+                    image: './hinhanhnhacmp3/westlife.jpg'
+
+                },
+                {
+                    name: 'Summer',
+                    singer: 'Westlife',
+                    path: './nhacmp3/summer.mp3',
+                    image: './hinhanhnhacmp3/westlife.jpg'
+
+                },
+                {
+                    name: 'Summer',
+                    singer: 'Westlife',
+                    path: './nhacmp3/summer.mp3',
+                    image: './hinhanhnhacmp3/westlife.jpg'
+
+                },
+                {
+                    name: 'Summer',
+                    singer: 'Westlife',
+                    path: './nhacmp3/summer.mp3',
+                    image: './hinhanhnhacmp3/westlife.jpg'
+
+                },
+                {
+                    name: 'Summer',
+                    singer: 'Westlife',
+                    path: './nhacmp3/summer.mp3',
+                    image: './hinhanhnhacmp3/westlife.jpg'
+
+                },
+            ],
+            setConfig: function (key, value) {
+                this.config[key] = value;
+                localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
+            },
+            render: function () {
+                const htmls = this.songs.map((song, index) => {
+                    return `
+                    <div class="song ${index === this.currentIndex ? 'active' : ''}" data-index="${index}">
+                        <div class="thumb"
+                            style="background-image: url('${song.image}')">
+                        </div>
+                        <div class="body">
+                            <h3 class="title">${song.name}</h3>
+                            <p class="author">${song.singer}</p>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                        <div class="option">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+
+
+
+                    </div>
+                    `
+                });
+                playlist.innerHTML = htmls.join('');
+            },
+            defineProperties: function () {
+                Object.defineProperty(this, 'currentSong', {
+                    get: function () {
+                        return this.songs[this.currentIndex];
+                    }
+                });
+            },
+            handleEvents: function () {
+                const _this = this;
+                const cdWith = cd.offsetWidth;
+
+                // Xử lý CD quay / dừng (JavaScript Web Animations API)
+                const cdThumbAnimation = cdThumb.animate([
+                    { transform: 'rotate(360deg)' }
+                ], {
+                    duration: 10000, //10 seconds
+                    interations: Infinity
+                });
+                cdThumbAnimation.pause();
+
+                // Xử lý phóng to thu nhỏ CD
+                document.onscroll = function () {
+                    // Vì scrollY trên một số trình duyệt có thể không hoạt động nên check điều kiện
+                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                    const newCdWith = cdWith - scrollTop;
+
+                    // Vì nếu scroll nhanh thì newCdWith sẽ thành số âm nên cần check
+                    cd.style.width = newCdWith > 0 ? newCdWith + 'px' : 0;
+
+                    //Mờ dần khi kích thước mới nhỏ dần
+                    cd.style.opacity = newCdWith / cdWith;
+                }
+
+                // Xử lý khi click play
+                playBtn.onclick = function () {
+                    if (_this.isPlaying) {
+                        audio.pause();
+                    } else {
+                        audio.play();
+                    }
+                }
+
+                // Xử lý khi audio được play
+                audio.onplay = function () {
+                    _this.isPlaying = true;
+                    player.classList.add('playing');
+                    cdThumbAnimation.play();
+                };
+
+                // Xử lý khi audio bị pause
+                audio.onpause = function () {
+                    _this.isPlaying = false;
+                    player.classList.remove('playing');
+                    cdThumbAnimation.pause();
+                };
+
+                // Xử lý khi tua song
+                progress.onchange = function (e) {
+                    const seekTime = audio.duration / 100 * e.target.value;
+                    audio.currentTime = seekTime;
+                }
+
+                // Xử lý khi tiến độ bài hát thay đổi
+                audio.ontimeupdate = function () {
+                    const progressPercent = audio.currentTime / audio.duration * 100;
+                    progress.value = progressPercent;
+                }
+
+                // Xử lý next song
+                nextBtn.onclick = function () {
+                    if (_this.isRandom) {
+                        _this.playRandomSong();
+                    } else {
+                        _this.nextSong();
+                    }
+                    _this.render();
+                    audio.play();
+                    _this.scrollToActiveSong();
+                }
+
+                // Xử lý prev song
+                prevBtn.onclick = function () {
+                    if (_this.isRandom) {
+                        _this.playRandomSong();
+                    } else {
+                        _this.prevSong();
+                    }
+                    _this.render();
+                    audio.play();
+                    _this.scrollToActiveSong();
+                }
+
+                // Xử lý bật / tắt random song
+                randomBtn.onclick = function () {
+                    _this.isRandom = !_this.isRandom;
+                    _this.setConfig('isRandom', _this.isRandom);
+
+                    // Nếu đối số thứ 2 là true thì add class active
+                    randomBtn.classList.toggle('active', _this.isRandom);
+                }
+
+                // Xử lý lặp lại song
+                repeatBtn.onclick = function () {
+                    _this.isRepeat = !_this.isRepeat;
+                    _this.setConfig('isRepeat', _this.isRepeat);
+                    repeatBtn.classList.toggle('active', _this.isRepeat);
+                }
+
+                // Xử lý next khi audio ended
+                audio.onended = function () {
+                    if (_this.isRepeat) {
+                        audio.play();
+                    } else {
+                        // Gọi click() như thao tác của người dùng click vào element
+                        nextBtn.click();
+                    }
+                }
+
+                //Lắng nghe hành vi click vào playlist
+                playlist.onclick = function (e) {
+                    // closet tìm xem chính nó hoặc cha có class đó hay không
+                    const songNode = e.target.closest('.song:not(.active)');
+                    if (songNode || e.target.closest('.option')) {
+                        // Xử lý khi click vào song
+                        if (songNode) {
+                            _this.currentIndex = Number(songNode.dataset.index);
+                            _this.loadCurrentSong();
+                            _this.render();
+                            audio.play();
+                        }
+
+                        // Xử lý khi click vào song option
+                        if (e.target.closest('.option')) {
+
+                        }
+                    }
+                };
+            },
+            scrollToActiveSong: function () {
+                setTimeout(() => {
+                    $('.song.active').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'end'
+                    })
+                }, 300)
+            },
+            loadCurrentSong: function () {
+                heading.innerText = this.currentSong.name;
+                cdThumb.style.backgroundImage = `url(${this.currentSong.image})`;
+                audio.src = this.currentSong.path;
+            },
+            loadConfig: function () {
+                this.isRandom = this.config.isRandom;
+                this.isRepeat = this.config.isRepeat;
+            },
+            nextSong: function () {
+                this.currentIndex++;
+                if (this.currentIndex >= this.songs.length) {
+                    this.currentIndex = 0;
+                }
+                this.loadCurrentSong();
+            },
+            prevSong: function () {
+                this.currentIndex--;
+                if (this.currentIndex < 0) {
+                    this.currentIndex = this.songs.length - 1;
+                }
+                this.loadCurrentSong();
+            },
+            playRandomSong: function () {
+                let newIndex;
+                do {
+                    newIndex = Math.floor(Math.random() * this.songs.length);
+                    // Nếu bài hát random là bài hiện tại thì random tiếp đến bài khác bài hiện tại
+                } while (newIndex == this.currentIndex);
+                this.currentIndex = newIndex;
+                this.loadCurrentSong();
+            },
+            start: function () {
+                // Gán cấu hình từ config vào ứng dụng
+                this.loadConfig();
+
+                // Định nghĩa các thuộc tính cho object
+                this.defineProperties();
+
+                // Lắng nghe / xử lý các sự kiện (DOM Events)
+                this.handleEvents();
+
+                // Tải thông tin bài hát đầu tiên khi chạy ứng dụng
+                this.loadCurrentSong();
+
+                // Reder playlist
+                this.render();
+
+                // Hiển thị trạng thái ban đầu của button repeat & random
+                randomBtn.classList.toggle('active', this.isRandom);
+                repeatBtn.classList.toggle('active', this.isRepeat);
+            }
+        }
+        app.start();
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

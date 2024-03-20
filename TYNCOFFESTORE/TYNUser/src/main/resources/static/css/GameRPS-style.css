@@ -1,0 +1,71 @@
+/* #player-name-entry {
+    width: 20vw;
+} */
+
+body {
+    background: url(../images/contemporary_china_2.png);
+}
+
+.bg-header {
+    border: 5px solid lightblue;
+    background: url(../images/memphis-colorful.png);
+}
+
+.border-p1 {
+    border: 8px solid red;
+}
+
+.border-p2 {
+    border: 8px solid blue;
+}
+
+.Scissors-size {
+    height: 400px;
+    width: 400px;
+}
+
+.Paper-size {
+    height: 400px;
+    width: 400px;
+}
+
+.Rock-size {
+    height: 400px;
+    width: 400px;
+}
+
+@media screen and (max-width:1350px) {
+
+    .Scissors-size {
+        height: 300px;
+        width: 300px;
+    }
+
+    .Paper-size {
+        height: 300px;
+        width: 300px;
+    }
+
+    .Rock-size {
+        height: 300px;
+        width: 300px;
+    }
+}
+
+@media screen and (max-width:975px) {
+
+    .Scissors-size {
+        height: 225px;
+        width: 225px;
+    }
+
+    .Paper-size {
+        height: 225px;
+        width: 225px;
+    }
+
+    .Rock-size {
+        height: 225px;
+        width: 225px;
+    }
+}

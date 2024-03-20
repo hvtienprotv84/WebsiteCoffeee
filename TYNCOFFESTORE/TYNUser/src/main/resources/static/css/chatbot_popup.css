@@ -1,0 +1,102 @@
+.chatbot-popup {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 400px;
+  height: 400px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.chatbot-container {
+  position: relative;
+  height: 100%;
+}
+
+.chatbot-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.chatbot-title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.chatbot-log {
+  height: 300px;
+  margin-bottom: 10px;
+  padding: 10px;
+  overflow-y: auto;
+  //background-image: url("img/background_chatbot3.gif");
+  background-size: 50% 50%; //đoạn này giúp 1 ảnh chia thành 4 ảnh
+}
+
+.user-input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  padding: 0 10px;
+}
+
+#userInput {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 20px;
+  background-image:https://static.vecteezy.com/system/resources/previews/004/996/790/original/robot-chatbot-icon-sign-free-vector.jpg;
+}
+
+#sendButton {
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+#closeButton {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+.chat-log {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: -210px;
+  background-color: #ddd;
+}
+
+.bot-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+  background-color: #ddd;
+}

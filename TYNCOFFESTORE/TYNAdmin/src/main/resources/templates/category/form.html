@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: header('Thể loại')">
+  <title>Admin</title>
+</head>
+
+<body>
+<main class="main" id="top">
+  <div class="container-fluid px-0">
+
+    <!--  Begin Navbar Left  -->
+    <nav th:replace="fragments :: navbar-left">
+    </nav>
+    <!--  End Navbar Left  -->
+
+    <!--  Begin Navbar Top  -->
+    <nav th:replace="fragments :: navbar-top">
+    </nav>
+    <!--  End Navbar Top  -->
+
+    <!--  Begin Content  -->
+    <div class="content">
+      <div class="card shadow-none border border-300 my-5">
+        <div class="card-header p-4 border-bottom border-300 bg-soft">
+          <div class="row g-3 justify-content-between align-items-center">
+            <div class="col-12 col-md">
+              <h3 class="text-900 mb-0" th:text="${category.id != null ? 'Cập nhật thể loại' : 'Thêm thể loại'}"></h3>
+            </div>
+            <div class="col col-md-auto">
+              <a th:href="@{/categories}" class="btn btn-phoenix-primary me-1 mb-1">
+                <span data-feather="arrow-left"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <div class="p-4 code-to-copy">
+            <form th:action="@{/categories/saveOrUpdate}" th:object="${category}" method="post" enctype="multipart/form-data">
+              <input type="hidden" th:field="*{id}">
+              <input type="hidden" th:field="*{image}">
+
+              <div class="row mb-3">
+                <label th:for="name" class="col-sm-2 col-form-label col-form-label-lg">Tên</label>
+                <div class="col-sm-10">
+                  <input th:field="*{name}" class="form-control form-control-lg" required type="text" placeholder="vd: Cafe Arabica">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label th:for="fileUpload" class="col-sm-2 col-form-label col-form-label-lg">Hình ảnh</label>
+                <div class="col-sm-10">
+                  <input th:if="*{id == null}" name="fileUpload" th:id="fileUpload" class="form-control" required type="file" accept="image/png, image/jpeg">
+                  <input th:if="*{id != null}" name="fileUpload" th:id="fileUpload" class="form-control" type="file" accept="image/png, image/jpeg">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <img th:src="@{*{imagePathDisplay}}" id="imagePreview" style="width: 200px;"/>
+              </div>
+              <div class="row mb-3">
+                <div class="col-12 text-end">
+                  <button type="submit" class="btn btn-phoenix-success"><span data-feather="save"></span> Lưu</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Begin footer -->
+      <footer class="footer" th:replace="fragments :: footer">
+      </footer>
+      <!-- End footer -->
+    </div>
+    <!--  End Content  -->
+
+  </div>
+</main>
+<div th:replace="fragments :: modalDialog"></div>
+<script th:replace="fragments :: scripts"></script>
+<script>
+  $(document).ready(function() {
+    $("#fileUpload").on("change", function() {
+      const file = this.files[0];
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        $("#imagePreview").attr("src", e.target.result);
+      }
+
+      reader.readAsDataURL(file);
+    })
+  })
+
+</script>
+</body>
+
+</html>

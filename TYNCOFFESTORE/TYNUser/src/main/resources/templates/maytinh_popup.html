@@ -1,0 +1,132 @@
+<div>
+  <button id="open-calculator">Mở máy tính</button>
+
+  <div id="calculator-popup" class="calculator-popup">
+    <div class="calculator-content">
+      <div class="calculator-header">
+        <h3>Máy tính</h3>
+        <button id="close-calculator">&times;</button>
+      </div>
+      <div class="calculator-body">
+        <input type="text" id="calc-display" readonly>
+        <div class="calculator-buttons">
+          <button class="calc-button" onclick="appendToDisplay('7')">7</button>
+          <button class="calc-button" onclick="appendToDisplay('8')">8</button>
+          <button class="calc-button" onclick="appendToDisplay('9')">9</button>
+          <button class="calc-button operator" onclick="appendToDisplay('+')">+</button>
+          <button class="calc-button" onclick="appendToDisplay('4')">4</button>
+          <button class="calc-button" onclick="appendToDisplay('5')">5</button>
+          <button class="calc-button" onclick="appendToDisplay('6')">6</button>
+          <button class="calc-button operator" onclick="appendToDisplay('-')">-</button>
+          <button class="calc-button" onclick="appendToDisplay('1')">1</button>
+          <button class="calc-button" onclick="appendToDisplay('2')">2</button>
+          <button class="calc-button" onclick="appendToDisplay('3')">3</button>
+          <button class="calc-button operator" onclick="appendToDisplay('*')">*</button>
+          <button class="calc-button" onclick="appendToDisplay('0')">0</button>
+          <button class="calc-button" onclick="appendToDisplay('.')">.</button>
+          <button class="calc-button operator" onclick="calculate()">=</button>
+          <button class="calc-button operator" onclick="appendToDisplay('/')">/</button>
+          <button class="calc-button clear" onclick="clearDisplay()">C</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+.calculator-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 9999;
+  border-radius: 5px;
+}
+
+.calculator-content {
+  width: 300px;
+}
+
+.calculator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calculator-header h3 {
+  margin: 0;
+}
+
+.calculator-buttons {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+}
+
+.calc-button {
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.operator {
+  background-color: #f78c20;
+  color: #fff;
+}
+
+.clear {
+  background-color: #e84c3d;
+  color: #fff;
+}
+
+#calc-display {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-align: right;
+  border: none;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  color: #333;
+}
+</style>
+
+
+  <script>
+document.getElementById("open-calculator").addEventListener("click", function() {
+  document.getElementById("calculator-popup").style.display = "block";
+});
+
+document.getElementById("close-calculator").addEventListener("click", function() {
+  document.getElementById("calculator-popup").style.display = "none";
+});
+
+var display = document.getElementById("calc-display");
+
+function appendToDisplay(value) {
+  display.value += value;
+}
+
+function calculate() {
+  try {
+    display.value = eval(display.value);
+  } catch (error) {
+    display.value = 'Error';
+  }
+}
+
+function clearDisplay() {
+  display.value = '';
+}
+</script>
+</div>

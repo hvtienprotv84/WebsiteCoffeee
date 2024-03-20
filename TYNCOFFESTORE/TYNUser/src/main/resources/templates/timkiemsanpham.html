@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" th:href="@{/css/ghichu_style.css}">
+<link rel="stylesheet" th:href="@{/css/button_ontop.css}">
+<link rel="stylesheet" th:href="@{/css/dropdown_button_bentrai.css}">
+<link rel="stylesheet" th:href="@{/css/popup_thongbao_2luachon_email.css}">
+<link rel="stylesheet" th:href="@{/css/maytinhpopup.css}">
+<link rel="stylesheet" th:href="@{/css/chatbot_popup.css}">
+
+<head th:replace="fragments :: head">
+    <title>GIỚI THIỆU | TYN COFFE STORE</title>
+</head>
+
+<body>
+
+<!-- Start Header Area -->
+<header th:replace="fragments :: header" class="header_area sticky-header">
+</header>
+<!-- End Header Area -->
+
+<!-- Start Banner Area -->
+<section th:replace="fragments :: banner('TYN Store Xin Chào!')" class="banner-area organic-breadcrumb">
+    <h1 >Giới Thiệu</h1>
+
+</section>
+
+<!-- End Banner Area -->
+
+<!-- start features Area -->
+<!--
+style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" //ĐOẠN CODE NÀY GIÚP GHI ĐÈ
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 24px; font-weight: bold;">
+    Cafe Arabica
+</div>
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <img src="img/sanpham_cafe/Hình-App_3006021-Cà-Phê-Đen.jpg" alt="Ảnh nhỏ" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);;width: 80px; height:80px;border-radius: 50%;margin-top:150px; margin-left: -715px;">
+</div>
+-->
+<h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 37px; font-weight: bold; margin-top: -150px; text-align: center;">TÌM KIẾM SẢN PHẨM - TYN COFFEE STORE</h1>
+
+<input style="width:450px;height:50px;margin-top:30px;border-radius: 10px;margin-left:500px" type="text" id="searchInput" placeholder=" Tìm Kiếm Sản Phẩm">
+<button style="width:100px;height:50px;border-radius: 10px;margin-left:20px;margin-bottom:20px" onclick="searchProduct()">Tìm Kiếm</button>
+
+<img onclick="startRecording()" style="width:20px;height:20px;margin-left:-160px;" src="https://cdn-icons-png.flaticon.com/512/1082/1082810.png" alt="Mô tả ảnh">
+<!--Ghi âm-->
+
+<button style="margin-left:160px;border-radius:10px;" onclick="sortProductsByPrice('asc')">Giá tăng dần</button>
+<button style="margin-left:5px;border-radius:10px;"onclick="sortProductsByPrice('desc')">Giá giảm dần</button>
+<div id="searchResults"></div>
+
+<!--ĐOẠN CODE TẠO CHỨC NĂNG PHÂN LOẠI SẢN PHẨM-->
+<div style="position: absolute; top: 0; left: 0;border-radius: 6px;border: 3px solid #ffbb00;margin-left:340px;margin-top:302px">
+  <span style="order: 2;"> <!--ĐOẠN CODE NÀY DÙNG style="order: 2;" vì button phân loại được HTML tạo sẵn nên phải dùng để chuyển sang trái sang phải-->
+    <select id="categoryInput" onchange="searchProduct()">
+      <option value="">Tất cả</option>
+      <option value="Cà Phê Arabica">Cà Phê Arabica</option>
+      <option value="Cà Phê Robusta">Cà Phê Robusta</option>
+      <option value="Cà Phê Culi">Cà Phê Culi</option>
+      <option value="Cà Phê Cherry">Cà Phê Cherry</option>
+      <option value="Cà Phê Moka">Cà Phê Moka</option>
+      <option value="Thức Uống Khác">Thức Uống Khác</option>
+    </select>
+  </span>
+</div>
+<!--ĐOẠN CODE TẠO CHỨC NĂNG PHÂN LOẠI SẢN PHẨM-->
+
+
+<script>
+var products = [
+  {
+  name: "Cafe Đen Đá",
+  price: 25000,
+  image: "img/sanpham_cafe/Hình-App_3006021-Cà-Phê-Đen.jpg",
+  category: "Cà Phê Arabica",
+  page: "/details?id=1"
+  },
+
+  {
+  name: "Bạc Xỉu Đá",
+  price: 25000,
+  image: "img/sanpham_cafe/bacxiuda.jpg",
+  category: "Cà Phê Arabica",
+  page: "/details?id=15"
+  },
+
+  {
+  name: "Cà Phê Cold Brew Sữa Tươi",
+  price: 45000,
+  image: "img/sanpham_cafe/coldbrewsuatuoi.PNG",
+  category: "Cà Phê Arabica",
+  page: "/details?id=16"
+  },
+
+  {
+  name: "Cafe Sữa Đá",
+  price: 35000,
+  image: "img/sanpham_cafe/Hình-App_3006021-Cà-Phê-Sữa.jpg",
+  category: "Cà Phê Robusta",
+  page: "/details?id=2"
+  },
+
+  {
+  name: "Cafe Trà Sữa Full Topping",
+  price: 85000,
+  image: "img/sanpham_cafe/Hình-App_3006021-Trà-Sữa-Thạch-Cà-Phê-300x300.jpg",
+  category: "Cà Phê Robusta",
+  page: "/details?id=8"
+  },
+
+  {
+  name: "Cà Phê Cold Bred",
+  price: 60000,
+  image: "img/sanpham_cafe/1675329120_coldbrew-pbt_127e09b0000c4027992bc3168899a656.jpg",
+  category: "Cà Phê Robusta",
+  page: "/details?id=17"
+  },
+
+  {
+  name: "Cafe Ca Cao Sữa Dừa",
+  price: 55000,
+  image: "img/sanpham_cafe/Hình-App_3006021-Cà-Phê-Ca-Cao-Sữa-Dừa.jpg",
+  category: "Cà Phê Culi",
+  page: "/details?id=3"
+  },
+
+  {
+  name: "Cafe Việt Quất Sữa",
+  price: 65000,
+  image: "img/sanpham_cafe/1-768x768.jpg",
+  category: "Cà Phê Culi",
+  page: "/details?id=6"
+  },
+
+  {
+  name: "Cafe Muối",
+  price: 25000,
+  image: "img/sanpham_cafe/cafe-muói.png",
+  category: "Cà Phê Culi",
+  page: "/details?id=9"
+  },
+
+  {
+  name: "Cafe Bạc Hà Sữa Dừa",
+  price: 45000,
+  image: "img/sanpham_cafe/Hình-App_3006021-Sữa-Tươi-Hoa-Đậu-Biếc-300x300.jpg",
+  category: "Cà Phê Cherry",
+  page: "/details?id=4"
+  },
+
+  {
+  name: "Đường Đen Marble Latte",
+  price: 55000,
+  image: "img/sanpham_cafe/1686716537_dd-latte_785591205184481597a2a79b9331e03b.jpg",
+  category: "Cà Phê Cherry",
+  page: "/details?id=18"
+  },
+
+  {
+  name: "Caramel Macchiato Đá",
+  price: 55000,
+  image: "img/sanpham_cafe/caramel-macchiato_143623_0e070a39d0e54e808db4d91049430b51.jpg",
+  category: "Cà Phê Cherry",
+  page: "/details?id=19"
+  },
+
+  {
+  name: "Cafe Nhiều Sữa",
+  price: 75000,
+  image: "img/sanpham_cafe/Hình-App_3006021-Latte-Đá-300x300.jpg",
+  category: "Cà Phê Moka",
+  page: "/details?id=5"
+  },
+
+  {
+  name: "Cafe Đen Đá Big Size",
+  price: 70000,
+  image: "img/sanpham_cafe/Cafe-đen-4.png",
+  category: "Cà Phê Moka",
+  page: "/details?id=7"
+  },
+
+  {
+  name: "Cappuccino Đá",
+  price: 55000,
+  image: "img/sanpham_cafe/capu-da_487470_e06d3835cbc84e51bd635b04d541494e.jpg",
+  category: "Cà Phê Moka",
+  page: "/details?id=20"
+  },
+
+  {
+  name: "Trà Chanh Muối Thanh Nhiệt",
+  price: 15000,
+  image: "img/sanpham_cafe/Hình-App_3006021-Trà-Đào-Hạt-Chia-300x300.jpg",
+  category: "Thức Uống Khác",
+  page: "/details?id=10"
+  },
+
+  {
+  name: "Nước Ép Dưa Hấu",
+  price: 25000,
+  image: "img/sanpham_cafe/Hình-App_3006021-Ép-Dưa-Hấu-300x300.jpg",
+  category: "Thức Uống Khác",
+  page: "/details?id=11"
+  },
+
+  {
+  name: "Nước Ép Cam Sữa",
+  price: 25000,
+  image: "img/sanpham_cafe/2-300x300.jpg",
+  category: "Thức Uống Khác",
+  page: "/details?id=12"
+  },
+
+  {
+  name: "Trà Chanh Sả Gừng",
+  price: 15000,
+  image: "img/sanpham_cafe/Hình-App_3006021-Chanh-Sả-Gừng-Hạt-Chi-300x300.jpg",
+  category: "Thức Uống Khác",
+  page: "/details?id=13"
+  },
+
+  {
+  name: "Cafe one",
+  price: 45000,
+  image: "img/sanpham_cafe/Hình-App_3006021-Sữa-Tươi-Hoa-Đậu-Biếc-300x300.jpg",
+  category: "Cà Phê Cherry",
+  page: "/details?id=4"
+  },
+
+];
+
+function searchProduct() {
+  var searchInput = document.getElementById("searchInput").value.toLowerCase();
+  var categoryInput = document.getElementById("categoryInput").value.toLowerCase();
+  var searchResults = document.getElementById("searchResults");
+  searchResults.innerHTML = "";
+
+  var foundProducts = products.filter(function(product) {
+    var matchName = product.name.toLowerCase().includes(searchInput);
+    var matchCategory = product.category.toLowerCase().includes(categoryInput);
+    return matchName && matchCategory;
+  });
+
+  if (foundProducts.length > 0) {
+    foundProducts.forEach(function(product) {
+      var productElement = document.createElement("div");
+      productElement.classList.add("product");
+
+      var imageElement = document.createElement("img");
+      imageElement.src = product.image;
+      productElement.appendChild(imageElement);
+
+      var nameElement = document.createElement("p");
+      nameElement.innerText = product.name;
+      productElement.appendChild(nameElement);
+
+      //ĐOẠN CODE NÀY DÙNG ĐỂ IN ĐẬM TÊN SẢN PHẨM
+      nameElement.style.fontWeight = "bold";
+      nameElement.style.fontSize = "15px";
+      searchResults.style.color = "black";
+      //ĐOẠN CODE NÀY DÙNG ĐỂ IN ĐẬM TÊN SẢN PHẨM
+
+
+      var priceElement = document.createElement("p");
+      priceElement.innerText = "Giá: " + product.price + " VNĐ";
+      productElement.appendChild(priceElement);
+
+      //ĐOẠN CODE NÀY DÙNG ĐỂ IN ĐẬM GIÁ SẢN PHẨM
+      productElement.style.fontWeight = "bold";
+      productElement.style.fontSize = "15px";
+      searchResults.style.color = "black";
+      //ĐOẠN CODE NÀY DÙNG ĐỂ IN ĐẬM GIÁ SẢN PHẨM
+      searchResults.appendChild(productElement);
+
+
+        var categoryElement = document.createElement("p");
+      categoryElement.textContent = "Danh mục: " + product.category;
+      productElement.style.fontSize = "15px";
+      productElement.appendChild(categoryElement);
+
+
+
+      //ĐOẠN CODE NÀY LÀ ĐỂ HIỂN THỊ "Thêm vào giỏ hàng" . nhưng chèn vào hàm của sản phẩm để có thể hiển thị chữ "Thêm vào giỏ hàng"
+      var addButton = document.createElement("a");
+      addButton.href = product.page;
+      addButton.textContent = "Thêm vào giỏ hàng";
+       addButton.style.fontWeight = "bold";
+      addButton.setAttribute("data-page", product.page);
+      searchResults.appendChild(addButton);
+    //ĐOẠN CODE NÀY LÀ ĐỂ HIỂN THỊ "Thêm vào giỏ hàng" . nhưng chèn vào hàm của sản phẩm để có thể hiển thị chữ "Thêm vào giỏ hàng"
+
+
+    });
+
+
+
+  } else {
+    searchResults.innerText = "Không Tìm Thấy Sản Phẩm Phù Hợp";
+
+    //ĐOẠN NÀY DÙNG NHƯ LÀ <STYLE> cho searchResults.innerText
+    searchResults.style.fontSize = "16px";
+    searchResults.style.display = "flex";
+    searchResults.style.justifyContent = "center";
+    searchResults.style.alignItems = "center";
+    searchResults.style.color = "red";
+    //ĐOẠN NÀY DÙNG NHƯ LÀ <STYLE> cho searchResults.innerText
+  }
+
+}
+//ĐOẠN CODE NÀY DÙNG ĐỂ TÌM SẢN PHẨM PHÂN LOẠI
+var foundProducts = products.filter(function(product) {
+  var matchName = product.name.toLowerCase().includes(searchInput);
+  var matchCategory = product.category.toLowerCase().includes(categoryInput.toLowerCase());
+  return matchName && (categoryInput === "" || matchCategory);
+});
+
+//ĐOẠN CODE NÀY DÙNG ĐỂ TÌM SẢN PHẨM PHÂN LOẠI
+
+
+//ĐOẠN CODE NÀY LÀ ĐỂ TÌM KIẾM SẢN PHẨM BẰNG GIỌNG NÓI
+var recognition;
+
+function startRecording() {
+  recognition = new webkitSpeechRecognition();
+  recognition.continuous = false;
+  recognition.interimResults = false;
+
+  recognition.onstart = function() {
+    console.log("Đang ghi âm...");
+  };
+
+  recognition.onresult = function(event) {
+    var transcript = event.results[0][0].transcript;
+    console.log("Kết quả ghi âm: " + transcript);
+    searchByVoice(transcript);
+  };
+
+  recognition.onerror = function(event) {
+    console.error("Lỗi ghi âm: " + event.error);
+  };
+
+  recognition.onend = function() {
+    console.log("Kết thúc ghi âm.");
+  };
+
+  recognition.start();
+}
+
+function searchByVoice(query) {
+  var searchInput = document.getElementById("searchInput");
+  searchInput.value = query;
+  searchProduct();
+}
+//ĐOẠN CODE NÀY LÀ ĐỂ TÌM KIẾM SẢN PHẨM BẰNG GIỌNG NÓI
+
+
+function sortProductsByPrice(order) {
+  var sortedProducts = products.slice();
+
+  sortedProducts.sort(function(a, b) {
+    if (order === 'asc') {
+      return a.price - b.price;
+    } else if (order === 'desc') {
+      return b.price - a.price;
+    }
+  });
+
+  displayProducts(sortedProducts);
+}
+
+function displayProducts(products) {
+  var searchResults = document.getElementById("searchResults");
+  searchResults.innerHTML = "";
+
+  if (products.length > 0) {
+    var rowElement;
+    products.forEach(function(product, index) {
+      if (index % 4 === 0) {
+        rowElement = document.createElement("div");
+        rowElement.className = "row";
+        searchResults.appendChild(rowElement);
+      }
+
+      var productElement = document.createElement("div");
+      productElement.className = "product";
+      productElement.style.marginLeft = "140px";
+
+      var imageElement = document.createElement("img");
+      imageElement.src = product.image;
+      imageElement.alt = product.name;
+      productElement.appendChild(imageElement);
+
+      var nameElement = document.createElement("h3");
+      nameElement.textContent = product.name;
+      nameElement.style.fontWeight = "bold";
+      nameElement.style.fontSize = "15px";
+      nameElement.style.color = "black";
+      productElement.appendChild(nameElement);
+
+      var priceElement = document.createElement("p");
+      //priceElement.textContent = "Giá: $" + product.price;
+      priceElement.textContent = "Giá: " + product.price + " VNĐ";
+      productElement.style.fontWeight = "bold";
+      productElement.style.fontSize = "15px";
+      productElement.appendChild(priceElement);
+
+
+      var categoryElement = document.createElement("p");
+      categoryElement.textContent = "Danh mục: " + product.category;
+      productElement.style.fontSize = "15px";
+      productElement.style.fontWeight = "bold";
+      productElement.appendChild(categoryElement);
+
+      var pageLink = document.createElement("a");
+      pageLink.href = product.page;
+      pageLink.textContent = "Xem chi tiết";
+      productElement.appendChild(pageLink);
+
+      rowElement.appendChild(productElement);
+    });
+  } else {
+    searchResults.innerText = "Không Tìm Thấy Sản Phẩm Phù Hợp";
+  }
+}
+</script>
+
+<style>
+#searchResults {
+  margin-top: 0px;
+}
+
+.product {
+  display: inline-block;
+  width: 200px;
+  margin: 0px;
+  text-align: center;
+  margin-left: 50px;
+}
+
+.product img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.product p {
+  margin-top: 0px;
+}
+.searchResults.innerText{
+ font-size:50px;
+}
+
+</style>
+
+
+
+
+
+</br>
+</br>
+
+
+<!--ĐOẠN CODE TẠO MENU BUTTON GIÚP LÀM GỌN 4 BUTTON TRONG 1 MENU-->
+<div style="top: 0;left: 0;position: fixed;margin-left:20px;margin-top:620px" class="dropdown2">
+    <button class="dropbtn">
+        <img style="width:60px;height:60px;border-radius:50px" src="https://w7.pngwing.com/pngs/68/239/png-transparent-number-computer-icons-plus-miscellaneous-game-plus.png">
+    </button>
+    <div style="margin-top:-370px;margin-left:-10px;border-radius:50px;" class="dropdown-content2">
+        <a href="/diachichinhanhggmap"><img style="width:50px;height:50px;border-radius:50px" src="/img/diachi_menu.gif"title="Địa Chỉ Cửa Hàng"></a>
+        <a href="tel:0939 266 625"><img style="width:50px;height:50px;border-radius:5px" src="/img/phone_menu.png" title="SĐT: 093 110 3224"></a>
+        <a href="https://zalo.me/0931103224"><img style="width:50px;height:50px;border-radius:50px" src="/img/logo_zalo.png"title="https://zalo.me/0931103224"></a>
+        <a id="popup-button" onclick="showPopup()">
+            <img style="width:50px;height:50px;border-radius:5px" src="/img/email_menu3.gif"title="Gửi Email">
+        </a>
+    </div>
+</div>
+<!--ĐOẠN CODE TẠO MENU BUTTON GIÚP LÀM GỌN 4 BUTTON TRONG 1 MENU-->
+
+<!--ĐOẠN CODE TẠO THÔNG BÁO ĐỂ CHỌN 2 LỰA CHỌN GỬI EMAIL - TÍCH HỢP CÙNG MENU ĐỂ HIỂN THỊ THÔNG BÁO-->
+
+<div id="popup-overlay">
+    <div id="popup-content">
+        <span id="close-button" onclick="hidePopup()">&#10006;</span>
+        <h3 style="color:#3bfff4"><strong><span style="font-size:28px;color:#ffbb00">TYN COFFEE STORE </span>- XIN CHÀO QUÝ KHÁCH</strong></h3>
+        <div class="button-container">
+            <a href="/contact">
+                <button style="width:300px;height:80px;border-radius:50px;border: 5px solid blue;" onclick="hidePopup()"><strong style="font-size:18px">Gửi Email Góp Ý Hoặc Ứng Tuyển</strong></button>
+            </a>
+            <a href="/contact2">
+                <button style="width:260px;height:80px;border-radius:50px;border: 5px solid #ffbb00;" onclick="hidePopup()"><strong style="font-size:18px">Đăng Ký Nhận Thông Báo</strong></button>
+            </a>
+        </div>
+        <img style="width:250px;height:200px" src="/img/hello.gif">
+    </div>
+</div>
+
+<!--ĐOẠN CODE TẠO THÔNG BÁO ĐỂ CHỌN 2 LỰA CHỌN GỬI EMAIL - TÍCH HỢP CÙNG MENU ĐỂ HIỂN THỊ THÔNG BÁO-->
+
+<!-- ĐOẠN CODE NÀY DÀNH CHO MỞ MÁY TÍNH ĐỂ TÍNH TIỀN COFFEE -->
+
+<button style="top: 0;left: 0;position: fixed;width:50px; height:65px;border-radius:5px;margin-left:1445px;margin-top:420px" id="open_calculator">
+    <img style="width:60px; height:60px;margin-left:-12.5px" src="/hinhanhtintuc/maytinh.png">
+</button>
+
+<div style="margin-left:580px" id="calculator_popup" class="calculator_popup">
+    <div class="calculator_content">
+        <div class="calculator_header">
+            <h3>Máy Tính - TYNCOFFEE</h3>
+            <button id="close_calculator">&times;</button>
+        </div>
+        <div class="calculator-body">
+            <input type="text" id="calc_display" readonly>
+            <div class="calculator_buttons">
+                <button class="calc_button" onclick="appendToDisplay('7')">7</button>
+                <button class="calc_button" onclick="appendToDisplay('8')">8</button>
+                <button class="calc_button" onclick="appendToDisplay('9')">9</button>
+                <button class="calc_button operator" onclick="appendToDisplay('+')">+</button>
+                <button class="calc_button" onclick="appendToDisplay('4')">4</button>
+                <button class="calc_button" onclick="appendToDisplay('5')">5</button>
+                <button class="calc_button" onclick="appendToDisplay('6')">6</button>
+                <button class="calc_button operator" onclick="appendToDisplay('-')">-</button>
+                <button class="calc_button" onclick="appendToDisplay('1')">1</button>
+                <button class="calc_button" onclick="appendToDisplay('2')">2</button>
+                <button class="calc_button" onclick="appendToDisplay('3')">3</button>
+                <button class="calc_button operator" onclick="appendToDisplay('*')">*</button>
+                <button class="calc_button" onclick="appendToDisplay('0')">0</button>
+                <button class="calc_button" onclick="appendToDisplay('.')">.</button>
+                <button class="calc_button operator" onclick="calculate()">=</button>
+                <button class="calc_button operator" onclick="appendToDisplay('/')">/</button>
+                <button class="calc_button clear" onclick="clearDisplay()">C</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ĐOẠN CODE NÀY DÀNH CHO MỞ MÁY TÍNH ĐỂ TÍNH TIỀN COFFEE -->
+
+<!--ĐOẠN CODE NÀY TẠO CHATBOT-->
+
+<button style="top: 0;left: 0;position: fixed;border-radius: 50px;margin-left:1430px;margin-top:520px" id="openButton">
+    <img style="width:60px;height:65px;" src="https://cdn-icons-png.flaticon.com/512/8943/8943377.png" alt="Mở Chatbot">
+</button>
+<div id="chatbotPopup" class="chatbot-popup">
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <span class="chatbot-title">Chatbot Hổ Trợ - TYN COFFEE</span>
+            <button id="closeButton">&times;</button>
+        </div>
+        <div id="chatLog" class="chatbot-log"></div>
+        <div style="margin-top:-5px" class="user-input-container">
+            <div id="chatLog" class="chat-log"></div>
+            <input type="text" id="userInput" placeholder="Nhập tin nhắn của bạn...">
+            <button id="sendButton">Gửi</button>
+        </div>
+    </div>
+</div>
+<!--ĐOẠN CODE NÀY TẠO CHATBOT-->
+
+<!--ĐOẠN CODE NÀY TẠO NÚT ON TOP ĐỂ ĐƯA LÊN ĐẦU TRANG-->
+<div>
+    <div onclick="topFunction()" id="myBtn">
+        <img style="top: 0;left: 0;position: fixed;width:60px;height:60px;margin-left:1440px;margin-top:620px" src="/img/ontopbutton.png" alt="@{/}">
+    </div>
+</div>
+<!--ĐOẠN CODE NÀY TẠO NÚT ON TOP ĐỂ ĐƯA LÊN ĐẦU TRANG-->
+
+
+<a href="/voucher_gift">
+    <img style="top: 0;left: 0;position: fixed;width:200px;height:150px;margin-left:-20px;margin-top:170px;" src="/img/voucher_gift.gif">
+</a>
+
+
+
+<!-- start footer Area -->
+<footer th:fragment="footer" class="footer-area section_gap">
+    <div class="container">
+        <div class="row">
+            <div style="margin-left:50px;" class="col-lg-3  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h6>Thông Tin Liên Hệ</h6>
+                    <address style="color:white;font-size:16px;">
+                        SĐT: 093 110 3224<br>
+                        Email: tyncoffeestore@gmail.com<br>
+                        Chi Nhánh Đại Diện: 249A Hoàng Văn Thụ, Phường 01, Quận Tân Bình, TP.Hồ Chí Minh
+                    </address>
+                </div>
+            </div>
+            <div style="margin-left:50px;" class="col-lg-4  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h6>Về Chúng Tôi</h6>
+                    <a th:href="login" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Đăng Nhập</h1>
+                    </a>
+                    <a th:href="register" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Đăng Ký</h1>
+                    </a>
+                    <a th:href="info" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Giới Thiệu</h1>
+                    </a>
+                    <a th:href="shop" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Sản Phẩm</h1>
+                    </a>
+                    <a th:href="recruit" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Tuyển Dụng</h1>
+                    </a>
+                    <a th:href="carts" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Giỏ Hàng</h1>
+                    </a>
+                    <a th:href="timkiemsanpham" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Tìm Kiếm</h1>
+                    </a>
+                    <a th:href="menu-sanpham" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Menu</h1>
+                    </a>
+                    <a th:href="huongdanthanhtoan" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Hướng Dẫn Thanh Toán</h1>
+                    </a>
+                </div>
+            </div>
+
+
+
+            <div style="top:0;left:0; position:relative;margin-top:-309px;;margin-left:620px;" class="col-lg-4  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h6>Tìm Hiểu Thêm</h6>
+                    <a th:href="contact" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Gửi Email Phản Hồi</h1>
+                    </a>
+                    <a th:href="contact2" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Đăng Ký Nhận Thông Báo</h1>
+                    </a>
+                    <a th:href="ListTinTucCoffee" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Tin Tức</h1>
+                    </a>
+                    <a th:href="ListThongTinUuDaiCoffee" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Thông Tin Ưu Đãi</h1>
+                    </a>
+                    <a th:href="ListCachPhaCoffee" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Cách Pha COFFEE</h1>
+                    </a>
+                    <a th:href="CamHungKhoiNghiep_TYNCOFFEE" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Câu Chuyện Khởi Nghiệp</h1>
+                    </a>
+                    <a th:href="voucher_gift" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Mở Voucher May Mắn</h1>
+                    </a>
+                    <a th:href="diachichinhanhggmap" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Địa Điểm</h1>
+                    </a>
+                    <a th:href="huongdanthanhtoan" style="color:white;font-size:16px;">
+                        <h1 style="margin-bottom:10px;color:white;font-size:16px;">Thông Tin Giao Hàng</h1>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+            <div style="position: absolute;margin-left:850px;" class="col-lg-3  col-md-6 col-sm-6">
+                <div class="single-footer-widget mail-chimp">
+                    <h6 class="mb-20">Đối tác</h6>
+                    <ul class="instafeed d-flex flex-wrap">
+                        <li><a href="https://classiccoffee.com.vn/"><img src="/img/elements/classiccoffe_doitac.jpg"/></a></li>
+                        <li><a href="https://thecoffeehouse.com/"><img src="/img/elements/coffehouse_doitac.png" alt="@{/}"></a></li>
+                        <li><a href="https://trungnguyenlegend.com/"><img src="/img/elements/trungnguyen_doitac.jpg" alt="@{/}"></a></li>
+                        <li><a href="https://congcaphe.com/"><img src="/img/elements/congcafe_doitac.jpg" alt="@{/}"></a></li>
+                        <li><a href="https://phuclong.com.vn/"><img src="/img/elements/phuclong_doitac.jpg" alt="@{/}"></a></li>
+                        <li><a href="https://www.highlandscoffee.com.vn/"><img src="/img/elements/highland_doitac.jpg" alt="@{/}"></a></li>
+                        <li><a href="https://www.nescafe.com/vn/"><img style="background-color:#ffffff" src="/img/elements/nescafe_doitac.png" alt="@{/}"></a></li>
+                        <li><a href="https://www.vinacafe.com.vn/"><img style="background-color:#ffffff" src="/img/elements/vinacafe_doitac.png" alt="@{/}"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+            <p class="footer-text m-0">
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Đồ Án Chuyên Ngành: Bản Quyền Thuộc Về Huỳnh Vĩnh Tiến 2011061897 20DTHB2
+            </p>
+        </div>
+    </div>
+</footer>
+<!-- End footer Area -->
+
+<div th:fragment="scripts">
+    <script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+            crossorigin="anonymous"></script>
+    <script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+    <script th:src="@{/js/jquery.nice-select.min.js}"></script>
+    <script th:src="@{/js/jquery.sticky.js}"></script>
+    <script th:src="@{/js/nouislider.min.js}"></script>
+    <script th:src="@{/js/countdown.js}"></script>
+    <script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <!--gmaps Js-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+    <script th:src="@{/js/gmaps.min.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+    <script th:src="@{/js/ghichu_script.js}"></script>
+    <script th:src="@{/js/button_ontop.js}"></script>
+    <script th:src="@{/js/popup_thongbao_2luachon_email.js}"></script>
+    <script th:src="@{/js/maytinhpopup.js}"></script>
+    <script th:src="@{/js/chatbot_popup.js}"></script>
+
+</div>
+
+</body>
+
+</html>

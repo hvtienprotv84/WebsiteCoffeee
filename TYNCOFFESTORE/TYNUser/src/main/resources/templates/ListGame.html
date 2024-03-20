@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<head th:replace="fragments :: head">
+  <title>Danh Sách Game</title>
+</head>
+
+<body>
+
+<!-- Start Header Area -->
+<header th:replace="fragments :: header" class="header_area sticky-header">
+</header>
+<!-- End Header Area -->
+
+<!-- Start Banner Area -->
+<section th:replace="fragments :: banner('TYN Store Xin Chào!')" class="banner-area organic-breadcrumb">
+  <h1 >Giới Thiệu</h1>
+
+</section>
+
+<!-- End Banner Area -->
+
+<!-- start features Area -->
+<div class="container">
+  <div style="text-align: center" class="section-title">
+    </br>
+    <!--<section class="features-area section_gap" style="padding: 100px 0">-->
+    <p style="text-align: center;font-size:30px;color:black"><strong>Danh Sách Trò Chơi</strong></p>
+
+        <!--*********DANG LAM VIEC-->
+        <!--<h2 style="margin-left: 600px;top:50px">Chủ tịch nước gửi thư chúc tết Trung thu cho thiếu niên, nhi đồng</h2>-->
+        <div class="hinhanhtintucmoinhat">
+          <a th:href="@{Game_TicTacToe}" rel="nofollow">
+            <img style="width: 300px; height: 250px;margin-top:20px;margin-left:-550px;margin-right:300px;" src="hinhanhtintuc/game_tictactoe.PNG" alt="chanel">
+          <h2 style="margin-left:-850px"><strong>Game Caro - TicTacToe</strong></h2>
+          </a>
+
+        </div>
+
+
+    <div class="hinhanhtintucmoinhat">
+      <a th:href="@{Game_Keo_Bua_Bao_PvsComputer}" rel="nofollow">
+        <img style="width: 300px; height: 250px;margin-top:20px;margin-left:-550px;margin-right:300px;" src="hinhanhtintuc/game_tictactoe.PNG" alt="chanel">
+        <h2 style="margin-left:-850px"><strong>Game Caro - TicTacToe</strong></h2>
+      </a>
+
+    </div>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+</div>
+<!-- end features Area -->
+
+
+<!-- start footer Area -->
+<footer th:fragment="footer" class="footer-area section_gap"style="margin-top:500px">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Thông Tin Liên Hệ</h6>
+          <p>
+            Số điện thoại: 0931103224
+            Email: tyncoffestore@gmail.com
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-4  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Nhận thông báo mới</h6>
+          <p>Cập nhật tin tức mới nhất</p>
+          <div class="@{/}" id="mc_embed_signup">
+
+            <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                  method="get" class="form-inline">
+
+              <div class="d-flex flex-row">
+
+                <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
+                       required="" type="email">
+
+
+                <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                <div style="position: absolute; left: -5000px;">
+                  <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="@{/}" type="text">
+                </div>
+
+                <!-- <div class="col-lg-4 col-md-4">
+                            <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
+                        </div>  -->
+              </div>
+              <div class="info"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3  col-md-6 col-sm-6">
+        <div class="single-footer-widget mail-chimp">
+          <h6 class="mb-20">Đối tác</h6>
+          <ul class="instafeed d-flex flex-wrap">
+            <li><img src="/img/elements/classiccoffe_doitac.jpg"/></li>
+            <li><img src="/img/elements/coffehouse_doitac.png" alt="@{/}"></li>
+            <li><img src="/img/elements/trungnguyen_doitac.jpg" alt="@{/}"></li>
+            <li><img src="/img/elements/congcafe_doitac.jpg" alt="@{/}"></li>
+            <li><img src="/img/elements/phuclong_doitac.jpg" alt="@{/}"></li>
+            <li><img src="/img/elements/highland_doitac.jpg" alt="@{/}"></li>
+            <li><img src="/img/elements/nescafe_doitac.png" alt="@{/}"></li>
+            <li><img src="/img/elements/vinacafe_doitac.png" alt="@{/}"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Theo dõi chúng tôi</h6>
+          <p>Các trang mạng xã hội</p>
+          <div class="footer-social d-flex align-items-center">
+            <a th:href="@{/}"><i class="fa-brands fa-facebook-square"></i></a>
+            <a th:href="@{/}"><i class="fa-brands fa-instagram"></i></a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+      <p class="footer-text m-0">
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Đồ Án Chuyên Ngành: Bản Quyền Thuộc Về Huỳnh Vĩnh Tiến 2011061897 20DTHB2
+      </p>
+    </div>
+  </div>
+</footer>
+<!-- End footer Area -->
+
+<div th:fragment="scripts">
+  <script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+          crossorigin="anonymous"></script>
+  <script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+  <script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+  <script th:src="@{/js/jquery.nice-select.min.js}"></script>
+  <script th:src="@{/js/jquery.sticky.js}"></script>
+  <script th:src="@{/js/nouislider.min.js}"></script>
+  <script th:src="@{/js/countdown.js}"></script>
+  <script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+  <script th:src="@{/js/owl.carousel.min.js}"></script>
+  <!--gmaps Js-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+  <script th:src="@{/js/gmaps.min.js}"></script>
+  <script th:src="@{/js/main.js}"></script>
+</div>
+
+</body>
+
+</html>

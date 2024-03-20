@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Reset, bootstrap, and custom CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/GameRPS-style.css}">
+    <link rel="stylesheet" th:href="@{/css/GameRPS-RESET-style.css}">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+<!-- Header -->
+<div class="container-fluid">
+    <div class="row bg-header">
+        <div id="giffBtn" class="col-md-12 text-center">
+            <h1>Rock Paper Scissors</h1>
+        </div>
+    </div>
+
+    <!-- Enter game area -->
+    <div class="row justify-content-md-center">
+        <div id="noww-playing" class="mt-3 mx-auto align-self-center">
+            <div class="input-group mb-3">
+                <input id="player-name-entry" type="text" class="form-control" placeholder="Enter username"
+                       aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="input-group-text" id="player-name-entry-submit" onclick="enterArena()">Enter
+                        Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- start new add -->
+    <div class="row justify-content-center">
+        <div class="pt-3 mx-auto px-auto joinGame"></div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div id="now-playing" class="pt-3 px-auto mx-auto"></div>
+    </div>
+
+
+    <div class="row"> <!-- this row has P1 game board, the announcer, and P2 game board -->
+        <div id="gifBtn1" class="col-md-3 text-center border-p1">
+            <h1>Seat 1</h1>
+            <h2 id="p1-name"></h2>
+            <h4 id="p1-wins"></h4>
+            <h4 id="p1-losses"></h4>
+            <h4 id="p1-result"></h4>
+        </div>
+        <div id="gifBtn2" class="col-md-6 text-center">
+            <h1 id="announcer"></h1>
+            <h4 id="ties"></h4>
+        </div>
+
+        <div id="gifBtn3" class="col-md-3 text-center border-p2">
+            <h1>Seat 2</h1>
+            <h2 id="p2-name">joe</h2>
+            <h4 id="p2-wins"></h4>
+            <h4 id="p2-losses"></h4>
+            <h4 id="p2-result"></h4>
+        </div>
+    </div>
+    <div class="row"> <!-- Cleaned up the site look to display 3 big rock paper scissors buttons -->
+        <div id="gifBtn4" class="col-md-4 text-center">
+            <img src="game-rps-images/BR.png" class="rounded-circle Rock Rock-size" alt="Rock" data="Rock"
+                 onclick="pRPS()">
+        </div>
+        <div id="gifBtn5" class="col-md-4 text-center">
+            <img src="game-rps-images/BP.png" class="rounded-circle Paper Paper-size" alt="Paper" data="Paper"
+                 onclick="pRPS()">
+        </div>
+        <div id="gifBtn6" class="col-md-4 text-center">
+            <img src="game-rps-images/BS.png" class="rounded-circle Scissors Scissors-size" alt="Scissors"
+                 data="Scissors" onclick="pRPS()">
+        </div>
+    </div>
+
+    <div class="row justify-content-center"><!-- Chat area -->
+        <div class="col-md-6 pt-3">
+            <div class="input-group">
+                    <textarea rows="7" id="chat-area" class="form-control" aria-label="With textarea"
+                              readonly></textarea>
+            </div>
+            <div class="input-group mb-3">
+                <input id="chat-message" type="text" class="form-control" placeholder="Enter chat text here -"
+                       aria-label="Enter chat text here -" aria-describedby="basic-addon1">
+                <div class="input-group-prepend">
+                    <button class="input-group-text" id="chat-submit" onclick="chat()">Send</button>
+                </div>
+            </div>
+            <!-- in places like this make mt-1 to pt-1 -->
+        </div>
+    </div>
+
+    <!-- Pseudo Code -->
+    <!--  Heading  -->
+    <!--  enter name to join  -->
+    <!--  battlefield consisting of p1 - result - p2  -->
+    <!--  p1&2 has player name/wins/losses  -->
+    <!--  result has just the p1win/tie/p2win  -->
+    <!--  chat box  -->
+</div>
+
+    <!-- jQuery Library, firebase-app, firebase-database, and custom javascript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
+    <script type="text/javascript" src="./assets/javascript/game.js"></script>
+    <script th:src="@{/js/game-rps.js}"></script>
+</body>
+
+
+</html>

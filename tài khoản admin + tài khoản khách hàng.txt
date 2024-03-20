@@ -1,0 +1,15 @@
+TYNCOFFEESTORE
+------------------------------------
+tài khoản admin:                   |1|
+------------------------------------
+tên đăng nhập: tienadmin@gmail.com |
+mật khẩu: tienadmin123456          |
+------------------------------------
+tài khoản khách hàng               |
+------------------------------------
+tên đăng nhập: tienuser@gmail.com  |1|
+mật khẩu: tien123456               |
+------------------------------------
+tên đăng nhập: tienuser2@gmail.com |2|
+mật khẩu: tien123456               |
+------------------------------------

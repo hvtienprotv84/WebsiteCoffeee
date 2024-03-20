@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: header('Admin')">
+  <title>Admin</title>
+</head>
+
+<body>
+<form th:action="@{/login}" method="post">
+<main class="main" id="top">
+  <div class="container-fluid px-0">
+    <div class="container">
+      <div class="row flex-center min-vh-100 py-5">
+        <div class="col-sm-10 col-md-8 col-lg-5 col-xl-5 col-xxl-3" style="border-style: double">
+          <div class="d-flex align-items-center justify-content-center my-5">
+            <img th:src="@{/assets/img/background_email_admin.png}" alt="phoenix" width="300">
+          </div>
+          <div class="text-center mb-7">
+            <h3>Đăng Nhập</h3>
+            <p class="text-700">Truy Cập Vào Trang</p>
+          </div>
+          <div class="position-relative mt-4">
+            <hr class="bg-200">
+            <div class="divider-content-center">Mời nhập thông tin</div>
+          </div>
+          <h5 th:if="${param.error}" class="text-danger my-3 text-center">Tên đăng nhập hoặc mật khẩu không đúng</h5>
+          <h5 th:if="${param.logout}" class="text-warning my-3 text-center">Bạn đã đăng xuất khỏi hệ thống</h5>
+          <div class="mb-3 text-start"><label class="form-label" for="email">Email</label>
+            <div class="form-icon-container">
+              <input class="form-control form-icon-input" name="username" id="email" type="email" placeholder="Nhập email ..."><span class="fas fa-user text-900 fs--1 form-icon"></span></div>
+          </div>
+          <div class="mb-3 text-start"><label class="form-label" for="password">Mật khẩu</label>
+            <div class="form-icon-container">
+              <input class="form-control form-icon-input" name="password" type="password" placeholder="Nhập mật khẩu ..." id="password">
+              <span class="fas fa-lock text-900 fs--1 form-icon"></span>
+            </div>
+            <div class="nuthienthimatkhau_admin">
+              <input type="checkbox" id="showPasswordCheckbox" onchange="togglePasswordVisibility()">
+              <label for="showPasswordCheckbox">Hiển thị mật khẩu</label>
+            </div>
+          </div>
+          <button class="btn btn-primary w-100 mb-3">Đăng Nhập</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</form>
+<style>
+  .nuthienthimatkhau_admin{
+  margin-left:20px;
+  margin-top:10px;
+  }
+</style>
+<script>
+  function togglePasswordVisibility() {
+  var passwordInput = document.getElementById("password");
+  var showPasswordCheckbox = document.getElementById("showPasswordCheckbox");
+
+  if (showPasswordCheckbox.checked) {
+    passwordInput.type = "text";
+  } else {
+    passwordInput.type = "password";
+  }
+}
+</script>
+<script th:src="@{/assets/js/phoenix.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" th:href="@{/css/ghichu_style.css}">
+<link rel="stylesheet" th:href="@{/css/button_ontop.css}">
+<link rel="stylesheet" th:href="@{/css/dropdown_button_bentrai.css}">
+<link rel="stylesheet" th:href="@{/css/popup_thongbao_2luachon_email.css}">
+<link rel="stylesheet" th:href="@{/css/maytinhpopup.css}">
+<link rel="stylesheet" th:href="@{/css/chatbot_popup.css}">
+
+<head th:replace="fragments :: head">
+  <title>TRUNG THU ĐOÀN VIÊN - THỨC VỊ TÌNH THÂN</title>
+</head>
+<body>
+<!-- Start Header Area -->
+<header th:replace="fragments :: header" class="header_area sticky-header">
+</header>
+<!-- End Header Area -->
+
+<!-- Start Banner Area -->
+<section th:replace="fragments :: banner('TYN Store Xin Chào!')" class="banner-area organic-breadcrumb">
+</section>
+<!-- End Banner Area -->
+
+<!-- start features Area -->
+<style>
+        bodddy {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .tintuc {
+            max-width: 800px;
+            text-align: justify;
+        }
+        .noidung {
+            color:black;
+        }
+
+    </style>
+
+<div class="listdanhmuctintuc" style="background-color:#f5f5f5;padding:5px;">
+  <nav style="margin-left:100px;">
+    <a href="/">Trang Chủ</a> >
+    <a href="/ListCachPhaCoffee">Cách Pha Coffee</a> >
+    <span>Hướng Dẫn Cách Pha Coffee với Phin Nhỏ</span>
+  </nav>
+</div>
+
+<bodddy>
+  <div class="tintuc">
+    </br>
+    <p style="text-align: center;color:black;font-size: 30px"><strong>HƯỚNG DẪN CÁCH PHA COFFEE VỚI PHIN NHỎ</strong></p>
+    <h1 style="font-size:15px;margin-top:20px;"><strong>Người viết: Nguyễn Xuân lúc 10.09.2023  <a href="ListThongTinUuDaiCoffee">Cách Pha COFFEE</a></strong></h1>
+    <div class="noidung" style="font-size:20px;margin-top:20px">
+      <p>Để có một cốc ngon không phải là điều đơn giản, đặc biệt là cách pha cà phê phin của người Việt. Không chỉ có Espresso, cà phê phin cũng có những tiêu chuẩn và bí quyết đặc biệt. Giờ thì hãy khám phá cách pha café phin ngon cùng Hướng Nghiệp Á Âu nhé.</p>
+      <img style="width:500px;height:300px;margin-left:160px;" src="img/anh1_cachphacoffeephinnho.PNG">
+      <p style="text-align:center;margin-left:15px;margin-top:5px;">Cà phê là thức uống không thể thiếu để chào ngày mới </p>
+      <p style="margin-top:10px;">Cà phê là thức uống quen thuộc vào mỗi sáng đối với người Việt nói chung và người Tây Nguyên nói riêng. Cà phê đem đến tinh thần tỉnh táo, sảng khoái, giúp cho ngày làm việc, học tập có hiệu quả hơn. Để pha chế cà phê ngon, không phải cứ cho cà phê vào phin rồi rót nước nóng vào là được mà bạn cần phải có một bí quyết pha cà phê chuẩn.</p>
+      <p style="font-size:30px;"><strong> Pha Cà Phê Phin Nhỏ</strong></p>
+      <p style="border: 3px solid #ff8c00;border-radius: 10px;padding:10px;padding-bottom:90px;max-width:350px;"><strong>Nguyên Liệu Pha Cà Phê Phin Nhỏ</strong></p>
+      <span style="top: 0;left: 0;position: absolute;margin-top:1035px;margin-left:390px;">
+        + Cà phê: 25 gram <br>
+        + Phin, ly, cốc đo ml <br>
+        + Nước sôi: 80ml <br>
+      </span>
+      <p>
+        Bước 1: Tráng phin qua nước nóng. <br>
+        <br>
+        Bước 2: Múc 25 gram cà phê cho vào phin rồi đặt lên cốc. <br>
+        <br>
+        Bước 3: Rót chầm chậm 30ml nước vừa sôi lên khắp bề mặt cà phê. <br>
+        <br>
+        Bước 4: Sau 2 – 3 phút, khi bột cà phê đã hấp thụ hết nước và nở đều, bạn tiến hành nén nắp gài, châm thêm 50ml nước sôi rồi đậy nắp và chờ đợi. <br>
+        <br>
+        Bước 5: Khoảng 1 phút sau, cà phê sẽ bắt đầu nhỏ từng giọt xuống ly. Bạn đợi đến khi cafe nhỏ gần hết thì ấn chặt nắp gài để chiết xuất hết lượng cà phê còn lại. <br>
+        <br>
+        Bước 6: Kết quả bạn sẽ thu được khoảng 40 – 45ml nước cà phê. Bạn có thể cho thêm sữa đặc, đường hoặc đá vào khuấy đều rồi thưởng thức. <br>
+      </p>
+      <img style="width:500px;height:300px;margin-left:160px;" src="img/anh2_cachphacoffeephinnho.PNG">
+      <p style="text-align:center;margin-top:5px;">Bột cafe đã được nở sau khi rót nước nóng, chờ café chiết xuất từng giọt</p>
+      <p style="font-size:30px;margin-top:10px;"><strong>Một Số Bí Quyết Để Có Được Ly Cà Phê Ngon</strong></p>
+      <p>– Chọn mua cà phê: Chất lượng của cà phê sẽ quyết định đến hơn 50% độ ngon của ly cà phê. Do vậy, để có được một ly cà phê ngon, bạn cần lưu ý chọn mua đúng loại cà phê đen dùng cho pha phin, có nguồn gốc xuất xứ rõ ràng, sạch và nguyên chất. <br>
+        <br>
+        – Chuẩn bị phin: Phin cũng là một trong những yếu tố quyết định đến hương vị của ly cà phê. Theo cách pha cà phê phin truyền thống của nhiều tiệm cà phê nổi tiếng, muốn cà phê ngon, bạn phải chọn phin bằng inox hoặc nhôm, có lỗ đục đều và phân bố hợp lý. <br>
+        <br>
+        Và đặc biệt, bạn phải dùng nước sôi tráng qua phin trước khi sử dụng. Không đơn giản là đảm bảo được phin sạch mà còn làm ấm phin, giúp cafe nở đều hơn và giảm bớt sự hấp thu nhiệt khi pha cà phê.</p>
+      <img style="width:500px;height:300px;margin-left:160px;" src="img/anh3_cachphacoffeephinnho.PNG.PNG">
+      <p style="text-align:center;margin-top:5px;">Làm sạch phin trước khi pha cà phê</p>
+      <p>
+        – Pha nhiều loại cà phê: Khi pha cà phê phin, bạn không nên chỉ sử dụng duy nhất 1 loại cà phê mà nên pha trộn nhiều loại khác nhau. Bởi mỗi loại sẽ có hương vị thơm ngon khác nhau. Khi trộn nhiều loại với nhau, bạn sẽ có được ly cà phê ngon nhất. <br>
+        <br>
+        Hy vọng những thông tin về cách pha cà phê phin trên sẽ giúp bạn có được những ly cà phê thơm ngon nhất để khởi động một ngày mới. Bạn cũng có thể thêm chút sữa, thêm một vài viên thạch dẻo là có ngay ly cà phê sữa đá thạch dẻo vui miệng vào buổi trưa và sau đó thưởng thức nó thật ngon nhé.
+      </p>
+
+      <a style="border: 2px solid red;border-radius: 10px;padding: 5px;font-size:20px;" href="img/congthucphacafephinnho.pdf" download>Tải Công Thức Pha Chế</a>
+
+      <p style="text-align:center;color:#ff8c00;font-size:35px;padding-bottom:10px;margin-top:50px;"><strong>TYN COFFEE STORE</strong></p>
+      <p style="text-align:center;font-size:30px;color:red"><strong>CHÚC QUÝ KHÁCH THÀNH CÔNG </strong></p>
+      <img style="top: 0;left: 0;position: absolute;margin-top:2870px;margin-left:575px;" src="img/anhgif_cachphacoffeephinnho.gif">
+      
+      
+      
+    </div>
+  </div>
+</bodddy>
+
+<div>
+  <audio id="audioPlayer">
+    <source src="img/audio_huongdanphacafephinnho.mp3" type="audio/mpeg">
+  </audio>
+  <button style="top:0;left:0;position:absolute;margin-top:995px;margin-left:800px;border: 3px solid #ff8c00;border-radius: 10px;padding:15px;padding-right:20px;background-color:#ffffff;" id="playButton" onclick="toggleAudio()">
+    <i id="playIcon" class="fas fa-play"></i>
+    <i id="pauseIcon" class="fas fa-pause" style="display: none;"></i>
+    <span> Nhấp vào để nghe công thức pha cafe</span>
+  </button>
+  <script>
+function toggleAudio() {
+  var audioPlayer = document.getElementById("audioPlayer");
+  var playIcon = document.getElementById("playIcon");
+  var pauseIcon = document.getElementById("pauseIcon");
+
+  if (audioPlayer.paused) {
+    audioPlayer.play();
+    playIcon.style.display = "none";
+    pauseIcon.style.display = "inline";
+  } else {
+    audioPlayer.pause();
+    playIcon.style.display = "inline";
+    pauseIcon.style.display = "none";
+  }
+}
+</script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+</div>
+
+
+
+<p style="text-align: center;color:black;font-size: 40px;margin-top:330px;"><strong >TIN TỨC LIÊN QUAN</strong></p>
+<!-- end features Area -->
+
+<!-- ĐOẠN CODE NÀY DÙNG ĐỂ TẠO NÚT ĐIỀU HƯỚNG SANG TRÁI VÀ SANG PHẢI ĐỂ ĐIỀU HƯỚNG TIN TỨC LIÊN QUAN -->
+
+<div class="product-container">
+  <button class="nav-button prev-button" id="prev-button">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <div class="product-wrapper">
+    <div class="product-list">
+<!--onclick="window.location.href='/cachphacoffee_phinlon'" (ĐOẠN CODE ĐÓ THAY THẾ CHO THẺ <a> VÌ THẺ <a> KHÔNG ĐƯỢC CÓ TRONG THẺ <DIV>)-->
+      <div class="product-item" onclick="window.location.href='/cachphacoffee_phinlon'">
+        <img src="img/logo.jpg" alt="Sản phẩm 1">
+        <h3 style="font-size:18px;">Cách Pha COFFEE Với Phin Lớn</h3>
+        <p>Bước 1: Sau khi tráng phin, cho 100 gram cà phê vào rồi lắc đều và ấn nhẹ nắp gài.</p>
+      </div>
+
+      <div class="product-item">
+        <img src="img/logo.jpg" alt="Sản phẩm 1">
+        <h3>Sản phẩm 1</h3>
+        <p>Mô tả sản phẩm 2</p>
+      </div>
+      <div class="product-item">
+        <img src="img/logo.jpg" alt="Sản phẩm 1">
+        <h3>Sản phẩm 1</h3>
+        <p>Mô tả sản phẩm 3</p>
+      </div>
+      <div class="product-item">
+        <img src="img/logo.jpg" alt="Sản phẩm 1">
+        <h3>Sản phẩm 1</h3>
+        <p>Mô tả sản phẩm 4</p>
+      </div>
+      <div class="product-item">
+        <img src="img/logo.jpg" alt="Sản phẩm 1">
+        <h3>Sản phẩm 1</h3>
+        <p>Mô tả sản phẩm 5</p>
+      </div>
+      <div class="product-item">
+        <img src="img/logo.png" alt="Sản phẩm 1">
+        <h3>Sản phẩm 1</h3>
+        <p>Mô tả sản phẩm 6</p>
+      </div>
+
+    </div>
+  </div>
+  <button class="nav-button next-button" id="next-button">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+</div>
+
+<style>
+.product-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.nav-button:hover {
+  color: #333;
+  transform: scale(1.1) translateY(-50%);
+}
+
+.prev-button {
+  left: 20px;
+}
+
+.next-button {
+  right: 20px;
+}
+
+.fa-chevron-left,
+.fa-chevron-right {
+  display: inline-block;
+  font-size: 24px;
+}
+
+.fa-chevron-left:before {
+  content: "\f053";
+}
+
+.fa-chevron-right:before {
+  content: "\f054";
+}
+
+.product-wrapper {
+  overflow: hidden;
+  width: 80%;
+  margin: 0 20px;
+}
+
+.product-list {
+  display: flex;
+  transition: transform 0.3s;
+}
+
+.product-item {
+  flex: 0 0 20%;
+  padding: 20px;
+  text-align: center;
+}
+
+.product-item img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  width: 200px;
+  height: 80px;
+}
+
+.product-item h3 {
+  margin-bottom: 5px;
+}
+
+.product-item p {
+  color: #888;
+  font-size: 14px;
+}
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+
+<script>
+const prevButton = document.getElementById('prev-button');
+const nextButton = document.getElementById('next-button');
+const productWrapper = document.querySelector('.product-wrapper');
+
+prevButton.addEventListener('click', () => {
+  productWrapper.scrollBy({
+    left: -productWrapper.offsetWidth,
+    behavior: 'smooth'
+  });
+});
+
+nextButton.addEventListener('click', () => {
+  productWrapper.scrollBy({
+    left: productWrapper.offsetWidth,
+    behavior: 'smooth'
+  });
+});
+</script>
+
+<!-- ĐOẠN CODE NÀY DÙNG ĐỂ TẠO NÚT ĐIỀU HƯỚNG SANG TRÁI VÀ SANG PHẢI ĐỂ ĐIỀU HƯỚNG TIN TỨC LIÊN QUAN -->
+
+<!--ĐOẠN CODE TẠO MENU BUTTON GIÚP LÀM GỌN 4 BUTTON TRONG 1 MENU-->
+<div style="top: 0;left: 0;position: fixed;margin-left:20px;margin-top:620px" class="dropdown2">
+  <button class="dropbtn">
+    <img style="width:60px;height:60px;border-radius:50px" src="https://w7.pngwing.com/pngs/68/239/png-transparent-number-computer-icons-plus-miscellaneous-game-plus.png">
+  </button>
+  <div style="margin-top:-370px;margin-left:-10px;border-radius:50px;" class="dropdown-content2">
+    <a href="/diachichinhanhggmap"><img style="width:50px;height:50px;border-radius:50px" src="img/diachi_menu.gif"title="Địa Chỉ Cửa Hàng"></a>
+    <a href="tel:0939 266 625"><img style="width:50px;height:50px;border-radius:5px" src="img/phone_menu.png" title="SĐT: 093 110 3224"></a>
+    <a href="https://zalo.me/0931103224"><img style="width:50px;height:50px;border-radius:50px" src="img/logo_zalo.png"title="https://zalo.me/0931103224"></a>
+    <a id="popup-button" onclick="showPopup()">
+      <img style="width:50px;height:50px;border-radius:5px" src="img/email_menu3.gif"title="Gửi Email">
+    </a>
+  </div>
+</div>
+<!--ĐOẠN CODE TẠO MENU BUTTON GIÚP LÀM GỌN 4 BUTTON TRONG 1 MENU-->
+
+<!--ĐOẠN CODE TẠO THÔNG BÁO ĐỂ CHỌN 2 LỰA CHỌN GỬI EMAIL - TÍCH HỢP CÙNG MENU ĐỂ HIỂN THỊ THÔNG BÁO-->
+
+<div id="popup-overlay">
+  <div id="popup-content">
+    <span id="close-button" onclick="hidePopup()">&#10006;</span>
+    <h3 style="color:#3bfff4"><strong><span style="font-size:28px;color:#ffbb00">TYN COFFEE STORE </span>- XIN CHÀO QUÝ KHÁCH</strong></h3>
+    <div class="button-container">
+      <a href="/contact">
+        <button style="width:300px;height:80px;border-radius:50px;border: 5px solid blue;" onclick="hidePopup()"><strong style="font-size:18px">Gửi Email Góp Ý Hoặc Ứng Tuyển</strong></button>
+      </a>
+      <a href="/contact2">
+        <button style="width:260px;height:80px;border-radius:50px;border: 5px solid #ffbb00;" onclick="hidePopup()"><strong style="font-size:18px">Đăng Ký Nhận Thông Báo</strong></button>
+      </a>
+    </div>
+    <img style="width:250px;height:200px" src="img/hello.gif">
+  </div>
+</div>
+
+<!--ĐOẠN CODE TẠO THÔNG BÁO ĐỂ CHỌN 2 LỰA CHỌN GỬI EMAIL - TÍCH HỢP CÙNG MENU ĐỂ HIỂN THỊ THÔNG BÁO-->
+
+<!-- ĐOẠN CODE NÀY DÀNH CHO MỞ MÁY TÍNH ĐỂ TÍNH TIỀN COFFEE -->
+
+<button style="top: 0;left: 0;position: fixed;width:50px; height:65px;border-radius:5px;margin-left:1445px;margin-top:420px" id="open_calculator">
+  <img style="width:60px; height:60px;margin-left:-12.5px" src="hinhanhtintuc/maytinh.png">
+</button>
+
+<div style="margin-left:580px" id="calculator_popup" class="calculator_popup">
+  <div class="calculator_content">
+    <div class="calculator_header">
+      <h3>Máy Tính - TYNCOFFEE</h3>
+      <button id="close_calculator">&times;</button>
+    </div>
+    <div class="calculator-body">
+      <input type="text" id="calc_display" readonly>
+      <div class="calculator_buttons">
+        <button class="calc_button" onclick="appendToDisplay('7')">7</button>
+        <button class="calc_button" onclick="appendToDisplay('8')">8</button>
+        <button class="calc_button" onclick="appendToDisplay('9')">9</button>
+        <button class="calc_button operator" onclick="appendToDisplay('+')">+</button>
+        <button class="calc_button" onclick="appendToDisplay('4')">4</button>
+        <button class="calc_button" onclick="appendToDisplay('5')">5</button>
+        <button class="calc_button" onclick="appendToDisplay('6')">6</button>
+        <button class="calc_button operator" onclick="appendToDisplay('-')">-</button>
+        <button class="calc_button" onclick="appendToDisplay('1')">1</button>
+        <button class="calc_button" onclick="appendToDisplay('2')">2</button>
+        <button class="calc_button" onclick="appendToDisplay('3')">3</button>
+        <button class="calc_button operator" onclick="appendToDisplay('*')">*</button>
+        <button class="calc_button" onclick="appendToDisplay('0')">0</button>
+        <button class="calc_button" onclick="appendToDisplay('.')">.</button>
+        <button class="calc_button operator" onclick="calculate()">=</button>
+        <button class="calc_button operator" onclick="appendToDisplay('/')">/</button>
+        <button class="calc_button clear" onclick="clearDisplay()">C</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ĐOẠN CODE NÀY DÀNH CHO MỞ MÁY TÍNH ĐỂ TÍNH TIỀN COFFEE -->
+
+<!--ĐOẠN CODE NÀY TẠO CHATBOT-->
+
+<button style="top: 0;left: 0;position: fixed;border-radius: 50px;margin-left:1430px;margin-top:520px" id="openButton">
+  <img style="width:60px;height:65px;" src="https://cdn-icons-png.flaticon.com/512/8943/8943377.png" alt="Mở Chatbot">
+</button>
+<div id="chatbotPopup" class="chatbot-popup">
+  <div class="chatbot-container">
+    <div class="chatbot-header">
+      <span class="chatbot-title">Chatbot Hổ Trợ - TYN COFFEE</span>
+      <button id="closeButton">&times;</button>
+    </div>
+    <div id="chatLog" class="chatbot-log"></div>
+    <div style="margin-top:-5px" class="user-input-container">
+      <div id="chatLog" class="chat-log"></div>
+      <input type="text" id="userInput" placeholder="Nhập tin nhắn của bạn...">
+      <button id="sendButton">Gửi</button>
+    </div>
+  </div>
+</div>
+<!--ĐOẠN CODE NÀY TẠO CHATBOT-->
+
+<!--ĐOẠN CODE NÀY TẠO NÚT ON TOP ĐỂ ĐƯA LÊN ĐẦU TRANG-->
+<div>
+  <div onclick="topFunction()" id="myBtn">
+    <img style="top: 0;left: 0;position: fixed;width:60px;height:60px;margin-left:1440px;margin-top:620px" src="/img/ontopbutton.png" alt="@{/}">
+  </div>
+</div>
+<!--ĐOẠN CODE NÀY TẠO NÚT ON TOP ĐỂ ĐƯA LÊN ĐẦU TRANG-->
+
+
+<a href="voucher_gift">
+  <img style="top: 0;left: 0;position: fixed;width:200px;height:150px;margin-left:-20px;margin-top:170px;" src="img/voucher_gift.gif">
+</a>
+
+<!-- start footer Area -->
+<footer th:fragment="footer" class="footer-area section_gap">
+  <div class="container">
+    <div class="row">
+      <div style="margin-left:50px;" class="col-lg-3  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Thông Tin Liên Hệ</h6>
+          <address style="color:white;font-size:16px;">
+            SĐT: 093 110 3224<br>
+            Email: tyncoffeestore@gmail.com<br>
+            Chi Nhánh Đại Diện: 249A Hoàng Văn Thụ, Phường 01, Quận Tân Bình, TP.Hồ Chí Minh
+          </address>
+        </div>
+      </div>
+      <div style="margin-left:50px;" class="col-lg-4  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Về Chúng Tôi</h6>
+          <a th:href="login" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Đăng Nhập</h1>
+          </a>
+          <a th:href="register" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Đăng Ký</h1>
+          </a>
+          <a th:href="info" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Giới Thiệu</h1>
+          </a>
+          <a th:href="shop" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Sản Phẩm</h1>
+          </a>
+          <a th:href="recruit" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Tuyển Dụng</h1>
+          </a>
+          <a th:href="carts" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Giỏ Hàng</h1>
+          </a>
+          <a th:href="timkiemsanpham" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Tìm Kiếm</h1>
+          </a>
+          <a th:href="menu-sanpham" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Menu</h1>
+          </a>
+          <a th:href="huongdanthanhtoan" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Hướng Dẫn Thanh Toán</h1>
+          </a>
+        </div>
+      </div>
+
+
+
+      <div style="top:0;left:0; position:relative;margin-top:-309px;;margin-left:620px;" class="col-lg-4  col-md-6 col-sm-6">
+        <div class="single-footer-widget">
+          <h6>Tìm Hiểu Thêm</h6>
+          <a th:href="contact" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Gửi Email Phản Hồi</h1>
+          </a>
+          <a th:href="contact2" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Đăng Ký Nhận Thông Báo</h1>
+          </a>
+          <a th:href="ListTinTucCoffee" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Tin Tức</h1>
+          </a>
+          <a th:href="ListThongTinUuDaiCoffee" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Thông Tin Ưu Đãi</h1>
+          </a>
+          <a th:href="ListCachPhaCoffee" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Cách Pha COFFEE</h1>
+          </a>
+          <a th:href="CamHungKhoiNghiep_TYNCOFFEE" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Câu Chuyện Khởi Nghiệp</h1>
+          </a>
+          <a th:href="voucher_gift" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Mở Voucher May Mắn</h1>
+          </a>
+          <a th:href="diachichinhanhggmap" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Địa Điểm</h1>
+          </a>
+          <a th:href="huongdanthanhtoan" style="color:white;font-size:16px;">
+            <h1 style="margin-bottom:10px;color:white;font-size:16px;">Thông Tin Giao Hàng</h1>
+          </a>
+        </div>
+      </div>
+
+
+
+
+      <div style="position: absolute;margin-left:850px;" class="col-lg-3  col-md-6 col-sm-6">
+        <div class="single-footer-widget mail-chimp">
+          <h6 class="mb-20">Đối tác</h6>
+          <ul class="instafeed d-flex flex-wrap">
+            <li><a href="https://classiccoffee.com.vn/"><img src="/img/elements/classiccoffe_doitac.jpg"/></a></li>
+            <li><a href="https://thecoffeehouse.com/"><img src="/img/elements/coffehouse_doitac.png" alt="@{/}"></a></li>
+            <li><a href="https://trungnguyenlegend.com/"><img src="/img/elements/trungnguyen_doitac.jpg" alt="@{/}"></a></li>
+            <li><a href="https://congcaphe.com/"><img src="/img/elements/congcafe_doitac.jpg" alt="@{/}"></a></li>
+            <li><a href="https://phuclong.com.vn/"><img src="/img/elements/phuclong_doitac.jpg" alt="@{/}"></a></li>
+            <li><a href="https://www.highlandscoffee.com.vn/"><img src="/img/elements/highland_doitac.jpg" alt="@{/}"></a></li>
+            <li><a href="https://www.nescafe.com/vn/"><img style="background-color:#ffffff" src="/img/elements/nescafe_doitac.png" alt="@{/}"></a></li>
+            <li><a href="https://www.vinacafe.com.vn/"><img style="background-color:#ffffff" src="/img/elements/vinacafe_doitac.png" alt="@{/}"></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+      <h1 style="color:white;font-size:35px;text-align:center;padding-bottom:5px;margin-top:10px;"><strong>THEO DÕI CHÚNG TÔI QUA CÁC NỀN TẢNG</strong></h1>
+
+      <img style="top:0;left:0;position:absolute;width:70px;height:60px;margin-top:4020px;margin-left:500px;" src="img/icon_fb.png">
+      <img style="top:0;left:0;position:absolute;width:70px;height:60px;margin-top:4020px;margin-left:590px;" src="img/icon_ig.png">
+      <img style="top:0;left:0;position:absolute;width:90px;height:60px;margin-top:4020px;margin-left:680px;" src="img/icon_youtube.png">
+      <img style="top:0;left:0;position:absolute;width:70px;height:60px;margin-top:4020px;margin-left:780px;" src="img/icon_tiktok.png">
+      <img style="top:0;left:0;position:absolute;width:70px;height:60px;margin-top:4020px;margin-left:870px;" src="img/icon_twitter.png">
+      <img style="top:0;left:0;position:absolute;width:70px;height:60px;margin-top:4020px;margin-left:960px;" src="img/icon_zalo2.png">
+      <img style="top:0;left:0;position:absolute;width:50px;height:60px;margin-top:4020px;margin-left:1050px;" src="img/locationgg.png">
+
+      <p class="footer-text m-0">
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Đồ Án Chuyên Ngành: Bản Quyền Thuộc Về Huỳnh Vĩnh Tiến 2011061897 20DTHB2
+      </p>
+    </div>
+  </div>
+</footer>
+<!-- End footer Area -->
+
+<div th:fragment="scripts">
+  <script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+          crossorigin="anonymous"></script>
+  <script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+  <script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+  <script th:src="@{/js/jquery.nice-select.min.js}"></script>
+  <script th:src="@{/js/jquery.sticky.js}"></script>
+  <script th:src="@{/js/nouislider.min.js}"></script>
+  <script th:src="@{/js/countdown.js}"></script>
+  <script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+  <script th:src="@{/js/owl.carousel.min.js}"></script>
+  <!--gmaps Js-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+  <script th:src="@{/js/gmaps.min.js}"></script>
+  <script th:src="@{/js/main.js}"></script>
+  <script th:src="@{/js/ghichu_script.js}"></script>
+  <script th:src="@{/js/button_ontop.js}"></script>
+  <script th:src="@{/js/popup_thongbao_2luachon_email.js}"></script>
+  <script th:src="@{/js/maytinhpopup.js}"></script>
+  <script th:src="@{/js/chatbot_popup.js}"></script>
+
+</div>
+
+</body>
+
+</html>

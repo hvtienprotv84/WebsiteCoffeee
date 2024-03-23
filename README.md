@@ -6,6 +6,7 @@
 ## CÔNG NGHỆ SỬ DỤNG CHO ĐỒ ÁN CHUYÊN NGÀNH
 * FrontEnd: HTML, CSS, SCSS, JS
 * BackEnd: Java
+* Database: MySQL
 * IDEA: IntelliJ
 # ===============================
 ## MIÊU TẢ CHỨC NĂNG CỦA ỨNG DỤNG

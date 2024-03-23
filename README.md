@@ -38,7 +38,7 @@
 * Đăng Ký
 * Đăng Nhập ( Mật Khẩu Được Mã Hóa Bằng Bcrypt )
 * Chức Năng 1: Gửi Email (Khách Hàng Gửi Email Đến Trang Web Góp Ý Hoặc Xin Ứng Tuyển)
-* Chức Năng 1: Gửi Email (Khách Hàng Gửi Email Để Đăng Ký Nhận Thông Báo Khi Có Sự Kiện Mới)
+* Chức Năng 2: Gửi Email (Khách Hàng Gửi Email Để Đăng Ký Nhận Thông Báo Khi Có Sự Kiện Mới)
 * Chatbot
 * Máy Tính Popup
 * Ghi Chú

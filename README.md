@@ -8,6 +8,7 @@
 * BackEnd: Java
 * Database: MySQL
 * IDEA: IntelliJ
+* Lưu Ý: phải `Start` cả Apache và MySQL thì mới chạy được dự án
 # ===============================
 ## MIÊU TẢ CHỨC NĂNG CỦA ỨNG DỤNG
 ### Admin:
